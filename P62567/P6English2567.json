@@ -1,0 +1,113 @@
+[
+  {
+    "question": "Student: Could you please explain this math question again?\nTeacher: ______ I’m in a hurry. Can you see me at 11?",
+    "choices": ["Sure!", "Sorry.", "That’s right!", "Please wait here."],
+    "correct_answer": "Sorry."
+  },
+  {
+    "question": "Teacher: Thank you for helping me carry these books.\nStudent: __",
+    "choices": ["That’s all", "It’s my duty", "I don’t know", "You’re welcome"],
+    "correct_answer": "You’re welcome"
+  },
+  {
+    "question": "Jane: How long is the flight?\nJack: ______",
+    "choices": ["Three hours", "Three times", "Three meters", "Three floors"],
+    "correct_answer": "Three hours"
+  },
+  {
+    "question": "Mint: I have to return these books and go to class.\nBeam: __",
+    "choices": ["Thank you.", "See you later!", "How are you?", "Good morning."],
+    "correct_answer": "See you later!"
+  },
+  {
+    "question": "A: The room is so dark.\nB: __",
+    "choices": ["I can’t see anything", "It is dark outside too", "Please turn on the light", "The light switch is broken"],
+    "correct_answer": "Please turn on the light"
+  },
+  {
+    "question": "Frank is asking Mali a riddle.\nFrank: I have 'hands and a face, but can’t hold anything or smile.'\nWhat am I?\nMali: __",
+    "choices": ["A table", "A clock", "A house", "A mountain"],
+    "correct_answer": "A clock"
+  },
+  {
+    "question": "Jeff, an exchange student from New Zealand, comes to school for the first day.\nBefore class, he meets Joy in the hallway.\nJeff: Hello, my name is Jeff. I come from New Zealand.\nJoy: Hi, my name is Joy. __",
+    "choices": ["Nice to meet you.", "What about you?", "Thanks for asking me.", "Do you come to school?"],
+    "correct_answer": "Nice to meet you."
+  },
+  {
+    "question": "A: I am really thirsty.\nB: Sure, here you go! __",
+    "choices": ["I need some water.", "The water is so cold.", "Thank you for water.", "Do you need a glass of water?"],
+    "correct_answer": "I need some water."
+  },
+  {
+    "question": "Sara and Ben are friends.\nSara: It’s so hot today.\nBen: Yes. You know what would be perfect right now?\nSara: Ice cream!\n__",
+    "choices": ["We should go ice skating", "I heard there’s a new movie playing", "I think there’s a swimming pool there", "Let’s go to that shop around the corner"],
+    "correct_answer": "Let’s go to that shop around the corner"
+  },
+  {
+    "question": "A: __\nB: He has grown a lot since last year. I used to be taller!",
+    "choices": ["How is your brother doing", "What did your brother grow", "Does your brother play basketball often", "Didn’t your brother use to have short hair"],
+    "correct_answer": "How is your brother doing"
+  },
+  {
+    "question": "After a math class\nStudent: __\nTeacher: I agree. I’ll give you more examples tomorrow.",
+    "choices": ["That was hard!", "It's a terrible day!", "Lunch was good today.", "You’re such a good teacher."],
+    "correct_answer": "That was hard!"
+  },
+  {
+    "question": "In class\nTeacher: Does anyone have any questions about the lesson today?\nSam: Yes, I do. __ I’m sorry I forgot.\nTeacher: It’s ok. You need to hand in your work by 3:30 this Friday.\nSam: Thank you very much.",
+    "choices": ["Who should I work with", "Which exercises do I have to do", "What time will the class start on Friday", "When is the deadline for the homework"],
+    "correct_answer": "Which exercises do I have to do"
+  },
+  {
+    "question": "At the canteen\nJess: I'm very hungry.\nBob: Me too. __ ?\nJess: I don’t know. Let’s see what they have.\nBob: Good idea!",
+    "choices": ["Who should we wait for", "When will we come back", "What do you feel like eating", "Where can we wash our hands"],
+    "correct_answer": "What do you feel like eating"
+  },
+  {
+    "question": "Pim: I am getting hot chocolate. Would you like some?\nTom: Can I have Coca Cola?\nPim: There are no sodas at this shop.\nTom: I think I will have the same then.\nWhat does Tom decide to drink?",
+    "choices": ["Soda", "Water", "Coca Cola", "Hot chocolate"],
+    "correct_answer": "Hot chocolate"
+  },
+  {
+    "question": "Susan: Do you mind if I sit here?\nJenny: Of course not. Please do.\nWhat does Jenny mean?",
+    "choices": ["She wants Susan to leave.", "She doesn’t want Susan to sit there.", "She doesn’t mind if Susan sits there.", "She will save the seat for Susan."],
+    "correct_answer": "She doesn’t mind if Susan sits there."
+  },
+  {
+    "question": "Lisa went to a fruit market. She bought apples, oranges, and bananas to make a fruit salad to go with dinner.\nWhich sentence is CORRECT?",
+    "choices": ["Lisa planned to make a side dish for dinner.", "Lisa bought vegetables to make a salad.", "Lisa did not buy anything at the market.", "Lisa went to the fruit market to buy fruit for a cake."],
+    "correct_answer": "Lisa planned to make a side dish for dinner."
+  },
+  {
+    "question": "Nid is an exchange student in the US. She is talking to her classmate, Susan.\nNid: What is Easter?\nSusan: Easter is a special holiday when Christians celebrate the second coming of Jesus Christ. We go to church, sing to God, and spend a lovely evening with our family.\nAccording to Susan, Easter is a holiday mainly about __",
+    "choices": ["food", "friends", "history", "religion"],
+    "correct_answer": "religion"
+  },
+  {
+    "question": "Jenny forgot her pencil case at home.\nJenny: Teacher, may I borrow one of your pencils please?\nTeacher: Of course. Take your choice.\nWhat does Teacher mean?",
+    "choices": ["Jenny can take the course.", "Jenny can borrow a pencil.", "Jenny cannot have a pencil.", "Jenny cannot decide which one to take."],
+    "correct_answer": "Jenny can borrow a pencil."
+  },
+  {
+    "question": "Which word has a different vowel sound from 'book'?",
+    "choices": ["Foot", "Door", "Took", "Good"],
+    "correct_answer": "Door"
+  },
+  {
+    "question": "Which sentence has a different intonation?",
+    "choices": ["How do you go to school?", "What time is the meeting?", "Can I borrow your pencil?", "When will Jackson leave?"],
+    "correct_answer": "Can I borrow your pencil?"
+  },
+  {
+    "question": "Which of the following sentences uses CORRECT punctuation?",
+    "choices": ["You are going to Singapore next week, aren’t you.", "I was late this morning: so my teacher was not very happy.", "I have two comic books at home, Doraemon and the Little Mermaid.", "My friends enjoy different sports such as; football, tennis and basketball."],
+    "correct_answer": "I have two comic books at home, Doraemon and the Little Mermaid."
+  },
+  {
+    "question": "Look at the sign.\nWhere are you most likely to see this sign?",
+    "image": "assets/images/Onahotelroomdoor.png",
+    "choices": ["At a restaurant", "On a school wall", "On a hotel room door", "At the side of the road"],
+    "correct_answer": "On a hotel room door"
+  }
+]
