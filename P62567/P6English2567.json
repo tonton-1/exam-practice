@@ -106,8 +106,68 @@
   },
   {
     "question": "Look at the sign.\nWhere are you most likely to see this sign?",
-    "image": "assets/images/Onahotelroomdoor.png",
+    "image": "assets/images/eng2567P6/Onahotelroomdoor.png",
     "choices": ["At a restaurant", "On a school wall", "On a hotel room door", "At the side of the road"],
     "correct_answer": "On a hotel room door"
+  },
+  {
+    "question": "Look at the Picture.\nWhere can we buy these items?",
+    "image": "assets/images/eng2567P6/drugstore.png",
+    "choices": ["At Hotel", "At the library", "At the museum", "At a drugstore"],
+    "correct_answer": "At the drugstore"
+  },
+  {
+    "question": "Look at the sign.\nWhen you see this sign, what should you do?",
+    "image": "assets/images/eng2567P6/footbridge.png",
+    "choices": ["Cross the street here.", "Wait for the train here.", "Go over the footbridge.", "Walk only on the black lines."],
+    "correct_answer": "Go over the footbridge"
+  },
+  {
+    "question": "A triangle is next to a square and under a circle.\nFrom this sentence, which picture is CORRECT?",
+    "image": "assets/images/eng2567P6/shapes.png",
+    "choices": ["Picture 1", "Picture 2", "Picture 3", "Picture 4"],
+    "correct_answer": "Picture 3"
+  },
+  {
+    "question": "Bears don’t live as long as lions. Horses live longer than lions. Elephants live the longest.\nWhich graph is CORRECT?",
+    "image": "assets/images/eng2567P6/animal_lifespan.png",
+    "choices": ["Graph 1", "Graph 2", "Graph 3", "Graph 4"],
+    "correct_answer": "Graph 2"
+  },
+  {
+    "question": "Tom wants to go to the ice cream shop. He asks for directions, and a policeman tells him, “Go straight, and turn right at the second corner.”\nWhich map is CORRECT?",
+    "image": "assets/images/eng2567P6/map_direction.png",
+    "choices": ["Map 1", "Map 2", "Map 3", "Map 4"],
+    "correct_answer": "Map 2"
+  },
+  {
+    "question": "Look at the weather forecast.\nAccording to the forecast, which sentence is CORRECT?",
+    "image": "assets/images/eng2567P6/weather_forecast.png",
+    "choices": ["We can go skiing on Tuesday.", "The weather will be hot on Friday.", "We can go to the beach on Sunday.", "There will be heavy rain on Monday."],
+    "correct_answer": "We can go to the beach on Sunday."
+  },
+  {
+    "question": "Look at the notice.\nSpecial Offer for Pad Thai! Get 25% off the normal price when you present this coupon at our restaurant.\nWhat will customers do if they want to get a discount?",
+    "image": "assets/images/eng2567P6/padthai_coupon.png",
+    "choices": ["Show this coupon", "Eat in the restaurant", "Pay the normal price", "Spend more than 25%"],
+    "correct_answer": "Show this coupon"
+  },
+  {
+    "question": "Look at the picture.\nWhy are they at the beach?",
+    "image": "assets/images/eng2567P6/beach_clean.png",
+    "choices": ["To make it cleaner", "To play in the sand", "To look for turtle eggs", "To find some seashells"],
+    "correct_answer": "To make it cleaner"
+  },
+  {
+    "question": "Sharing dishes is common in Asian food culture. Thai people love sharing dishes with friends and family. It is an important part of the dining experience. However, sharing dishes is not usual in Western countries such as the US. Most Americans believe eating is a private matter and it is not clean to share dishes with other people.\nAccording to the passage, which sentence is NOT correct?",
+
+    "choices": ["Food sharing is more common in Asia.", "Sharing dishes may not be okay in some cultures.", "In Thailand, people see food sharing as important.", "Western people only share dishes with close friends."],
+    "correct_answer": "Western people only share dishes with close friends."
+  },
+  {
+    "question": "In the US, Thanksgiving Day is a public holiday. It is celebrated on the fourth Thursday in November. On this day, Americans give thanks for the good things in their lives. Families enjoy a traditional Thanksgiving meal of roast turkey, sweet potatoes, and pumpkin pie with their friends and loved ones. Canadians also celebrate Thanksgiving, but on the second Monday in October.\nAccording to the text, Thanksgiving Day is celebrated ...",
+
+    "choices": ["only in America", "four times a year", "to give thanks for blessings", "on November 24 every year"],
+    "correct_answer": "to give thanks for blessings"
   }
 ]

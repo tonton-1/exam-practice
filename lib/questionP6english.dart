@@ -77,14 +77,14 @@ class _ExamJsonScreenState extends State<ExamJsonScreen> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  item['question'] ?? 'No question',
+                                  '${index + 1}. ${item['question'] ?? 'No question'}',
                                   style: const TextStyle(
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
                                 Image.asset(
                                   '${item['image']}',
-                                  height: 150,
+                                  height: 250,
                                   errorBuilder: (context, error, stackTrace) {
                                     return const Text(
                                       '',
