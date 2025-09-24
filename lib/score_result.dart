@@ -58,6 +58,17 @@ class ScoreResult extends StatelessWidget {
                           fontWeight: FontWeight.w900,
                         ),
                       ),
+                      SizedBox(width: 15),
+                      Container(
+                        margin: EdgeInsets.only(top: 10),
+                        child: Text(
+                          "ข้อ",
+                          style: TextStyle(
+                            fontSize: 17,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ),
                       Spacer(),
                       Icon(Icons.done, color: Colors.green, size: 40),
                     ],
@@ -69,7 +80,7 @@ class ScoreResult extends StatelessWidget {
               margin: const EdgeInsets.symmetric(vertical: 10),
               padding: EdgeInsets.all(20),
               width: 400,
-              height: 150,
+              height: 130,
               decoration: BoxDecoration(
                 color: const Color.fromARGB(255, 255, 255, 255),
                 borderRadius: BorderRadius.circular(20),
@@ -99,7 +110,7 @@ class ScoreResult extends StatelessWidget {
               margin: const EdgeInsets.symmetric(vertical: 10),
               padding: EdgeInsets.all(20),
               width: 400,
-              height: 150,
+              height: 130,
               decoration: BoxDecoration(
                 color: const Color.fromARGB(255, 255, 255, 255),
                 borderRadius: BorderRadius.circular(20),
@@ -148,7 +159,7 @@ class ScoreResult extends StatelessWidget {
                   Navigator.popUntil(context, (route) => route.isFirst);
                 },
                 child: const Text(
-                  'Go to Home Page',
+                  'กลับสู่หน้าหลัก',
                   style: TextStyle(color: Colors.white),
                 ),
               ),

@@ -12,6 +12,7 @@ class Educationlevel extends StatelessWidget {
       appBar: AppBar(title: Text('เลือกระดับชั้น')),
       body: Center(
         child: Column(
+          spacing: 20,
           children: [
             ElevatedButton(
               onPressed: () {

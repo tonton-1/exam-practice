@@ -12,6 +12,9 @@ class SubjectSelector extends StatelessWidget {
       appBar: AppBar(title: Text('เลือกระวิชา')),
       body: Center(
         child: Column(
+          spacing: 20,
+          crossAxisAlignment: CrossAxisAlignment.center,
+
           children: [
             ElevatedButton(
               onPressed: () {

@@ -10,18 +10,20 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Home Page')),
-      body: Column(
-        children: [
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const YearSelector()),
-              );
-            },
-            child: Text('ข้อสอบ Onet'),
-          ),
-        ],
+      body: Center(
+        child: Column(
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const YearSelector()),
+                );
+              },
+              child: Text('ข้อสอบ Onet'),
+            ),
+          ],
+        ),
       ),
     );
   }
