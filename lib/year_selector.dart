@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'questionP6english.dart';
+import 'question.dart';
 import 'education_level_selector_onet.dart';
 
 class YearSelector extends StatelessWidget {
@@ -17,7 +17,7 @@ class YearSelector extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const Educationlevel(),
+                    builder: (context) => const Educationlevel(year: '2567'),
                   ),
                 );
               },
@@ -39,6 +39,17 @@ class YearSelector extends StatelessWidget {
                 null;
               },
               child: Text('2565'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const Educationlevel(year: '2564'),
+                  ),
+                );
+              },
+              child: Text('2564'),
             ),
           ],
         ),

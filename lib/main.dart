@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'questionP6english.dart';
+import 'question.dart';
 import 'home.dart';
 
 void main() {

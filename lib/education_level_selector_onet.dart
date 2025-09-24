@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'questionP6english.dart';
+import 'question.dart';
 import 'subject_selector.dart';
 
 class Educationlevel extends StatelessWidget {
-  const Educationlevel({super.key});
+  final String year;
+  const Educationlevel({super.key, required this.year});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,8 @@ class Educationlevel extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const SubjectSelector(),
+                    builder:
+                        (context) => SubjectSelector(year: year, grade: 'P6'),
                   ),
                 );
               },
@@ -25,13 +27,25 @@ class Educationlevel extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                null;
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder:
+                        (context) => SubjectSelector(year: year, grade: 'M3'),
+                  ),
+                );
               },
               child: Text('มัธยมศึกษาปีที่ 3'),
             ),
             ElevatedButton(
               onPressed: () {
-                null;
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder:
+                        (context) => SubjectSelector(year: year, grade: 'M6'),
+                  ),
+                );
               },
               child: Text('มัธยมศึกษาปีที่ 6'),
             ),

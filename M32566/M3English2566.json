@@ -1,0 +1,162 @@
+[
+  {
+    "question": "Sue: __ You seem uneasy.\nKate: I had no spirit with my work.\nSue: What work?\nKate: Cleaning up the house, doing the laundry, watering the plants, and so on. I have no time to finish my paper for tomorrow.\nSue: __\nKate: Could you? That would be fantastic. Thanks so much.\nSue: __ Let's get started now.",
+    "choices": ["Who cares / Can I give you a hand / It's all about it", "Guess what / Shouldn't you be worried / No problem", "What's up / Can I give you a hand / No problem", "How could you / Why don't you do one at a time / Nothing is done yet"],
+    "correct_answer": "What's up / Can I give you a hand / No problem"
+  },
+  {
+    "question": "James: Jack looks like he's so cheerful today.\nJeff: What do you mean?\nJames: __ you ask Jack about it.\nJack: I'm so happy because I just won at the national science competition.\nJeff: Wow! __\nJack: I've been working hard in my science classes because __ I need school after I graduate.",
+    "choices": ["Why don't / Congratulations / I have to take care of", "How do / Well done / I used to get out of", "Who does / Still yourself / I want to go into", "What do / Knock it off / I try to look fine"],
+    "correct_answer": "Why don't / Congratulations / I have to take care of"
+  },
+  {
+    "question": "Ploy: It was interesting to learn how Westerners eat soup today. They usually dip the spoon into the soup with the edge tilting away from them.\nPui: Yes. And we Thai people (7) __.\nPloy: Speaking of soup makes me hungry. __.\nPui: What kind do you like, thick or clear?\nPloy: __ I'm starving.",
+    "choices": ["use the straw / I prefer Thai food / No one knows", "sip from the bowl / I'd like to have burgers / Either will do", "spoon it over / Let's go and have some / That's alright", "spoon it towards ourselves / Pizza is my favorite / I don't like any"],
+    "correct_answer": "sip from the bowl / I'd like to have burgers / Either will do"
+  },
+  {
+    "question": "Yesterday I prepared myself for the charity run by having two hours of _____.",
+    "choices": ["long light jogging", "jogging light long", "jogging long light", "long jogging light"],
+    "correct_answer": "long light jogging"
+  },
+  {
+    "question": "My mom and dad are worried about me _____ so much time on running and other activities.",
+    "choices": ["spend", "to spend", "spending", "to have spent"],
+    "correct_answer": "spending"
+  },
+  {
+    "question": "They asked me to _____ more attention to my studies.",
+    "choices": ["lay", "pay", "take", "put"],
+    "correct_answer": "pay"
+  },
+  {
+    "question": "I understand their concern; _____, I have decided to focus more on my classes from now on.",
+    "choices": ["after", "before", "although", "therefore"],
+    "correct_answer": "therefore"
+  },
+  {
+    "question": "I went into this film with low expectations and _____.",
+    "choices": ["pleasantly surprise", "pleasantly surprised", "was pleasantly surprising", "was pleasantly surprised"],
+    "correct_answer": "was pleasantly surprised"
+  },
+  {
+    "question": "What’s more, this is the new standard against _____ I will judge all Batman films.",
+    "choices": ["who", "which", "whom", "that"],
+    "correct_answer": "which"
+  },
+  {
+    "question": "Directions: Read a pancake recipe. Then, rearrange the following sentences to show the correct steps of how to make pancakes.\nSentences: \nA. Cook until browned then turn the pancake over.\nB. Heat the pan with a light coat of oil or butter.\nC. Turn the pancake out into a plate for serving.\nD. Mix the flour, milk, eggs and butter together.\nE. Pour the pancake mixture slowly into the pan.",
+    "choices": ["D-B-E-A-C", "B-A-D-E-C", "D-A-B-C-E", "B-D-A-C-E"],
+    "correct_answer": "D-B-E-A-C"
+  },
+  {
+    "question": "He is a famous American singer, guitarist and songwriter. He has a square-shaped face with a strong, angular jaw line. He has big eyes and thick eyebrows. He has a high, upturned nose and large lips with a short beard and moustache. He has dark shoulder-length hair.\nWhich of the following pictures is described above?",
+    "choices": ["Picture 1", "Picture 2", "Picture 3", "Picture 4"],
+    "correct_answer": "Picture 2"
+  },
+  {
+    "question": "John visited his grandpa who lived way out in the country. On the first morning of the visit, John’s grandpa prepared a breakfast of bacon and eggs. John noticed oily film on his plate and asked, “Are these plates clean?”\nHis grandpa replied, “They’re as clean as cold water can get them.”\nFor lunch, Grandpa made hamburgers. Again, John saw pieces of dried egg on the plate. “Are you sure these plates are clean?” John asked.\nGrandpa said, “I told you before, those plates are as clean as cold water can get them.”\nLater, as John was leaving, his grandpa’s dog started to bark and wouldn’t let him pass.\nJohn said, “Grandpa, your dog won’t let me out.”\nGrandpa yelled to the dog, “Cold Water, get in the house!”\nQuestion: Which is TRUE according to the story?",
+    "choices": ["Grandpa was too old to do anything", "Grandpa’s dog was quiet and shy", "Grandpa prepared breakfast and lunch", "Grandpa yelled at John about the plates"],
+    "correct_answer": "Grandpa prepared breakfast and lunch"
+  },
+  {
+    "question": "What did John think about the plates?",
+    "choices": ["They smelled bad", "They looked very clean", "They appeared rather dirty", "They looked like something from a film"],
+    "correct_answer": "They appeared rather dirty"
+  },
+  {
+    "question": "Which event happened first in the story?",
+    "choices": ["The dog barked at John", "John asked about the plates", "Grandpa shouted at the dog", "Grandpa prepared breakfast"],
+    "correct_answer": "Grandpa prepared breakfast"
+  },
+  {
+    "question": "What can be inferred from the story?",
+    "choices": ["John liked hamburgers", "John did not like the dog", "Grandpa was good at cooking", "The dog licked the plates"],
+    "correct_answer": "The dog licked the plates"
+  },
+  {
+    "question": "SAN JOSE – A silver Audi sedan slammed into an apartment building early Thursday morning in San Jose, leaving nine people displaced.\nThe crash happened at about 1:45 a.m. near the intersection of Senter Road and Sylvandale Avenue in East San Jose. The car had first collided with a parked car and then smashed into the apartment building. The car had no occupants when officers arrived, San Jose police said.\nThe crash also sent a wheel from the vehicle moving very fast into the wall of another unit, causing damage inside, according to a resident.\n“I was sleeping in my bedroom and then I heard a noise, almost just like something hitting the building,” said resident Juan Reyes. “First thought the car hit my house but then I came out and I saw it was my neighbor’s wheel. All of the cabinets in my kitchen had broken loose.”\nPolice said the driver was found later and arrested for leaving the scene of the accident. The cause of the collision is still under investigation and the finding have yet to be released. There were no injuries. The fire department said nine people were displaced from two apartment units because of the extensive damage.",
+    "choices": ["An investigation of a car accident", "A car crashed into a car after an accident", "A car crashed involving an apartment", "The collapse of an old apartment building"],
+    "correct_answer": "A car crashed involving an apartment"
+  },
+  {
+    "question": "According to the news, which of the following is TRUE about the affected residents?",
+    "choices": ["Some were seriously injured.", "Some had to move out of the damaged apartment.", "One of them was in the kitchen when the accident happened.", "One of them saw the car strike a parked car on Sylvandale Avenue."],
+    "correct_answer": "Some had to move out of the damaged apartment."
+  },
+  {
+    "question": "What was the driver of the car arrested for?",
+    "choices": ["Not staying at the crash site", "Driving too fast", "Defective auto parts", "Texting while driving"],
+    "correct_answer": "Not staying at the crash site"
+  },
+  {
+    "question": "What will likely happen after the investigation?",
+    "choices": ["The police will release their findings.", "The apartment building will be demolished.", "The apartment owners will be responsible for the repairs.", "The affected residents will be compensated for their injuries."],
+    "correct_answer": "The police will release their findings."
+  },
+  {
+    "question": "What is the main idea of this passage?",
+    "choices": ["The god of the Sun was highly regarded in Ancient Egypt.", "Bad luck results from opening an umbrella inside a house.", "There are different theories about the origin of the umbrella superstition.", "Londoners do not generally open up their umbrellas while visiting neighbors."],
+    "correct_answer": "There are different theories about the origin of the umbrella superstition."
+  },
+  {
+    "question": "Which information can be found in paragraph 2?",
+    "choices": ["Londoners’ life style in the 18th century", "The exact size of an umbrella used in London", "The difficulty of getting an umbrella in the 18th century", "The reason why people did not open umbrellas inside London houses"],
+    "correct_answer": "The reason why people did not open umbrellas inside London houses"
+  },
+  {
+    "question": "Based on the passage, who is most likely to have bad luck?",
+    "choices": ["Lulu, who has opened her umbrella on a ship", "Linda, who has used her umbrella outside in the rain", "Liz, who has dried her open umbrella inside the house", "Lala, who has given a black umbrella to a friend"],
+    "correct_answer": "Lala, who has given a black umbrella to a friend"
+  },
+  {
+    "question": "What can be inferred from the passage?",
+    "choices": ["Black is considered the symbol of death.", "In the 18th century, most houses in London were very small.", "The god of the Sun was the most powerful god in Ancient Egypt.", "The exact origin of the superstition about opening umbrellas indoors is likely to remain unknown."],
+    "correct_answer": "The exact origin of the superstition about opening umbrellas indoors is likely to remain unknown."
+  },
+  {
+    "question": "Yesterday I prepared myself for the charity run by having two hours of _____.",
+    "choices": ["long light jogging", "jogging light long", "jogging long light", "long jogging light"],
+    "correct_answer": "long light jogging"
+  },
+  {
+    "question": "My mom and dad are worried about me _____ so much time on running and other activities.",
+    "choices": ["spend", "to spend", "spending", "to have spent"],
+    "correct_answer": "spending"
+  },
+  {
+    "question": "They asked me to _____ more attention to my studies.",
+    "choices": ["lay", "pay", "take", "put"],
+    "correct_answer": "pay"
+  },
+  {
+    "question": "I understand their concern; _____, I have decided to focus more on my classes from now on.",
+    "choices": ["after", "before", "although", "therefore"],
+    "correct_answer": "therefore"
+  },
+  {
+    "question": "I went into this film with low expectations and _____ .",
+    "choices": ["pleasantly surprise", "pleasantly surprised", "was pleasantly surprising", "was pleasantly surprised"],
+    "correct_answer": "was pleasantly surprised"
+  },
+  {
+    "question": "What’s more, this is the new standard against _____ I will judge all Batman films.",
+    "choices": ["who", "which", "whom", "that"],
+    "correct_answer": "which"
+  },
+  {
+    "question": "The thriller and _____ elements are the strongest aspects.",
+    "choices": ["story gothic detective", "gothic story detective", "gothic detective story", "detective story gothic"],
+    "correct_answer": "gothic detective story"
+  },
+  {
+    "question": "Each actor’s _____ is believable, with Jeffrey Wright’s the strongest for me.",
+    "choices": ["conflict", "gratitude", "direction", "performance"],
+    "correct_answer": "performance"
+  },
+  {
+    "question": "The portrayal of Bruce Wayne _____ a troubled and flawed character has never felt more real.",
+    "choices": ["as", "if", "like", "between"],
+    "correct_answer": "as"
+  }
+]

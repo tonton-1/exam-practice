@@ -1,24 +1,31 @@
 import 'package:flutter/material.dart';
-import 'questionP6english.dart';
+import 'question.dart';
 
 class SubjectSelector extends StatelessWidget {
-  const SubjectSelector({super.key});
+  final String year;
+  final String grade;
+  const SubjectSelector({super.key, required this.year, required this.grade});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('เลือกระดับชั้น')),
+      appBar: AppBar(title: Text('เลือกระวิชา')),
       body: Center(
         child: Column(
           children: [
             ElevatedButton(
               onPressed: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) => const ExamJsonScreen(),
-                //   ),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder:
+                        (context) => ExamJsonScreen(
+                          year: year,
+                          grade: grade,
+                          subject: 'Thai',
+                        ),
+                  ),
+                );
               },
               child: Text('ไทย'),
             ),
@@ -27,7 +34,12 @@ class SubjectSelector extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const ExamJsonScreen(),
+                    builder:
+                        (context) => ExamJsonScreen(
+                          year: year,
+                          grade: grade,
+                          subject: 'English',
+                        ),
                   ),
                 );
               },
@@ -35,9 +47,51 @@ class SubjectSelector extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                null;
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder:
+                        (context) => ExamJsonScreen(
+                          year: year,
+                          grade: grade,
+                          subject: 'Math',
+                        ),
+                  ),
+                );
               },
               child: Text('คณิตศาสตร์'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder:
+                        (context) => ExamJsonScreen(
+                          year: year,
+                          grade: grade,
+                          subject: 'Science',
+                        ),
+                  ),
+                );
+              },
+              child: Text('วิทยาศาสตร์'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder:
+                        (context) => ExamJsonScreen(
+                          year: year,
+                          grade: grade,
+                          subject: 'Social',
+                        ),
+                  ),
+                );
+              },
+              child: Text('สังคมศึกษา'),
             ),
           ],
         ),
