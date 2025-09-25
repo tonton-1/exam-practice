@@ -13,11 +13,19 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
+            /* เรียงตาม ระดับชั้น > วิชา > ปี  
+            พอกดเลือกปีแล้วมีโมหดให้เลืก 1.ธรรมดา 2.จับเวลา
+            ของ ม3 ป6 เอา แค่ปี 67 66 
+            ม6 เอาแค่ปี 64 63 
+            
+            */
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const YearSelector()),
+                  MaterialPageRoute(
+                    builder: (context) => const Educationlevel(),
+                  ),
                 );
               },
               child: Text('ข้อสอบ Onet'),

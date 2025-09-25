@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'question.dart';
 import 'education_level_selector_onet.dart';
+import 'question.dart';
 
 class YearSelector extends StatelessWidget {
-  const YearSelector({super.key});
+  final String? subject;
+  final String? grade;
+
+  const YearSelector({super.key, this.subject, this.grade});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +22,12 @@ class YearSelector extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const Educationlevel(year: '2567'),
+                    builder:
+                        (context) => ExamJsonScreen(
+                          grade: grade,
+                          subject: subject,
+                          year: '2567',
+                        ),
                   ),
                 );
               },
@@ -46,7 +55,12 @@ class YearSelector extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const Educationlevel(year: '2564'),
+                    builder:
+                        (context) => ExamJsonScreen(
+                          grade: grade,
+                          subject: subject,
+                          year: '2564',
+                        ),
                   ),
                 );
               },

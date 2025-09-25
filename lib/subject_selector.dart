@@ -1,21 +1,10 @@
 import 'package:flutter/material.dart';
 import 'question.dart';
-
-void main() {
-  runApp(
-    MaterialApp(
-      home: SubjectSelector(
-        year: '2567',
-        grade: 'ม.1',
-      ), // Example year and grade
-    ),
-  );
-}
+import 'year_selector.dart';
 
 class SubjectSelector extends StatelessWidget {
-  final String year;
-  final String grade;
-  const SubjectSelector({super.key, required this.year, required this.grade});
+  final String? grade;
+  const SubjectSelector({super.key, this.grade});
 
   @override
   Widget build(BuildContext context) {
@@ -38,11 +27,8 @@ class SubjectSelector extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder:
-                        (context) => ExamJsonScreen(
-                          year: year,
-                          grade: grade,
-                          subject: 'Thai',
-                        ),
+                        (context) =>
+                            YearSelector(subject: 'Thai', grade: grade),
                   ),
                 );
               },
@@ -82,11 +68,8 @@ class SubjectSelector extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder:
-                        (context) => ExamJsonScreen(
-                          year: year,
-                          grade: grade,
-                          subject: 'English',
-                        ),
+                        (context) =>
+                            YearSelector(subject: 'English', grade: grade),
                   ),
                 );
               },
@@ -124,11 +107,8 @@ class SubjectSelector extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder:
-                        (context) => ExamJsonScreen(
-                          year: year,
-                          grade: grade,
-                          subject: 'Math',
-                        ),
+                        (context) =>
+                            YearSelector(subject: 'Math', grade: grade),
                   ),
                 );
               },
@@ -166,11 +146,8 @@ class SubjectSelector extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder:
-                        (context) => ExamJsonScreen(
-                          year: year,
-                          grade: grade,
-                          subject: 'Science',
-                        ),
+                        (context) =>
+                            ExamJsonScreen(subject: 'Science', grade: grade),
                   ),
                 );
               },
@@ -208,11 +185,8 @@ class SubjectSelector extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder:
-                        (context) => ExamJsonScreen(
-                          year: year,
-                          grade: grade,
-                          subject: 'Social',
-                        ),
+                        (context) =>
+                            YearSelector(subject: 'Social', grade: grade),
                   ),
                 );
               },

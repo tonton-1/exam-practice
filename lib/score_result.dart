@@ -22,6 +22,8 @@ class ScoreResult extends StatelessWidget {
     this.wrongAnswer = 0,
   });
   @override
+  // ย้อนกลับไปดูคำตอบหลังทำได้
+  // บอกแค่ข้อที่ถูก กับ ผิด ไม่ต้องเฉลย
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 246, 247, 248),
@@ -34,7 +36,7 @@ class ScoreResult extends StatelessWidget {
               "คะแนนของคุณ",
               style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 100),
             Container(
               padding: EdgeInsets.all(20),
               width: 400,
@@ -140,6 +142,31 @@ class ScoreResult extends StatelessWidget {
                 ],
               ),
             ),
+            SizedBox(height: 20),
+            Container(
+              width: 400,
+              height: 55,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 53, 165, 81),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 50,
+                    vertical: 15,
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.popUntil(context, (route) => route.isFirst);
+                },
+                child: const Text(
+                  'ดูคำตอบ',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            ),
+
             SizedBox(height: 20),
             Container(
               width: 400,

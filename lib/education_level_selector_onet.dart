@@ -3,8 +3,7 @@ import 'question.dart';
 import 'subject_selector.dart';
 
 class Educationlevel extends StatelessWidget {
-  final String year;
-  const Educationlevel({super.key, required this.year});
+  const Educationlevel({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +18,7 @@ class Educationlevel extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder:
-                        (context) => SubjectSelector(year: year, grade: 'P6'),
+                    builder: (context) => SubjectSelector(grade: 'P6'),
                   ),
                 );
               },
@@ -31,8 +29,7 @@ class Educationlevel extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder:
-                        (context) => SubjectSelector(year: year, grade: 'M3'),
+                    builder: (context) => SubjectSelector(grade: 'M3'),
                   ),
                 );
               },
@@ -43,8 +40,7 @@ class Educationlevel extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder:
-                        (context) => SubjectSelector(year: year, grade: 'M6'),
+                    builder: (context) => SubjectSelector(grade: 'M6'),
                   ),
                 );
               },

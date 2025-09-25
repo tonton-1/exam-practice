@@ -63,6 +63,7 @@ class _ExamJsonScreenState extends State<ExamJsonScreen> {
   }
 
   String getJsonPath() {
+    print(' data ${widget.grade}, ${widget.subject} ${widget.year}');
     /*อย่าลืมเพิ่ม json ใน pubspec.yaml*/
     if (widget.year == '2567' &&
         widget.grade == 'P6' &&
