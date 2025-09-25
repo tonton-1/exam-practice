@@ -147,7 +147,7 @@ class SubjectSelector extends StatelessWidget {
                   MaterialPageRoute(
                     builder:
                         (context) =>
-                            ExamJsonScreen(subject: 'Science', grade: grade),
+                            YearSelector(subject: 'Science', grade: grade),
                   ),
                 );
               },

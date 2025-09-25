@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'question.dart';
 import 'education_level_selector_onet.dart';
 import 'question.dart';
+import 'selectMode_normal_timer.dart';
 
 class YearSelector extends StatelessWidget {
   final String? subject;
@@ -23,7 +24,7 @@ class YearSelector extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder:
-                        (context) => ExamJsonScreen(
+                        (context) => SelectModeScreen(
                           grade: grade,
                           subject: subject,
                           year: '2567',
@@ -35,12 +36,17 @@ class YearSelector extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) => const ,
-                //   ),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder:
+                        (context) => SelectModeScreen(
+                          grade: grade,
+                          subject: subject,
+                          year: '2566',
+                        ),
+                  ),
+                );
               },
               child: Text('2566'),
             ),
@@ -56,7 +62,7 @@ class YearSelector extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder:
-                        (context) => ExamJsonScreen(
+                        (context) => SelectModeScreen(
                           grade: grade,
                           subject: subject,
                           year: '2564',

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "751508936615",
+    "project_id": "exampractice-f0a05",
+    "storage_bucket": "exampractice-f0a05.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:751508936615:android:b5274d5583f21765428882",
+        "android_client_info": {
+          "package_name": "com.example.exampractice"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQw3zFEN9WaC1L3cgyQXy0ml8TRywOLiw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

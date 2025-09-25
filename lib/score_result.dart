@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'answer_review.dart';
 
 void main() {
   // อย่าลืมลบ เอาไว้ทดสอบ
@@ -14,12 +15,19 @@ class ScoreResult extends StatelessWidget {
   final int questionCount; // Example total questions
   final String timeSpent; // New field for time spent
   final int wrongAnswer;
+  final String mode;
+  final List<Map<String, dynamic>>? questions;
+  final List<String>? userAnswers;
+
   const ScoreResult({
     super.key,
     required this.score,
     this.questionCount = 100,
     this.timeSpent = '00:00:00',
     this.wrongAnswer = 0,
+    this.mode = 'normal',
+    this.questions,
+    this.userAnswers,
   });
   @override
   // ย้อนกลับไปดูคำตอบหลังทำได้
@@ -108,40 +116,42 @@ class ScoreResult extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
-              margin: const EdgeInsets.symmetric(vertical: 10),
-              padding: EdgeInsets.all(20),
-              width: 400,
-              height: 130,
-              decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 255, 255, 255),
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('เวลาที่ใช้ทั้งหมด', style: TextStyle(fontSize: 17)),
-                  Row(
-                    children: [
-                      Text(
-                        '$timeSpent',
-                        style: const TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
+            if (mode == 'timer') ...[
+              Container(
+                margin: const EdgeInsets.symmetric(vertical: 10),
+                padding: EdgeInsets.all(20),
+                width: 400,
+                height: 130,
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 255, 255, 255),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('เวลาที่ใช้ทั้งหมด', style: TextStyle(fontSize: 17)),
+                    Row(
+                      children: [
+                        Text(
+                          '$timeSpent',
+                          style: const TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                      Spacer(),
-                      Icon(
-                        Icons.access_time,
-                        color: Color.fromARGB(255, 99, 171, 242),
-                        size: 40,
-                      ),
-                    ],
-                  ),
-                ],
+                        Spacer(),
+                        Icon(
+                          Icons.access_time,
+                          color: Color.fromARGB(255, 99, 171, 242),
+                          size: 40,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
-            ),
+            ],
             SizedBox(height: 20),
             Container(
               width: 400,
@@ -158,7 +168,18 @@ class ScoreResult extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  Navigator.popUntil(context, (route) => route.isFirst);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder:
+                          (context) => AnswerReview(
+                            questions: questions!.cast<Map<String, dynamic>>(),
+                            // userAnswers: userAnswers!.cast<String>(),
+                            score: score,
+                            totalQuestions: questionCount,
+                          ),
+                    ),
+                  );
                 },
                 child: const Text(
                   'ดูคำตอบ',
@@ -168,6 +189,7 @@ class ScoreResult extends StatelessWidget {
             ),
 
             SizedBox(height: 20),
+
             Container(
               width: 400,
               height: 55,
