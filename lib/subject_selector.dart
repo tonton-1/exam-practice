@@ -1,6 +1,17 @@
 import 'package:flutter/material.dart';
 import 'question.dart';
 
+void main() {
+  runApp(
+    MaterialApp(
+      home: SubjectSelector(
+        year: '2567',
+        grade: 'ม.1',
+      ), // Example year and grade
+    ),
+  );
+}
+
 class SubjectSelector extends StatelessWidget {
   final String year;
   final String grade;
@@ -9,15 +20,20 @@ class SubjectSelector extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('เลือกระวิชา')),
-      body: Center(
-        child: Column(
-          spacing: 20,
-          crossAxisAlignment: CrossAxisAlignment.center,
-
+      backgroundColor: Color.fromARGB(255, 246, 247, 248),
+      appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 246, 247, 248),
+        title: Text('เลือกวิชา'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Wrap(
+          spacing: 10,
+          runSpacing: 10,
+          alignment: WrapAlignment.spaceBetween,
           children: [
-            ElevatedButton(
-              onPressed: () {
+            GestureDetector(
+              onTap: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -30,10 +46,38 @@ class SubjectSelector extends StatelessWidget {
                   ),
                 );
               },
-              child: Text('ไทย'),
+              child: Container(
+                width:
+                    (MediaQuery.of(context).size.width - 36) /
+                    2, // คำนวณให้พอดี 2 คอลัมน์
+                height: 150,
+                padding: EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 255, 255, 255),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Icon(
+                      Icons.menu_book,
+                      size: 64,
+                      color: Color.fromARGB(255, 51, 65, 85),
+                    ),
+                    Spacer(),
+                    Text(
+                      'ไทย',
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 51, 65, 85),
+                        fontSize: 16,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
-            ElevatedButton(
-              onPressed: () {
+            GestureDetector(
+              onTap: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -46,10 +90,36 @@ class SubjectSelector extends StatelessWidget {
                   ),
                 );
               },
-              child: Text('English'),
+              child: Container(
+                width: (MediaQuery.of(context).size.width - 36) / 2,
+                height: 150,
+                padding: EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 255, 255, 255),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Icon(
+                      Icons.language,
+                      size: 64,
+                      color: Color.fromARGB(255, 51, 65, 85),
+                    ),
+                    Spacer(),
+                    Text(
+                      'อังกฤษ',
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 51, 65, 85),
+                        fontSize: 16,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
-            ElevatedButton(
-              onPressed: () {
+            GestureDetector(
+              onTap: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -62,10 +132,36 @@ class SubjectSelector extends StatelessWidget {
                   ),
                 );
               },
-              child: Text('คณิตศาสตร์'),
+              child: Container(
+                width: (MediaQuery.of(context).size.width - 36) / 2,
+                height: 150,
+                padding: EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 255, 255, 255),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Icon(
+                      Icons.calculate,
+                      size: 64,
+                      color: Color.fromARGB(255, 51, 65, 85),
+                    ),
+                    Spacer(),
+                    Text(
+                      'คณิตศาสตร์',
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 51, 65, 85),
+                        fontSize: 16,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
-            ElevatedButton(
-              onPressed: () {
+            GestureDetector(
+              onTap: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -78,10 +174,36 @@ class SubjectSelector extends StatelessWidget {
                   ),
                 );
               },
-              child: Text('วิทยาศาสตร์'),
+              child: Container(
+                width: (MediaQuery.of(context).size.width - 36) / 2,
+                height: 150,
+                padding: EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 255, 255, 255),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Icon(
+                      Icons.science,
+                      size: 64,
+                      color: Color.fromARGB(255, 51, 65, 85),
+                    ),
+                    Spacer(),
+                    Text(
+                      'วิทยาศาสตร์',
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 51, 65, 85),
+                        fontSize: 16,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
-            ElevatedButton(
-              onPressed: () {
+            GestureDetector(
+              onTap: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -94,7 +216,33 @@ class SubjectSelector extends StatelessWidget {
                   ),
                 );
               },
-              child: Text('สังคมศึกษา'),
+              child: Container(
+                width: (MediaQuery.of(context).size.width - 36) / 2,
+                height: 150,
+                padding: EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 255, 255, 255),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Icon(
+                      Icons.people,
+                      size: 64,
+                      color: Color.fromARGB(255, 51, 65, 85),
+                    ),
+                    Spacer(),
+                    Text(
+                      'สังคมศึกษา',
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 51, 65, 85),
+                        fontSize: 16,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
           ],
         ),
