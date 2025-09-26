@@ -1,14 +1,18 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'answer_review.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'main_navigation.dart';
 
-void main() {
-  // อย่าลืมลบ เอาไว้ทดสอบ
-  runApp(
-    MaterialApp(
-      home: ScoreResult(score: 85, questionCount: 100), // Example score
-    ),
-  );
-}
+// void main() {
+//   // อย่าลืมลบ เอาไว้ทดสอบ
+//   runApp(
+//     MaterialApp(
+//       home: ScoreResult(score: 85, questionCount: 100), // Example score
+//     ),
+//   );
+// }
 
 class ScoreResult extends StatelessWidget {
   final int score;
@@ -33,6 +37,9 @@ class ScoreResult extends StatelessWidget {
   // ย้อนกลับไปดูคำตอบหลังทำได้
   // บอกแค่ข้อที่ถูก กับ ผิด ไม่ต้องเฉลย
   Widget build(BuildContext context) {
+    final user = FirebaseAuth.instance.currentUser;
+
+    // Debug: Print the user ID
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 246, 247, 248),
       body: Center(
@@ -40,10 +47,33 @@ class ScoreResult extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
 
           children: [
-            Text(
-              "คะแนนของคุณ",
-              style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
-            ),
+            user != null
+                ? FutureBuilder<DocumentSnapshot>(
+                  future:
+                      FirebaseFirestore.instance
+                          .collection('users')
+                          .doc(user.uid)
+                          .get(),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData && snapshot.data!.exists) {
+                      final userData =
+                          snapshot.data!.data() as Map<String, dynamic>;
+                      return Text(
+                        "คะแนนของ ${userData['name'] ?? 'ผู้ใช้'}",
+                        style: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      );
+                    }
+
+                    return Text('กำลังโหลด...', style: TextStyle(fontSize: 18));
+                  },
+                )
+                : Text(
+                  "คะแนนของคุณ",
+                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+                ),
             SizedBox(height: 100),
             Container(
               padding: EdgeInsets.all(20),
@@ -205,7 +235,11 @@ class ScoreResult extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  Navigator.popUntil(context, (route) => route.isFirst);
+                  Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (context) => MainNavigation()),
+                    (route) => false, // ลบ route ทั้งหมด
+                  );
                 },
                 child: const Text(
                   'กลับสู่หน้าหลัก',

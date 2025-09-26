@@ -114,7 +114,7 @@
     "question": "Look at the Picture.\nWhere can we buy these items?",
     "image": "assets/images/eng2567P6/drugstore.png",
     "choices": ["At Hotel", "At the library", "At the museum", "At a drugstore"],
-    "correct_answer": "At the drugstore"
+    "correct_answer": "At a drugstore"
   },
   {
     "question": "Look at the sign.\nWhen you see this sign, what should you do?",

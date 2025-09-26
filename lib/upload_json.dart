@@ -36,11 +36,12 @@ class MyApp extends StatelessWidget {
 
 Future<void> uploadFromAsset() async {
   const year = 2567;
-  const grade = 'M3';
-  const subject = 'Thai';
+  const grade = 'P6';
+  const subject = 'English';
 
   final db = FirebaseFirestore.instance;
-  final text = await rootBundle.loadString('M32567/M3Thai2567.json');
+  final text = await rootBundle.loadString('P62567/P6English2567.json');
+  print('✅ โหลดไฟล์สำเร็จ! ขนาด: ${text.length} characters');
   final List<dynamic> items = json.decode(text);
 
   final base = db

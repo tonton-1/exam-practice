@@ -36,7 +36,7 @@ class AnswerReview extends StatelessWidget {
     final userAnswer = question['selectedAnswer'];
     final correctAnswer = question['correct_answer'];
     final isCorrect = userAnswer == correctAnswer;
-
+    final imageUrl = question['image'];
     return Card(
       color: Colors.white,
       margin: EdgeInsets.only(bottom: 16),
@@ -55,7 +55,10 @@ class AnswerReview extends StatelessWidget {
               '${index + 1}. ${question['question'] ?? ''}',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
-
+            if (imageUrl != null && imageUrl.isNotEmpty) ...[
+              SizedBox(height: 12),
+              Image.network(imageUrl),
+            ],
             SizedBox(height: 16),
 
             // แสดงตัวเลือกต่างๆ
@@ -165,29 +168,29 @@ class AnswerReview extends StatelessWidget {
     String correctAnswer,
     bool isCorrect,
   ) {
-    if (userAnswer == null) {
-      // ไม่ได้ตอบ
-      return Container(
-        padding: EdgeInsets.all(12),
-        decoration: BoxDecoration(
-          color: Colors.orange[50],
-          borderRadius: BorderRadius.circular(8),
-        ),
-        child: Row(
-          children: [
-            Icon(Icons.warning, color: Colors.orange),
-            SizedBox(width: 8),
-            Text(
-              'ไม่ได้ตอบข้อนี้',
-              style: TextStyle(
-                color: Colors.orange[800],
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ],
-        ),
-      );
-    }
+    // if (userAnswer == null) {
+    //   // ไม่ได้ตอบ
+    //   return Container(
+    //     padding: EdgeInsets.all(12),
+    //     decoration: BoxDecoration(
+    //       color: Colors.orange[50],
+    //       borderRadius: BorderRadius.circular(8),
+    //     ),
+    //     child: Row(
+    //       children: [
+    //         Icon(Icons.warning, color: Colors.orange),
+    //         SizedBox(width: 8),
+    //         Text(
+    //           'ไม่ได้ตอบข้อนี้',
+    //           style: TextStyle(
+    //             color: Colors.orange[800],
+    //             fontWeight: FontWeight.bold,
+    //           ),
+    //         ),
+    //       ],
+    //     ),
+    //   );
+    // }
 
     if (isCorrect) {
       // ตอบถูก

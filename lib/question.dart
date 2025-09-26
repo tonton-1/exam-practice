@@ -6,6 +6,7 @@ import 'dart:math';
 import 'score_result.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 final _col = FirebaseFirestore.instance
     .collection('exams')
@@ -342,7 +343,7 @@ class _ExamJsonScreenState extends State<ExamJsonScreen> {
                         }
                         // แสดงคะแนนหรือผลลัพธ์
                         print('Score: $score / ${questions!.length}');
-
+                        _saveExamResult(score); // บันทึกผลสอบ
                         Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -368,5 +369,34 @@ class _ExamJsonScreenState extends State<ExamJsonScreen> {
                 ),
               ),
     );
+  }
+
+  Future<void> _saveExamResult(int score) async {
+    try {
+      final user = FirebaseAuth.instance.currentUser;
+      if (user != null) {
+        final percentage = (score / questions!.length * 100).round();
+
+        await FirebaseFirestore.instance.collection('exam_results').add({
+          'userId': user.uid,
+          'score': score,
+          'totalQuestions': questions!.length,
+          'percentage': percentage,
+          'wrongAnswer': wrongAnswer,
+          'timeSpent': _formatTime(_seconds),
+          'mode': widget.mode,
+          'grade': widget.grade,
+          'subject': widget.subject,
+          'year': widget.year,
+          'completedAt': FieldValue.serverTimestamp(),
+          'createdAt': FieldValue.serverTimestamp(),
+        });
+        print(
+          '✅ บันทึกผลสอบสำเร็จ: $score/${questions!.length} ($percentage%)',
+        );
+      }
+    } catch (e) {
+      print('❌ เกิดข้อผิดพลาดในการบันทึก: $e');
+    }
   }
 }

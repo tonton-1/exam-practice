@@ -10,77 +10,74 @@ class SelectModeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Starter Flutter App',
-      home: Scaffold(
-        appBar: AppBar(title: const Text('เลือกโหมด')),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder:
-                          (context) => ExamJsonScreen(
-                            grade: grade,
-                            subject: subject,
-                            year: year,
-                            mode: 'normal', // Pass the mode as 'normal'
-                          ),
-                    ),
-                  );
-                },
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 12,
-                    horizontal: 24,
+    return Scaffold(
+      appBar: AppBar(title: const Text('เลือกโหมด')),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder:
+                        (context) => ExamJsonScreen(
+                          grade: grade,
+                          subject: subject,
+                          year: year,
+                          mode: 'normal', // Pass the mode as 'normal'
+                        ),
                   ),
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: const Text(
-                    'ปกติ',
-                    style: TextStyle(color: Colors.white, fontSize: 16),
-                  ),
+                );
+              },
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 12,
+                  horizontal: 24,
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: const Text(
+                  'ปกติ',
+                  style: TextStyle(color: Colors.white, fontSize: 16),
                 ),
               ),
-              const SizedBox(height: 20), // Spacing between buttons
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder:
-                          (context) => ExamJsonScreen(
-                            grade: grade,
-                            subject: subject,
-                            year: year,
-                            mode: 'timer', // Pass the mode as 'timer'
-                          ),
-                    ),
-                  );
-                },
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 12,
-                    horizontal: 24,
+            ),
+            const SizedBox(height: 20), // Spacing between buttons
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder:
+                        (context) => ExamJsonScreen(
+                          grade: grade,
+                          subject: subject,
+                          year: year,
+                          mode: 'timer', // Pass the mode as 'timer'
+                        ),
                   ),
-                  decoration: BoxDecoration(
-                    color: Colors.green,
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: const Text(
-                    'จับเวลา',
-                    style: TextStyle(color: Colors.white, fontSize: 16),
-                  ),
+                );
+              },
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 12,
+                  horizontal: 24,
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.green,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: const Text(
+                  'จับเวลา',
+                  style: TextStyle(color: Colors.white, fontSize: 16),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
