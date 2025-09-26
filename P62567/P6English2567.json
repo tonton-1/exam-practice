@@ -120,7 +120,7 @@
     "question": "Look at the sign.\nWhen you see this sign, what should you do?",
     "image": "assets/images/eng2567P6/footbridge.png",
     "choices": ["Cross the street here.", "Wait for the train here.", "Go over the footbridge.", "Walk only on the black lines."],
-    "correct_answer": "Go over the footbridge"
+    "correct_answer": "Go over the footbridge."
   },
   {
     "question": "A triangle is next to a square and under a circle.\nFrom this sentence, which picture is CORRECT?",
