@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'Exam JSON Demo', home: const ExamJsonScreen());
+    return MaterialApp(title: 'Exam', home: const ExamJsonScreen());
   }
 }
 
@@ -52,6 +52,8 @@ class _ExamJsonScreenState extends State<ExamJsonScreen> {
   Timer? _timer;
   int _seconds = 0;
   bool isLoading = true;
+  bool _isTimerVisible = true;
+
   @override
   void dispose() {
     _timer?.cancel();
@@ -62,9 +64,7 @@ class _ExamJsonScreenState extends State<ExamJsonScreen> {
     super.initState();
     // loadExamJson();
     loadExamFromFirestore();
-    if (widget.mode == 'timer') {
-      _startTimer();
-    }
+    _initializeExam();
     print(
       'Year: ${widget.year}, Grade: ${widget.grade}, Subject: ${widget.subject}',
     );
@@ -85,6 +85,17 @@ class _ExamJsonScreenState extends State<ExamJsonScreen> {
     return '${hours.toString().padLeft(2, '0')}:${minutes.toString().padLeft(2, '0')}:${remainingSeconds.toString().padLeft(2, '0')}';
   }
 
+  Future<void> _initializeExam() async {
+    await loadExamFromFirestore();
+
+    if (widget.mode == 'timer' &&
+        !isLoading &&
+        questions != null &&
+        questions!.isNotEmpty) {
+      _startTimer();
+      print('🕐 Timer started');
+    }
+  }
   // String getJsonPath() {
   //   print(' data ${widget.grade}, ${widget.subject} ${widget.year}');
   //   /*อย่าลืมเพิ่ม json ใน pubspec.yaml*/
@@ -229,31 +240,90 @@ class _ExamJsonScreenState extends State<ExamJsonScreen> {
     }
   }
 
-  /*
-    อย่าลืม เปลี่ยน ให้เลือก โหมดจับเวลากับไมจับเวลา
-
-    */
-
   List<dynamic> savedAnswers = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 252, 253, 255),
       appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 252, 253, 255),
         title: Row(
           children: [
-            Text('Exam JSON Demo'),
-            SizedBox(width: 20),
+            Text('Exam', style: TextStyle(fontSize: 18)),
+            SizedBox(width: 100),
             if (widget.mode == 'timer') ...[
-              Icon(Icons.timer),
-              SizedBox(width: 10),
-              Text(_formatTime(_seconds)),
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _isTimerVisible = !_isTimerVisible;
+                  });
+                },
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(
+                      255,
+                      255,
+                      255,
+                      255,
+                    ).withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        _isTimerVisible
+                            ? Icons.timer
+                            : Icons.timer_off, // ← เปลี่ยนไอคอน
+                        color:
+                            _isTimerVisible
+                                ? Color.fromARGB(255, 89, 180, 192)
+                                : Colors.grey,
+                      ),
+                      if (_isTimerVisible) ...[
+                        SizedBox(width: 5),
+                        Text(
+                          _formatTime(_seconds),
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 89, 180, 192),
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
+                    ],
+                  ),
+                ),
+              ),
             ],
           ],
         ),
       ),
       body:
-          examList == null
+          isLoading
               ? const Center(child: CircularProgressIndicator())
+              : (questions == null || questions!.isEmpty)
+              ? const Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(height: 16),
+                    Text(
+                      'ไม่พบข้อสอบ',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.grey,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    SizedBox(height: 8),
+                    Text(
+                      'กรุณาเลือกข้อสอบอื่น',
+                      style: TextStyle(fontSize: 14, color: Colors.grey),
+                    ),
+                  ],
+                ),
+              )
               : Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
@@ -293,6 +363,7 @@ class _ExamJsonScreenState extends State<ExamJsonScreen> {
                               itemBuilder: (context, choiceIndex) {
                                 final choice = item['choices'][choiceIndex];
                                 return Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Radio(
                                       value: choice,
@@ -311,11 +382,23 @@ class _ExamJsonScreenState extends State<ExamJsonScreen> {
                                       },
                                     ),
                                     Expanded(
-                                      child: Text(
-                                        '${(choiceIndex + 1)}. $choice',
-                                        softWrap: true,
-                                        overflow: TextOverflow.visible,
-                                        maxLines: 5, // ปรับตามต้องการ
+                                      child: Padding(
+                                        padding: EdgeInsets.only(top: 6),
+                                        child: Text(
+                                          '${(choiceIndex + 1)}. $choice',
+                                          softWrap: true,
+                                          overflow: TextOverflow.visible,
+                                          maxLines: 5, // ปรับตามต้องการ
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.w600,
+                                            color: Color.fromARGB(
+                                              255,
+                                              58,
+                                              58,
+                                              58,
+                                            ),
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ],

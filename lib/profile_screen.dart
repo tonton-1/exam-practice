@@ -12,10 +12,12 @@ class ProfileScreen extends StatelessWidget {
     final user = FirebaseAuth.instance.currentUser;
 
     return Scaffold(
-      backgroundColor: Colors.grey[50],
+      backgroundColor: Color.fromARGB(255, 246, 247, 248),
       appBar: AppBar(
-        title: Text('โปรไฟล์'),
-        backgroundColor: Colors.blue,
+        title: Center(
+          child: Text('โปรไฟล์', style: TextStyle(color: Colors.black)),
+        ),
+        backgroundColor: Color.fromARGB(255, 246, 247, 248),
         foregroundColor: Colors.white,
         automaticallyImplyLeading: false, // ไม่แสดงปุ่มย้อนกลับ
       ),
@@ -60,20 +62,15 @@ class ProfileScreen extends StatelessWidget {
     return SingleChildScrollView(
       padding: EdgeInsets.all(16),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           // Profile Header
           Container(
             padding: EdgeInsets.all(20),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: Color.fromARGB(255, 246, 247, 248),
               borderRadius: BorderRadius.circular(15),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.1),
-                  spreadRadius: 1,
-                  blurRadius: 10,
-                ),
-              ],
             ),
             child: Column(
               children: [
@@ -129,6 +126,7 @@ class ProfileScreen extends StatelessWidget {
 
           // Logout Button
           Container(
+            height: 50,
             width: double.infinity,
             child: ElevatedButton.icon(
               onPressed: () => _showLogoutDialog(context),

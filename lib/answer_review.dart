@@ -57,7 +57,7 @@ class _AnswerReviewState extends State<AnswerReview>
       backgroundColor: Color.fromARGB(255, 249, 250, 251),
       appBar: AppBar(
         title: Text('ดูคำตอบ (${widget.score}/${widget.totalQuestions} ข้อ)'),
-        backgroundColor: Colors.blue,
+        backgroundColor: Color.fromARGB(255, 86, 179, 191),
         foregroundColor: Colors.white,
         bottom: TabBar(
           controller: _tabController,
@@ -126,11 +126,11 @@ class _AnswerReviewState extends State<AnswerReview>
             Icon(Icons.emoji_events, size: 80, color: Colors.amber),
             SizedBox(height: 16),
             Text(
-              'เยี่ยม! ไม่มีข้อที่ตอบผิด! 🎉',
+              'เยี่ยม! ไม่มีข้อที่ตอบผิด',
               style: TextStyle(fontSize: 18, color: Colors.amber[700]),
             ),
             Text(
-              'คุณทำได้คะแนนเต็ม!',
+              'คุณทำได้คะแนนเต็ม',
               style: TextStyle(fontSize: 14, color: Colors.amber[600]),
             ),
           ],

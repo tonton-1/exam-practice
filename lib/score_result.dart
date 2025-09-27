@@ -77,7 +77,7 @@ class ScoreResult extends StatelessWidget {
             SizedBox(height: 100),
             Container(
               padding: EdgeInsets.all(20),
-              width: 400,
+              width: 340,
               height: 130,
               decoration: BoxDecoration(
                 color: const Color.fromARGB(255, 255, 255, 255),
@@ -119,7 +119,7 @@ class ScoreResult extends StatelessWidget {
             Container(
               margin: const EdgeInsets.symmetric(vertical: 10),
               padding: EdgeInsets.all(20),
-              width: 400,
+              width: 340,
               height: 130,
               decoration: BoxDecoration(
                 color: const Color.fromARGB(255, 255, 255, 255),
@@ -150,7 +150,7 @@ class ScoreResult extends StatelessWidget {
               Container(
                 margin: const EdgeInsets.symmetric(vertical: 10),
                 padding: EdgeInsets.all(20),
-                width: 400,
+                width: 340,
                 height: 130,
                 decoration: BoxDecoration(
                   color: const Color.fromARGB(255, 255, 255, 255),
@@ -184,11 +184,11 @@ class ScoreResult extends StatelessWidget {
             ],
             SizedBox(height: 20),
             Container(
-              width: 400,
+              width: 340,
               height: 55,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 53, 165, 81),
+                  backgroundColor: const Color.fromARGB(255, 86, 179, 191),
                   padding: const EdgeInsets.symmetric(
                     horizontal: 50,
                     vertical: 15,
@@ -221,11 +221,11 @@ class ScoreResult extends StatelessWidget {
             SizedBox(height: 20),
 
             Container(
-              width: 400,
+              width: 340,
               height: 55,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blueAccent,
+                  backgroundColor: Color.fromARGB(255, 255, 140, 66),
                   padding: const EdgeInsets.symmetric(
                     horizontal: 50,
                     vertical: 15,

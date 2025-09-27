@@ -69,7 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
               Container(
                 padding: EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  color: Colors.blue,
+                  color: const Color.fromARGB(255, 201, 201, 201),
                   shape: BoxShape.circle,
                 ),
                 child: Icon(Icons.school, size: 60, color: Colors.white),
@@ -80,7 +80,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
-                  color: Colors.blue[800],
+                  color: const Color.fromARGB(255, 0, 0, 0),
                 ),
               ),
               SizedBox(height: 8),
@@ -94,16 +94,42 @@ class _LoginScreenState extends State<LoginScreen> {
               Form(
                 key: _formKey,
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     // Email Field
+                    Text(
+                      "อีเมล",
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 46, 46, 46),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                    SizedBox(height: 8),
                     TextFormField(
                       controller: _emailController,
                       keyboardType: TextInputType.emailAddress,
+
                       decoration: InputDecoration(
-                        labelText: 'อีเมล',
-                        prefixIcon: Icon(Icons.email),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color.fromARGB(255, 86, 179, 191),
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color.fromARGB(255, 158, 158, 158),
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        hintText: 'กรุณาใส่อีเมล',
+                        contentPadding: EdgeInsets.symmetric(
+                          horizontal: 20, // ← ความกว้างภายใน (ซ้าย-ขวา)
+                          vertical: 20, // ← ความสูงภายใน (บน-ล่าง)
+                        ),
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(8),
                         ),
                       ),
                       validator: (value) {
@@ -121,12 +147,38 @@ class _LoginScreenState extends State<LoginScreen> {
                     SizedBox(height: 16),
 
                     // Password Field
+                    Text(
+                      "รหัสผ่าน",
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 46, 46, 46),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                    SizedBox(height: 8),
                     TextFormField(
                       controller: _passwordController,
                       obscureText: _obscurePassword,
+
                       decoration: InputDecoration(
-                        labelText: 'รหัสผ่าน',
-                        prefixIcon: Icon(Icons.lock),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color.fromARGB(255, 86, 179, 191),
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color.fromARGB(255, 158, 158, 158),
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+
+                        hintText: 'กรุณาใส่รหัสผ่าน',
+                        contentPadding: EdgeInsets.symmetric(
+                          horizontal: 20, // ← ความกว้างภายใน (ซ้าย-ขวา)
+                          vertical: 20, // ← ความสูงภายใน (บน-ล่าง)
+                        ),
                         suffixIcon: IconButton(
                           icon: Icon(
                             _obscurePassword
@@ -140,7 +192,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           },
                         ),
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(8),
                         ),
                       ),
                       validator: (value) {
@@ -162,7 +214,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: ElevatedButton(
                         onPressed: _isLoading ? null : _login,
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue,
+                          backgroundColor: Color.fromARGB(255, 86, 179, 191),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                           ),

@@ -4,6 +4,10 @@ import 'education_level_selector_onet.dart';
 import 'question.dart';
 import 'selectMode_normal_timer.dart';
 
+// void main() {
+//   runApp(MaterialApp(home: YearSelector()));
+// }
+
 class YearSelector extends StatelessWidget {
   final String? subject;
   final String? grade;
@@ -13,13 +17,20 @@ class YearSelector extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('เลือกปีของข้อสอบ')),
-      body: Center(
-        child: Column(
-          spacing: 20,
+      backgroundColor: Color.fromARGB(255, 246, 247, 248),
+      appBar: AppBar(
+        title: Text('เลือกปีของข้อสอบ'),
+        backgroundColor: Color.fromARGB(255, 246, 247, 248),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Wrap(
+          spacing: 10,
+          runSpacing: 10,
+          alignment: WrapAlignment.spaceBetween,
           children: [
-            ElevatedButton(
-              onPressed: () {
+            GestureDetector(
+              onTap: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -32,10 +43,37 @@ class YearSelector extends StatelessWidget {
                   ),
                 );
               },
-              child: Text('2567'),
+              child: Container(
+                width:
+                    (MediaQuery.of(context).size.width - 36) /
+                    2, // คำนวณให้พอดี 2 คอลัมน์
+                height: 150,
+                padding: EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 255, 255, 255),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Center(
+                      child: Text(
+                        '2567',
+
+                        style: TextStyle(
+                          color: Color.fromARGB(255, 51, 65, 85),
+                          fontSize: 39,
+                          letterSpacing: 3,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
-            ElevatedButton(
-              onPressed: () {
+
+            GestureDetector(
+              onTap: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -48,16 +86,78 @@ class YearSelector extends StatelessWidget {
                   ),
                 );
               },
-              child: Text('2566'),
+              child: Container(
+                width:
+                    (MediaQuery.of(context).size.width - 36) /
+                    2, // คำนวณให้พอดี 2 คอลัมน์
+                height: 150,
+                padding: EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 255, 255, 255),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Center(
+                      child: Text(
+                        '2566',
+
+                        style: TextStyle(
+                          color: Color.fromARGB(255, 51, 65, 85),
+                          fontSize: 39,
+                          letterSpacing: 3,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
-            ElevatedButton(
-              onPressed: () {
-                null;
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder:
+                        (context) => SelectModeScreen(
+                          grade: grade,
+                          subject: subject,
+                          year: '2565',
+                        ),
+                  ),
+                );
               },
-              child: Text('2565'),
+              child: Container(
+                width:
+                    (MediaQuery.of(context).size.width - 36) /
+                    2, // คำนวณให้พอดี 2 คอลัมน์
+                height: 150,
+                padding: EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 255, 255, 255),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Center(
+                      child: Text(
+                        '2565',
+
+                        style: TextStyle(
+                          color: Color.fromARGB(255, 51, 65, 85),
+                          fontSize: 39,
+                          letterSpacing: 3,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
-            ElevatedButton(
-              onPressed: () {
+            GestureDetector(
+              onTap: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -70,7 +170,33 @@ class YearSelector extends StatelessWidget {
                   ),
                 );
               },
-              child: Text('2564'),
+              child: Container(
+                width:
+                    (MediaQuery.of(context).size.width - 36) /
+                    2, // คำนวณให้พอดี 2 คอลัมน์
+                height: 150,
+                padding: EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 255, 255, 255),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Center(
+                      child: Text(
+                        '2564',
+
+                        style: TextStyle(
+                          color: Color.fromARGB(255, 51, 65, 85),
+                          fontSize: 39,
+                          letterSpacing: 3,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
           ],
         ),

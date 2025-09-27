@@ -1,6 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
+// void main() async {
+//   WidgetsFlutterBinding.ensureInitialized();
+//   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+//   // Mock login สำหรับ debug
+//   await _mockLogin();
+
+//   runApp(
+//     MaterialApp(
+//       title: 'History Screen Debug',
+//       home: HistoryScreen(),
+//       debugShowCheckedModeBanner: false, // ← ซ่อน debug banner
+//     ),
+//   );
+// }
+
+// Mock login function
+Future<void> _mockLogin() async {
+  try {
+    // ใช้ user ID ตัวจริงจาก Firebase
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: 'awds@gmail.com',
+      password: '123456',
+    );
+    print('🔧 Login ด้วย account จริงสำเร็จ');
+  } catch (e) {
+    // ถ้า login ไม่ได้ ใช้ anonymous
+    await FirebaseAuth.instance.signInAnonymously();
+    print('🔧 ใช้ Anonymous login แทน');
+  }
+}
 
 class HistoryScreen extends StatelessWidget {
   @override
@@ -9,10 +43,9 @@ class HistoryScreen extends StatelessWidget {
     print('Current User UID: ${user?.uid}');
 
     return Scaffold(
-      backgroundColor: Colors.grey[50],
+      backgroundColor: Color.fromARGB(255, 246, 247, 248),
       appBar: AppBar(
-        title: Text('ประวัติการทำข้อสอบ'),
-        backgroundColor: Colors.green,
+        backgroundColor: Color.fromARGB(255, 246, 247, 248),
         foregroundColor: Colors.white,
         automaticallyImplyLeading: false,
       ),
@@ -21,7 +54,24 @@ class HistoryScreen extends StatelessWidget {
               ? _buildNotLoggedIn()
               : Column(
                 children: [
-                  Container(height: 150, child: buildOverview()),
+                  Container(height: 200, child: buildOverview(user.uid)),
+                  Container(
+                    width: double.infinity,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 12,
+                    ), // ← เพิ่ม padding
+                    child: Text(
+                      "ประวัติการทำข้อสอบ",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign:
+                          TextAlign
+                              .left, // ← เพิ่ม textAlign (แม้ว่าจะเป็น default)
+                    ),
+                  ),
                   Expanded(child: _buildHistory(user.uid)),
                 ],
               ),
@@ -94,32 +144,19 @@ class HistoryScreen extends StatelessWidget {
         totalQuestions > 0 ? (score / totalQuestions * 100).round() : 0;
     final completedAt = (data['completedAt'] as Timestamp?)?.toDate();
 
-    Color scoreColor =
-        percentage >= 80
-            ? Colors.green
-            : percentage >= 60
-            ? Colors.orange
-            : Colors.red;
-
     return Container(
       margin: EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
-            spreadRadius: 1,
-            blurRadius: 5,
-          ),
-        ],
+        border: Border.all(color: Colors.grey[300]!),
       ),
-      child: Padding(
-        padding: EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: Row(
               children: [
                 Expanded(
                   child: Column(
@@ -148,164 +185,239 @@ class HistoryScreen extends StatelessWidget {
                 ),
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                  decoration: BoxDecoration(
-                    color: scoreColor.withOpacity(0.1),
-                    borderRadius: BorderRadius.circular(20),
-                    border: Border.all(color: scoreColor),
-                  ),
+
                   child: Text(
                     '$percentage%',
                     style: TextStyle(
-                      color: scoreColor,
+                      fontSize: 26,
+                      color: Color.fromARGB(255, 23, 115, 207),
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
               ],
             ),
-            SizedBox(height: 12),
-            Row(
-              children: [
-                _buildScoreItem(
-                  icon: Icons.check_circle,
-                  label: 'ถูก',
-                  value: '$score',
-                  color: Colors.green,
-                ),
-                SizedBox(width: 20),
-                _buildScoreItem(
-                  icon: Icons.cancel,
-                  label: 'ผิด',
-                  value: '${totalQuestions - score}',
-                  color: Colors.red,
-                ),
-                SizedBox(width: 20),
-                if (data.containsKey('timeSpent'))
-                  if (data['timeSpent'] != '00:00:00') ...[
-                    _buildScoreItem(
-                      icon: Icons.access_time,
-                      label: 'เวลา',
-                      value: data['timeSpent'] ?? '00:00:00',
-                      color: Colors.blue,
-                    ),
-                  ],
-              ],
-            ),
-          ],
-        ),
+          ),
+
+          Divider(color: Colors.grey[300], thickness: 1, height: 1),
+
+          Row(
+            mainAxisAlignment:
+                (data['timeSpent'] == '00:00:00' || data['timeSpent'] == null)
+                    ? MainAxisAlignment.start
+                    : MainAxisAlignment.spaceBetween,
+            children: [
+              _buildScoreItem(label: 'ถูก', value: '$score'),
+              SizedBox(width: 20),
+              if (data['timeSpent'] == '00:00:00') ...[Spacer()],
+              _buildScoreItem(label: 'ผิด', value: '${totalQuestions - score}'),
+              SizedBox(width: 20),
+              if (data.containsKey('timeSpent'))
+                if (data['timeSpent'] != '00:00:00') ...[
+                  _buildScoreItem(
+                    label: 'เวลา',
+                    value: data['timeSpent'] ?? '00:00:00',
+                  ),
+                ],
+            ],
+          ),
+        ],
       ),
     );
   }
 
-  Widget _buildScoreItem({
-    required IconData icon,
-    required String label,
-    required String value,
-    required Color color,
-  }) {
-    return Row(
-      children: [
-        Icon(icon, size: 16, color: color),
-        SizedBox(width: 4),
-        Text(
-          '$label: $value',
-          style: TextStyle(fontSize: 12, color: Colors.grey[600]),
-        ),
-      ],
+  Widget _buildScoreItem({required String label, required String value}) {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Row(
+        children: [
+          SizedBox(width: 4),
+          if (label == 'เวลา') ...[
+            Icon(Icons.access_time, size: 16, color: Colors.grey[600]),
+            SizedBox(width: 4),
+          ] else ...[
+            Text(
+              '$label: ',
+              style: TextStyle(fontSize: 15, color: Colors.grey[600]),
+            ),
+          ],
+
+          Text(
+            value,
+            style: TextStyle(
+              fontSize: 15,
+              color: const Color.fromARGB(255, 44, 44, 44),
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
 
-Widget buildOverview() {
-  return Container(
-    width: double.infinity,
+Widget buildOverview(String userId) {
+  return StreamBuilder<QuerySnapshot>(
+    stream:
+        FirebaseFirestore.instance
+            .collection('exam_results')
+            .where('userId', isEqualTo: userId)
+            .snapshots(),
+    builder: (context, snapshot) {
+      // ค่าเริ่มต้น
+      int bestScore = 0; //  คะแนนข้อที่ถูกมากที่สุด
+      int avgScore = 0;
+      String avgTime = "00:00:00";
 
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          "Overview",
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-        ),
+      if (snapshot.hasData && snapshot.data!.docs.isNotEmpty) {
+        final docs = snapshot.data!.docs;
+        final results =
+            docs.map((doc) => doc.data() as Map<String, dynamic>).toList();
 
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        // หาคะแนนข้อที่ถูกมากที่สุด
+        final scores = results.map((r) => (r['score'] ?? 0) as int).toList();
+        if (scores.isNotEmpty) {
+          bestScore = scores.reduce(
+            (a, b) => a > b ? a : b,
+          ); //  หาค่าสูงสุดจาก score
+        }
+
+        // คำนวณคะแนนเปอร์เซ็นต์เฉลี่ย
+        final percentages =
+            results.map((r) => (r['percentage'] ?? 0) as int).toList();
+        if (percentages.isNotEmpty) {
+          final totalPercentage = percentages.reduce((a, b) => a + b);
+          avgScore = (totalPercentage / percentages.length).round();
+        }
+
+        // คำนวณเวลาเฉลี่ย
+        final timeSpents =
+            results
+                .where(
+                  (r) => r['timeSpent'] != null && r['timeSpent'] != '00:00:00',
+                )
+                .map((r) => _parseTimeToSeconds(r['timeSpent']))
+                .where((time) => time > 0)
+                .toList();
+
+        if (timeSpents.isNotEmpty) {
+          final avgTimeSeconds =
+              (timeSpents.reduce((a, b) => a + b) / timeSpents.length).round();
+          avgTime = _formatSecondsToTime(avgTimeSeconds);
+        }
+      }
+
+      return Container(
+        width: double.infinity,
+        padding: EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-                color: const Color.fromARGB(255, 255, 255, 255),
-              ),
-              width: 100,
-              height: 100,
-
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(height: 8),
-
-                  Text(
-                    "15",
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    "Best Score",
-                    style: TextStyle(fontSize: 12, color: Colors.grey[600]),
-                  ),
-                ],
-              ),
+            Text(
+              "ผลสรุปคะแนน",
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-                color: const Color.fromARGB(255, 255, 255, 255),
-              ),
-              width: 100,
-              height: 100,
+            SizedBox(height: 12),
 
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+            Expanded(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  SizedBox(height: 8),
+                  _buildOverviewCard(
+                    title: "คะแนนสูงสุด",
+                    value: "$bestScore", // ← แสดงจำนวนข้อ + หน่วย ข้อ
 
-                  Text(
-                    "15",
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                    color: const Color.fromARGB(255, 14, 20, 27),
                   ),
-                  Text(
-                    "Average",
-                    style: TextStyle(fontSize: 12, color: Colors.grey[600]),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-                color: const Color.fromARGB(255, 255, 255, 255),
-              ),
-              width: 130,
-              height: 100,
+                  _buildOverviewCard(
+                    title: "คะแนนเฉลี่ย",
+                    value: "$avgScore%", // ใช้เปอร์เซ็นต์เฉลี่ย
 
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(height: 8),
-
-                  Text(
-                    "00:00:00",
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                    color: const Color.fromARGB(255, 14, 20, 27),
                   ),
-                  Text(
-                    "เฉลี่ยเวลาทั้งหมด",
-                    style: TextStyle(fontSize: 12, color: Colors.grey[600]),
+                  _buildOverviewCard(
+                    title: "เฉลี่ยเวลา",
+                    value: avgTime,
+
+                    color: const Color.fromARGB(255, 14, 20, 27),
                   ),
                 ],
               ),
             ),
           ],
         ),
-      ],
+      );
+    },
+  );
+}
+
+// Helper widget สำหรับ card แต่ละอัน
+Widget _buildOverviewCard({
+  required String title,
+  required String value,
+
+  required Color color,
+}) {
+  return Expanded(
+    child: Container(
+      height: 100,
+      margin: EdgeInsets.symmetric(horizontal: 4),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: Colors.grey[300]!),
+        color: Colors.white,
+      ),
+      child: Padding(
+        padding: EdgeInsets.all(10),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(height: 8),
+
+            Text(
+              value,
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: color,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 4),
+            Text(
+              title,
+              style: TextStyle(fontSize: 14, color: Colors.grey[600]),
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
+      ),
     ),
   );
+}
+
+// Helper functions สำหรับแปลงเวลา
+int _parseTimeToSeconds(String timeString) {
+  try {
+    final parts = timeString.split(':');
+    if (parts.length != 3) return 0;
+
+    final hours = int.parse(parts[0]);
+    final minutes = int.parse(parts[1]);
+    final seconds = int.parse(parts[2]);
+
+    return (hours * 3600) + (minutes * 60) + seconds;
+  } catch (e) {
+    return 0;
+  }
+}
+
+String _formatSecondsToTime(int totalSeconds) {
+  final hours = totalSeconds ~/ 3600;
+  final minutes = (totalSeconds % 3600) ~/ 60;
+  final seconds = totalSeconds % 60;
+
+  return '${hours.toString().padLeft(2, '0')}:'
+      '${minutes.toString().padLeft(2, '0')}:'
+      '${seconds.toString().padLeft(2, '0')}';
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'auth_service.dart';
-
+import 'package:gif/gif.dart';
 import 'login_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -80,33 +80,41 @@ class _RegisterScreenState extends State<RegisterScreen> {
         child: SingleChildScrollView(
           padding: EdgeInsets.all(24),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 20),
-
               // Header
-              Container(
-                padding: EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  color: Colors.green,
-                  shape: BoxShape.circle,
+              // Container(
+              //   padding: EdgeInsets.all(20),
+              //   decoration: BoxDecoration(
+              //     color: Color.fromARGB(255, 86, 179, 191),
+              //     shape: BoxShape.circle,
+              //   ),
+              //   child: Icon(Icons.person_add, size: 60, color: Colors.white),
+              // ),
+              Center(
+                child: Image(
+                  image: AssetImage('assets/register.png'),
+                  width: 250,
+                  height: 250,
                 ),
-                child: Icon(Icons.person_add, size: 60, color: Colors.white),
               ),
-              SizedBox(height: 24),
+              SizedBox(height: 25),
               Text(
                 'สมัครสมาชิก',
                 style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
-                  color: Colors.green[800],
+                  color: Color.fromARGB(255, 46, 46, 46),
                 ),
               ),
-              SizedBox(height: 8),
               Text(
-                'กรุณากรอกข้อมูลเพื่อสร้างบัญชีใหม่',
-                style: TextStyle(fontSize: 16, color: Colors.grey[600]),
-                textAlign: TextAlign.center,
+                'กรุณากรอกข้อมูลเพื่อสมัครสมาชิก',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Color.fromARGB(255, 104, 104, 104),
+                ),
               ),
+
               SizedBox(height: 32),
 
               // ฟอร์ม Register
@@ -118,10 +126,38 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     TextFormField(
                       controller: _nameController,
                       decoration: InputDecoration(
-                        labelText: 'ชื่อ',
-                        prefixIcon: Icon(Icons.person),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color.fromARGB(255, 86, 179, 191),
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color.fromARGB(255, 158, 158, 158),
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+
+                        hintText: 'ชื่อ',
+                        contentPadding: EdgeInsets.symmetric(
+                          horizontal: 20, // ← ความกว้างภายใน (ซ้าย-ขวา)
+                          vertical: 20, // ← ความสูงภายใน (บน-ล่าง)
+                        ),
+                        suffixIcon: IconButton(
+                          icon: Icon(
+                            _obscurePassword
+                                ? Icons.visibility_off
+                                : Icons.visibility,
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              _obscurePassword = !_obscurePassword;
+                            });
+                          },
+                        ),
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(8),
                         ),
                       ),
                       validator: (value) {
@@ -141,10 +177,38 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       controller: _emailController,
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
-                        labelText: 'อีเมล',
-                        prefixIcon: Icon(Icons.email),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color.fromARGB(255, 86, 179, 191),
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color.fromARGB(255, 158, 158, 158),
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+
+                        hintText: 'อีเมล',
+                        contentPadding: EdgeInsets.symmetric(
+                          horizontal: 20, // ← ความกว้างภายใน (ซ้าย-ขวา)
+                          vertical: 20, // ← ความสูงภายใน (บน-ล่าง)
+                        ),
+                        suffixIcon: IconButton(
+                          icon: Icon(
+                            _obscurePassword
+                                ? Icons.visibility_off
+                                : Icons.visibility,
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              _obscurePassword = !_obscurePassword;
+                            });
+                          },
+                        ),
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(8),
                         ),
                       ),
                       validator: (value) {
@@ -166,8 +230,24 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       controller: _passwordController,
                       obscureText: _obscurePassword,
                       decoration: InputDecoration(
-                        labelText: 'รหัสผ่าน',
-                        prefixIcon: Icon(Icons.lock),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color.fromARGB(255, 86, 179, 191),
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color.fromARGB(255, 158, 158, 158),
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+
+                        hintText: 'รหัสผ่าน',
+                        contentPadding: EdgeInsets.symmetric(
+                          horizontal: 20, // ← ความกว้างภายใน (ซ้าย-ขวา)
+                          vertical: 20, // ← ความสูงภายใน (บน-ล่าง)
+                        ),
                         suffixIcon: IconButton(
                           icon: Icon(
                             _obscurePassword
@@ -181,7 +261,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           },
                         ),
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(8),
                         ),
                       ),
                       validator: (value) {
@@ -201,23 +281,38 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       controller: _confirmPasswordController,
                       obscureText: _obscureConfirmPassword,
                       decoration: InputDecoration(
-                        labelText: 'ยืนยันรหัสผ่าน',
-                        prefixIcon: Icon(Icons.lock_outline),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color.fromARGB(255, 86, 179, 191),
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color.fromARGB(255, 158, 158, 158),
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+
+                        hintText: 'ยืนยันรหัสผ่าน',
+                        contentPadding: EdgeInsets.symmetric(
+                          horizontal: 20, // ← ความกว้างภายใน (ซ้าย-ขวา)
+                          vertical: 20, // ← ความสูงภายใน (บน-ล่าง)
+                        ),
                         suffixIcon: IconButton(
                           icon: Icon(
-                            _obscureConfirmPassword
+                            _obscurePassword
                                 ? Icons.visibility_off
                                 : Icons.visibility,
                           ),
                           onPressed: () {
                             setState(() {
-                              _obscureConfirmPassword =
-                                  !_obscureConfirmPassword;
+                              _obscurePassword = !_obscurePassword;
                             });
                           },
                         ),
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(8),
                         ),
                       ),
                       validator: (value) {
@@ -239,7 +334,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       child: ElevatedButton(
                         onPressed: _isLoading ? null : _register,
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.green,
+                          backgroundColor: Color.fromARGB(255, 86, 179, 191),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                           ),

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'login_screen.dart';
-import 'home.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'onboarding_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -13,6 +14,11 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'Navigation Example', home: LoginScreen());
+    return MaterialApp(
+      theme: ThemeData(textTheme: GoogleFonts.ibmPlexSansThaiLoopedTextTheme()),
+
+      title: 'Navigation Example',
+      home: OnboardingScreen(),
+    );
   }
 }
