@@ -325,7 +325,7 @@ Widget buildOverview(String userId) {
                 children: [
                   _buildOverviewCard(
                     title: "คะแนนสูงสุด",
-                    value: "$bestScore", // ← แสดงจำนวนข้อ + หน่วย ข้อ
+                    value: "$bestScore",
 
                     color: const Color.fromARGB(255, 14, 20, 27),
                   ),
@@ -396,7 +396,7 @@ Widget _buildOverviewCard({
   );
 }
 
-// Helper functions สำหรับแปลงเวลา
+// สำหรับแปลงเวลา
 int _parseTimeToSeconds(String timeString) {
   try {
     final parts = timeString.split(':');

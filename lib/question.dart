@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:math';
@@ -7,6 +8,13 @@ import 'score_result.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:easy_radio/easy_radio.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(); // ← เพิ่มบรรทัดนี้
+  runApp(const MyApp());
+}
 
 final _col = FirebaseFirestore.instance
     .collection('exams')
@@ -17,7 +25,7 @@ final _col = FirebaseFirestore.instance
     .doc('English')
     .collection('questions')
     .orderBy('createdAt');
-void main() => runApp(const MyApp());
+// void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -362,46 +370,77 @@ class _ExamJsonScreenState extends State<ExamJsonScreen> {
                               itemCount: (item['choices'] as List).length,
                               itemBuilder: (context, choiceIndex) {
                                 final choice = item['choices'][choiceIndex];
-                                return Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Radio(
-                                      value: choice,
-                                      groupValue: item['selectedAnswer'],
-                                      onChanged: (value) {
-                                        setState(() {
-                                          item['selectedAnswer'] = value;
+                                return Container(
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: 4,
+                                  ),
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
 
-                                          savedAnswers =
-                                              questions!
-                                                  .map(
-                                                    (e) => e['selectedAnswer'],
-                                                  )
-                                                  .toList();
-                                        });
-                                      },
-                                    ),
-                                    Expanded(
-                                      child: Padding(
-                                        padding: EdgeInsets.only(top: 6),
-                                        child: Text(
-                                          '${(choiceIndex + 1)}. $choice',
-                                          softWrap: true,
-                                          overflow: TextOverflow.visible,
-                                          maxLines: 5, // ปรับตามต้องการ
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w600,
-                                            color: Color.fromARGB(
-                                              255,
-                                              58,
-                                              58,
-                                              58,
+                                    children: [
+                                      EasyRadio(
+                                        value: choice,
+                                        groupValue: item['selectedAnswer'],
+                                        onChanged: (value) {
+                                          setState(() {
+                                            item['selectedAnswer'] = value;
+
+                                            savedAnswers =
+                                                questions!
+                                                    .map(
+                                                      (e) =>
+                                                          e['selectedAnswer'],
+                                                    )
+                                                    .toList();
+                                          });
+                                        },
+                                        activeBorderColor: Color.fromARGB(
+                                          255,
+                                          89,
+                                          180,
+                                          192,
+                                        ),
+                                        dotRadius: 10.0,
+                                        radius: 10.0,
+                                        dotStyle: DotStyle.circle(),
+                                        dotColor: Color.fromARGB(
+                                          255,
+                                          89,
+                                          180,
+                                          192,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 5,
+                                      ), // ระยะห่างข้อความกับ radio
+                                      Expanded(
+                                        child: Padding(
+                                          padding: EdgeInsets.fromLTRB(
+                                            4,
+                                            0,
+                                            0,
+                                            0,
+                                          ),
+                                          child: Text(
+                                            '${(choiceIndex + 1)}. $choice',
+                                            softWrap: true,
+                                            overflow: TextOverflow.visible,
+                                            maxLines: 5, // ปรับตามต้องการ
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.w600,
+                                              color: Color.fromARGB(
+                                                255,
+                                                58,
+                                                58,
+                                                58,
+                                              ),
                                             ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 );
                               },
                             ),
@@ -456,7 +495,15 @@ class _ExamJsonScreenState extends State<ExamJsonScreen> {
 
   Future<void> _saveExamResult(int score) async {
     try {
-      final user = FirebaseAuth.instance.currentUser;
+      User? user = FirebaseAuth.instance.currentUser;
+
+      if (user == null) {
+        print('🔐 ไม่พบ user, กำลังทำ anonymous login...');
+        UserCredential userCredential =
+            await FirebaseAuth.instance.signInAnonymously();
+        user = userCredential.user;
+        print('✅ Anonymous login สำเร็จ: ${user?.uid}');
+      }
       if (user != null) {
         final percentage = (score / questions!.length * 100).round();
 

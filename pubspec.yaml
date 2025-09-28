@@ -39,6 +39,8 @@ dependencies:
   firebase_auth: ^6.1.0
   google_fonts: ^6.3.2
   gif: ^2.3.0
+  iconsax_flutter: ^1.0.1
+  easy_radio: ^0.0.3
 
 dev_dependencies:
   flutter_test:
@@ -64,18 +66,34 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/
+    - assets/images/eng2567P6/ # ป6 อังกฤษ 2567 รูปภาพ
+    - assets/images/math2567P6/ # ป6 คณิตศาสตร์ 2567 รูปภาพ
+    - assets/images/thai2567P6/ # ป6 ไทย 2567 รูปภาพ
+    - assets/images/science2567M3/ # ม3 วิทยาศาสตร์ 2567 รูปภาพ
+    - assets/images/science2567P6/ # ป6 วิทยาศาสตร์ 2567 รูปภาพ
+    - assets/images/eng2566P6/ # ป6 อังกฤษ 2566 รูปภาพ
+    - assets/images/science2566P6/ # ป6 คณิตศาสตร์ 2566 รูปภาพ
+    - assets/images/math2566P6/ # ป6 คณิตศาสตร์ 2567 รูปภาพ
+    - assets/images/thai2566P6/ # ป6 ไทย 2566 รูปภาพ
     - assets/onboardingscreenimage/
     - P62567/
-    - P62567/P6English2567.json
-    - P62567/P6Thai2567.json
-    - M32567/M3English2567.json
-    - M32567/M3Science2567.json
-    - M32567/M3Thai2567.json
-    - M32567/M3Math2567.json
-    - M32566/M3English2566.json
-    - M62564/M6social2564.json
-    - assets/images/eng2567P6/
-    - assets/images/science2567M3/
+    - P62567/P6English2567.json # ป6 อังกฤษ 2567
+    - P62567/P6Thai2567.json # ป6 ไทย 2567
+    - P62567/P6Science2567.json # ป6 วิทยาศาสตร์ 2567
+    - P62567/P6Thai2567.json # ป6 ไทย 2567
+    - P62567/P6Math2567.json # ป6 คณิตศาสตร์ 2567
+    - P62566/
+    - P62566/P6English2566.json # ป6 อังกฤษ 2566
+    - P62566/P6Science2566.json # ป6 วิทยาศาสตร์ 2566
+    - P62566/P6Thai2566.json # ป6 ไทย 2566
+    - P62566/P6Math2566.json # ป6 คณิตศาสตร์ 2566
+    - M32567/M3English2567.json # ม3 อังกฤษ 2567
+    - M32567/M3Science2567.json # ม3 วิทยาศาสตร์ 2567
+    - M32567/M3Thai2567.json # ม3 ไทย 2567
+    - M32567/M3Math2567.json # ม3 คณิตศาสตร์ 2567
+    - M32566/M3English2566.json # ม3 อังกฤษ 2566
+    - M62564/M6social2564.json # ม6 สังคมศึกษา 2564
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

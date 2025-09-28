@@ -1,0 +1,173 @@
+[
+  {
+    "question": "Daisy is making this card. What should she write on the card?",
+    "image": "assets/images/eng2566P6/1.png",
+    "choices": ["Happy Easter", "Happy Father’s Day", "Happy Holidays", "Happy Valentine’s Day"],
+    "correct_answer": "Happy Holidays"
+  },
+  {
+    "question": "Ann: I’m going to Phuket this long weekend.\nBell: Wow! How are you travelling and for how long?\nAnn: I’ll drive and stay there for three days.\n\nWhich sentence is correct?",
+    "choices": ["Bell is driving Ann to Phuket.", "Ann is going to Phuket by car.", "Bell and Ann are staying in Phuket.", "Ann and Bell are planning a trip to Phuket."],
+    "correct_answer": "Ann is going to Phuket by car."
+  },
+  {
+    "question": "Which picture shows an American sport?",
+    "choices": ["Sumo wrestling", "High jump", "Kickboxing", "American football"],
+    "correct_answer": "American football"
+  },
+  {
+    "question": "Platypus is the only animal that has no stomach. Which sentence is correct?",
+    "image": "assets/images/eng2566P6/4.png",
+    "choices": ["A platypus has one stomach.", "Every animal has one stomach.", "A platypus does not have a stomach.", "Every animal does not have a stomach."],
+    "correct_answer": "A platypus does not have a stomach."
+  },
+  {
+    "question": "My brothers and sister are visiting me tomorrow. Charlotte is my sister. George and Louis are my brothers. I’m happy to see them all. Which sentence is correct?",
+    "choices": ["Six people are visiting me.", "Three people are coming to my house.", "Charlotte, George, Louis and their brothers are visiting me.", "Charlotte, George and their sisters are coming to my house."],
+    "correct_answer": "Three people are coming to my house."
+  },
+  {
+    "question": "Look at the notice. What is the best name for the notice?",
+    "image": "assets/images/eng2566P6/6.png",
+    "choices": ["Flower Beds", "Creature Land", "Garden Rules", "Vegetable Market"],
+    "correct_answer": "Garden Rules"
+  },
+  {
+    "question": "Look at the sign. What does the sign mean?",
+    "image": "assets/images/eng2566P6/7.png",
+    "choices": ["A camera is on.", "People are making a movie.", "You can watch TV programs here.", "A microphone makes your voice louder."],
+    "correct_answer": "A camera is on."
+  },
+  {
+    "question": "After having lunch at the canteen\nMatt: Can we leave the plates on the table?\nRyan: I don’t think so. Look at the sign.\nWhich sign are they talking about?",
+    "choices": ["Pizza sign", "Return your plates", "No hot drinks", "No fast food"],
+    "correct_answer": "Return your plates"
+  },
+  {
+    "question": "John: I want iced cocoa. What about you?\nLeah: Just milk. Umm, cold milk is better.\nHow much do they have to pay in total?",
+    "image": "assets/images/eng2566P6/9.png",
+    "choices": ["Thirty-Five", "Forty", "Forty-Five", "Fifty"],
+    "correct_answer": "Forty-Five"
+  },
+  {
+    "question": "Students got lower scores in many subjects in 2021. They did better only in maths. Which bar graph is correct?",
+    "choices": ["Graph 1", "Graph 2", "Graph 3", "Graph 4"],
+    "correct_answer": "Graph 3"
+  },
+  {
+    "question": "Jennifer walks from the shop on East Road, turns left at the corner and turns right onto West Road. When she arrives at Main Road, she turns left and crosses the road to the pizzeria. Which map is correct?",
+    "choices": ["Map 1", "Map 2", "Map 3", "Map 4"],
+    "correct_answer": "Map 1"
+  },
+  {
+    "question": "Which sentence is correct?",
+    "choices": ["And I go to once a week the museum my friends.", "Once a week go to the museum my friends and I.", "Go to the museum and I my friends once a week.", "My friends and I go to the museum once a week."],
+    "correct_answer": "My friends and I go to the museum once a week."
+  },
+  {
+    "question": "Which question has a different intonation?",
+    "choices": ["Why did they come late?", "What is the weather like?", "Have you finished it yet?", "How often does he exercise?"],
+    "correct_answer": "Have you finished it yet?"
+  },
+  {
+    "question": "Which sentence has the correct punctuation?",
+    "choices": ["No, I can’t.", "Yes! I can;", "Yes. we can;", "No; we can’t!"],
+    "correct_answer": "No, I can’t."
+  },
+  {
+    "question": "Trisha: This must be _______. The fireworks are always amazing.\nMali: No, it’s not. It’s the Loy Krathong festival in Thailand.",
+    "image": "assets/images/eng2566P6/15.png",
+    "choices": ["New Year", "Christmas", "Halloween", "Thanksgiving"],
+    "correct_answer": "New Year"
+  },
+  {
+    "question": "Ava: You’re having rice and chicken again.\nLucas: Sure! _______\nAva: I can’t have the same dish every day.",
+    "choices": ["You like it. It’s bad.", "I like it. It’s delicious.", "I hate rice. You love spaghetti.", "You love noodles. I hate chicken."],
+    "correct_answer": "I like it. It’s delicious."
+  },
+  {
+    "question": "Ron: Hey, Sarah! You look tired. What’s the matter?\nSarah: _______ I think I’ve caught COVID-19.",
+    "choices": ["I feel terrible.", "I look so good.", "You feel okay, too.", "You look tired, too."],
+    "correct_answer": "I feel terrible."
+  },
+  {
+    "question": "Brad: Did he steal anything?\nAlisha: _______ But he ate all my food!",
+    "choices": ["Of course.", "Maybe not.", "Yes, he did.", "No, he didn’t."],
+    "correct_answer": "No, he didn’t."
+  },
+  {
+    "question": "Paula: I should get back to my class.\nSean: Me, too. _______",
+    "choices": ["Hello.", "Hi there.", "See you.", "Good night."],
+    "correct_answer": "See you."
+  },
+  {
+    "question": "Matt: Oh, I didn’t bring my English book today.\nGreg: Don’t worry. We can share.\nMatt: _______",
+    "image": "assets/images/eng2566P6/20.png",
+    "choices": ["See you later.", "Nice to meet you.", "Sorry to hear that.", "Thank you very much."],
+    "correct_answer": "Thank you very much."
+  },
+  {
+    "question": "Rose: Could you help me write an essay?\nSonia: _______ I haven’t finished mine yet.",
+    "choices": ["I’m sorry.", "Yes, please.", "That’s alright.", "No, thank you."],
+    "correct_answer": "I’m sorry."
+  },
+  {
+    "question": "Zara: Mike is cute.\nSophie: _______ He’s a friend of mine, Jerry.",
+    "image": "assets/images/eng2566P6/22.png",
+    "choices": ["I met Mike.", "This is not me.", "You know me.", "That’s not Mike."],
+    "correct_answer": "That’s not Mike."
+  },
+  {
+    "question": "During the exam\nStudent: _______\nTeacher: Yes. But come right back.",
+    "choices": ["Will you come with me?", "May I go to the restroom?", "Should I come in the room?", "Would you like to go home?"],
+    "correct_answer": "May I go to the restroom?"
+  },
+  {
+    "question": "Meg: After the final exam I’m going to make a knitted doll. What about you?\nBob: _______",
+    "image": "assets/images/eng2566P6/24.png",
+    "choices": ["I’ll do the exam very well.", "I’ll work on my stamp collection.", "You’ll watch a hit television series.", "You’ll give me a gift from the north."],
+    "correct_answer": "I’ll work on my stamp collection."
+  },
+  {
+    "question": "Adele: I have a headache.\nSharon: _______\nAdele: All right. I will.",
+    "choices": ["You might go to visit your grandma.", "You can choose a vaccine or a mask.", "You would like to be a doctor or a nurse.", "You should take a pill and get some sleep."],
+    "correct_answer": "You should take a pill and get some sleep."
+  },
+  {
+    "question": "William: You played very well. How long have you been playing?\nJames: _______",
+    "choices": ["Just for fun.", "I play on a team.", "For about a year now.", "I play every Saturday."],
+    "correct_answer": "For about a year now."
+  },
+  {
+    "question": "Liam: How can I get to your house?\nWilly: Very easy. _______ and get off at the post office. I’ll wait for you there.",
+    "choices": ["Take bus number 12", "Get a good bicycle", "Ask people near here", "Walk to the corner"],
+    "correct_answer": "Take bus number 12"
+  },
+  {
+    "question": "Aunt: I can’t send a message to my friend. _______\nNephew: Sure! It’s easy.",
+    "image": "assets/images/eng2566P6/28.png",
+    "choices": ["May I teach you?", "It’s very kind of you.", "You’re very welcome.", "Can you help me with it?"],
+    "correct_answer": "Can you help me with it?"
+  },
+  {
+    "question": "Siri: What do you think? Should we bring the dog?\nTed: That’d be great! _______",
+    "choices": ["I saw them all.", "He’ll love it there.", "They are not allowed.", "You have never been here."],
+    "correct_answer": "He’ll love it there."
+  },
+  {
+    "question": "Evelyn: How was the movie last night?\nIvy: _______",
+    "choices": ["I didn’t read it. I told my classmates about it.", "I’m not funny. I told a joke to my classmates.", "I’m not tired. I went for a walk for 10 minutes.", "I didn’t like it. I fell asleep after the first 10 minutes."],
+    "correct_answer": "I didn’t like it. I fell asleep after the first 10 minutes."
+  },
+  {
+    "question": "Abe: Did you hear that? I heard thunder.\nYuki: Oh, no! _______",
+    "choices": ["A storm is coming.", "It sounds like fun.", "The sun is setting.", "It must be sunny."],
+    "correct_answer": "A storm is coming."
+  },
+  {
+    "question": "Son: I’m not sleepy, Mom.\nMom: It’s very late now. _______ It’s time to sleep.",
+    "image": "assets/images/eng2566P6/32.png",
+    "choices": ["Switch off the light and study.", "Turn off the TV and go to bed.", "Switch on the light and exercise.", "Turn on the TV and do your homework."],
+    "correct_answer": "Turn off the TV and go to bed."
+  }
+]

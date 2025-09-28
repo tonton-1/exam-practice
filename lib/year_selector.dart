@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'question.dart';
 import 'education_level_selector_onet.dart';
@@ -16,10 +18,34 @@ class YearSelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String showGrade = '';
+    if (grade == 'P6') {
+      showGrade = 'ป.6';
+    } else if (grade == 'M3') {
+      showGrade = 'ม.3';
+    } else if (grade == 'M6') {
+      showGrade = 'ม.6';
+    } else {
+      showGrade = grade ?? '';
+    }
+    String showSubject = '';
+    if (subject == 'Thai') {
+      showSubject = 'ภาษาไทย';
+    } else if (subject == 'English') {
+      showSubject = 'ภาษาอังกฤษ';
+    } else if (subject == 'Math') {
+      showSubject = 'คณิตศาสตร์';
+    } else if (subject == 'Science') {
+      showSubject = 'วิทยาศาสตร์';
+    } else if (subject == 'Social') {
+      showSubject = 'สังคมศึกษา';
+    } else {
+      showSubject = subject ?? '';
+    }
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 246, 247, 248),
       appBar: AppBar(
-        title: Text('เลือกปีของข้อสอบ'),
+        title: Text('เลือกปีของข้อสอบ   (${showGrade} > ${showSubject})'),
         backgroundColor: Color.fromARGB(255, 246, 247, 248),
       ),
       body: Padding(

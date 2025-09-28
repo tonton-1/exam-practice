@@ -10,17 +10,38 @@ class SelectModeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String showGrade = '';
+    if (grade == 'P6') {
+      showGrade = 'ป.6';
+    } else if (grade == 'M3') {
+      showGrade = 'ม.3';
+    } else if (grade == 'M6') {
+      showGrade = 'ม.6';
+    } else {
+      showGrade = grade ?? '';
+    }
+    String showSubject = '';
+    if (subject == 'Thai') {
+      showSubject = 'ภาษาไทย';
+    } else if (subject == 'English') {
+      showSubject = 'ภาษาอังกฤษ';
+    } else if (subject == 'Math') {
+      showSubject = 'คณิตศาสตร์';
+    } else if (subject == 'Science') {
+      showSubject = 'วิทยาศาสตร์';
+    } else if (subject == 'Social') {
+      showSubject = 'สังคมศึกษา';
+    } else {
+      showSubject = subject ?? '';
+    }
+
     return Scaffold(
-      backgroundColor: Color(0xFFF5F6FA),
+      backgroundColor: Color.fromARGB(255, 246, 247, 248),
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        title: Text('เลือกโหมด   (${showGrade} > ${showSubject} > ${year})'),
+        backgroundColor: Color.fromARGB(255, 246, 247, 248),
         elevation: 0,
         iconTheme: IconThemeData(color: Colors.black87),
-        titleTextStyle: TextStyle(
-          color: Colors.black87,
-          fontSize: 20,
-          fontWeight: FontWeight.w600,
-        ),
       ),
       body: Padding(
         padding: EdgeInsets.all(20),

@@ -3,9 +3,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'home.dart';
+import 'firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  if (Firebase.apps.isEmpty) {
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+  }
+
   runApp(const MyApp());
 }
 
@@ -21,8 +31,8 @@ class MyApp extends StatelessWidget {
           child: Column(
             children: [
               ElevatedButton(
-                onPressed: () {
-                  uploadFromAsset();
+                onPressed: () async {
+                  await uploadFromAsset();
                 },
                 child: const Text('Upload JSON to Firestore'),
               ),
@@ -35,12 +45,12 @@ class MyApp extends StatelessWidget {
 }
 
 Future<void> uploadFromAsset() async {
-  const year = 2567;
+  const year = 2566;
   const grade = 'P6';
-  const subject = 'English';
+  const subject = 'Thai';
 
   final db = FirebaseFirestore.instance;
-  final text = await rootBundle.loadString('P62567/P6English2567.json');
+  final text = await rootBundle.loadString('P62566/P6Thai2566.json');
   print('✅ โหลดไฟล์สำเร็จ! ขนาด: ${text.length} characters');
   final List<dynamic> items = json.decode(text);
 

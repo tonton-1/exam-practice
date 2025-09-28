@@ -8,11 +8,21 @@ class SubjectSelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String showGrade = '';
+    if (grade == 'P6') {
+      showGrade = 'ป.6';
+    } else if (grade == 'M3') {
+      showGrade = 'ม.3';
+    } else if (grade == 'M6') {
+      showGrade = 'ม.6';
+    } else {
+      showGrade = grade ?? '';
+    }
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 246, 247, 248),
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 246, 247, 248),
-        title: Text('เลือกวิชา'),
+        title: Text('เลือกวิชา   (${showGrade})'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -179,45 +189,47 @@ class SubjectSelector extends StatelessWidget {
                 ),
               ),
             ),
-            GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder:
-                        (context) =>
-                            YearSelector(subject: 'Social', grade: grade),
+            if (grade == 'M6') ...[
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder:
+                          (context) =>
+                              YearSelector(subject: 'Social', grade: grade),
+                    ),
+                  );
+                },
+                child: Container(
+                  width: (MediaQuery.of(context).size.width - 36) / 2,
+                  height: 150,
+                  padding: EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 255, 255, 255),
+                    borderRadius: BorderRadius.circular(8),
                   ),
-                );
-              },
-              child: Container(
-                width: (MediaQuery.of(context).size.width - 36) / 2,
-                height: 150,
-                padding: EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 255, 255, 255),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Icon(
-                      Icons.people,
-                      size: 64,
-                      color: Color.fromARGB(255, 51, 65, 85),
-                    ),
-                    Spacer(),
-                    Text(
-                      'สังคมศึกษา',
-                      style: TextStyle(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Icon(
+                        Icons.people,
+                        size: 64,
                         color: Color.fromARGB(255, 51, 65, 85),
-                        fontSize: 16,
                       ),
-                    ),
-                  ],
+                      Spacer(),
+                      Text(
+                        'สังคมศึกษา',
+                        style: TextStyle(
+                          color: Color.fromARGB(255, 51, 65, 85),
+                          fontSize: 16,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
+            ],
           ],
         ),
       ),

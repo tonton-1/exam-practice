@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'home.dart';
 import 'profile_screen.dart';
 import 'history_screen.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 class MainNavigation extends StatefulWidget {
   @override
@@ -25,24 +26,33 @@ class _MainNavigationState extends State<MainNavigation> {
             _currentIndex = index;
           });
         },
-        selectedItemColor: Colors.blue,
+        selectedItemColor: Color.fromARGB(255, 86, 179, 191),
         unselectedItemColor: Colors.grey,
         backgroundColor: Colors.white,
         elevation: 8,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            activeIcon: Icon(Icons.home, color: Colors.blue),
+            icon: Icon(Iconsax.home),
+            activeIcon: Icon(
+              Iconsax.home,
+              color: Color.fromARGB(255, 86, 179, 191),
+            ),
             label: 'หน้าหลัก',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.history),
-            activeIcon: Icon(Icons.history, color: Colors.blue),
+            icon: Icon(Iconsax.chart_2),
+            activeIcon: Icon(
+              Iconsax.chart_2,
+              color: Color.fromARGB(255, 86, 179, 191),
+            ),
             label: 'ประวัติ',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            activeIcon: Icon(Icons.person, color: Colors.blue),
+            icon: Icon(Iconsax.profile_circle),
+            activeIcon: Icon(
+              Iconsax.profile_circle,
+              color: Color.fromARGB(255, 86, 179, 191),
+            ),
             label: 'โปรไฟล์',
           ),
         ],
