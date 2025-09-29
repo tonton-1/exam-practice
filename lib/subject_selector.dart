@@ -22,7 +22,20 @@ class SubjectSelector extends StatelessWidget {
       backgroundColor: Color.fromARGB(255, 246, 247, 248),
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 246, 247, 248),
-        title: Text('เลือกวิชา   (${showGrade})'),
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'เลือกวิชา',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+            ),
+            SizedBox(height: 4),
+            Text(
+              "(${showGrade})",
+              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+            ),
+          ],
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),

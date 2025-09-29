@@ -3,6 +3,7 @@ import 'auth_service.dart';
 import 'register_screen.dart';
 import 'home.dart';
 import 'main_navigation.dart';
+import 'package:lottie/lottie.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -221,7 +222,12 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         child:
                             _isLoading
-                                ? CircularProgressIndicator(color: Colors.white)
+                                ? Lottie.network(
+                                  'https://lottie.host/c33d2700-5029-4b0c-9705-efaaf01f6096/V6QawN9SEG.json',
+                                  width: 60,
+                                  height: 60,
+                                  fit: BoxFit.cover,
+                                )
                                 : Text(
                                   'เข้าสู่ระบบ',
                                   style: TextStyle(

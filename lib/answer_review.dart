@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 class AnswerReview extends StatefulWidget {
   final List<Map<String, dynamic>> questions;
@@ -56,7 +57,7 @@ class _AnswerReviewState extends State<AnswerReview>
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 249, 250, 251),
       appBar: AppBar(
-        title: Text('ดูคำตอบ (${widget.score}/${widget.totalQuestions} ข้อ)'),
+        title: Text('ดูคำตอบ'),
         backgroundColor: Color.fromARGB(255, 86, 179, 191),
         foregroundColor: Colors.white,
         bottom: TabBar(
@@ -66,7 +67,7 @@ class _AnswerReviewState extends State<AnswerReview>
           unselectedLabelColor: Colors.white70,
           tabs: [
             Tab(
-              icon: Icon(Icons.check_circle),
+              icon: Icon(Iconsax.tick_square),
               text: 'ข้อที่ถูก (${correctQuestions.length})',
             ),
             Tab(
@@ -165,20 +166,20 @@ class _AnswerReviewState extends State<AnswerReview>
             // หัวข้อคำถาม พร้อมสถานะ
             Row(
               children: [
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                  decoration: BoxDecoration(
-                    color: isCorrectTab ? Colors.green : Colors.red,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Text(
-                    'ข้อ $originalIndex',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
+                // Container(
+                //   padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                //   decoration: BoxDecoration(
+                //     color: isCorrectTab ? Colors.green : Colors.red,
+                //     borderRadius: BorderRadius.circular(20),
+                //   ),
+                //   child: Text(
+                //     'ข้อ $originalIndex',
+                //     style: TextStyle(
+                //       color: Colors.white,
+                //       fontWeight: FontWeight.bold,
+                //     ),
+                //   ),
+                // ),
                 Spacer(),
                 Icon(
                   isCorrectTab ? Icons.check_circle : Icons.cancel,
@@ -201,7 +202,7 @@ class _AnswerReviewState extends State<AnswerReview>
 
             // คำถาม
             Text(
-              '${question['question'] ?? ''}',
+              '${originalIndex}. ${question['question'] ?? ''}',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
 
@@ -236,13 +237,13 @@ class _AnswerReviewState extends State<AnswerReview>
             SizedBox(height: 12),
 
             // สรุปคำตอบ
-            _buildAnswerSummary(
-              userAnswer,
-              correctAnswer,
-              isCorrect,
-              originalIndex,
-              isCorrectTab,
-            ),
+            // _buildAnswerSummary(
+            //   userAnswer,
+            //   correctAnswer,
+            //   isCorrect,
+            //   originalIndex,
+            //   isCorrectTab,
+            // ),
           ],
         ),
       ),

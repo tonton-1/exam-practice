@@ -14,9 +14,11 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 246, 247, 248),
       appBar: AppBar(
-        title: Center(
-          child: Text('โปรไฟล์', style: TextStyle(color: Colors.black)),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () => Navigator.pop(context),
         ),
+        title: Text('โปรไฟล์', style: TextStyle(color: Colors.black)),
         backgroundColor: Color.fromARGB(255, 246, 247, 248),
         foregroundColor: Colors.white,
         automaticallyImplyLeading: false, // ไม่แสดงปุ่มย้อนกลับ

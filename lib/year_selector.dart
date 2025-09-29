@@ -45,7 +45,20 @@ class YearSelector extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 246, 247, 248),
       appBar: AppBar(
-        title: Text('เลือกปีของข้อสอบ   (${showGrade} > ${showSubject})'),
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'เลือกปีของข้อสอบ',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+            ),
+            SizedBox(height: 4),
+            Text(
+              "(${showGrade} > ${showSubject})",
+              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+            ),
+          ],
+        ),
         backgroundColor: Color.fromARGB(255, 246, 247, 248),
       ),
       body: Padding(

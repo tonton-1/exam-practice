@@ -12,7 +12,10 @@ class MainNavigation extends StatefulWidget {
 class _MainNavigationState extends State<MainNavigation> {
   int _currentIndex = 0;
 
-  final List<Widget> _screens = [HomePage(), HistoryScreen(), ProfileScreen()];
+  final List<Widget> _screens = [
+    HomePage(),
+    HistoryScreen() /*ProfileScreen()*/,
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +40,7 @@ class _MainNavigationState extends State<MainNavigation> {
               Iconsax.home,
               color: Color.fromARGB(255, 86, 179, 191),
             ),
-            label: 'หน้าหลัก',
+            label: '',
           ),
           BottomNavigationBarItem(
             icon: Icon(Iconsax.chart_2),
@@ -45,16 +48,16 @@ class _MainNavigationState extends State<MainNavigation> {
               Iconsax.chart_2,
               color: Color.fromARGB(255, 86, 179, 191),
             ),
-            label: 'ประวัติ',
+            label: '',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Iconsax.profile_circle),
-            activeIcon: Icon(
-              Iconsax.profile_circle,
-              color: Color.fromARGB(255, 86, 179, 191),
-            ),
-            label: 'โปรไฟล์',
-          ),
+          // BottomNavigationBarItem(
+          //   icon: Icon(Iconsax.profile_circle),
+          //   activeIcon: Icon(
+          //     Iconsax.profile_circle,
+          //     color: Color.fromARGB(255, 86, 179, 191),
+          //   ),
+          //   label: '',
+          // ),
         ],
       ),
     );

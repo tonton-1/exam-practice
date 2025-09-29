@@ -38,7 +38,20 @@ class SelectModeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 246, 247, 248),
       appBar: AppBar(
-        title: Text('เลือกโหมด   (${showGrade} > ${showSubject} > ${year})'),
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'เลือกโหมด',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+            ),
+            SizedBox(height: 4),
+            Text(
+              "(${showGrade} > ${showSubject} > ${year})",
+              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+            ),
+          ],
+        ),
         backgroundColor: Color.fromARGB(255, 246, 247, 248),
         elevation: 0,
         iconTheme: IconThemeData(color: Colors.black87),

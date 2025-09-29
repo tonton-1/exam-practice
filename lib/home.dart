@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'education_level_selector_onet.dart';
 import 'dart:ui';
+import 'profile_screen.dart';
 
 void main() {
   runApp(MaterialApp(home: HomePage()));
@@ -13,10 +14,53 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 246, 247, 248),
-      appBar: AppBar(
-        title: Text('Home Page'),
-        backgroundColor: Color.fromARGB(255, 246, 247, 248),
+
+      appBar: AppBar(backgroundColor: Color.fromARGB(255, 246, 247, 248)),
+
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Color.fromARGB(255, 251, 113, 133),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'ExamPractice',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 8),
+                  Text(
+                    'ฝึกทำข้อสอบ O-NET',
+                    style: TextStyle(color: Colors.white70, fontSize: 16),
+                  ),
+                ],
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text('บัญชีของฉัน'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ProfileScreen()),
+                );
+              },
+            ),
+
+            Divider(),
+          ],
+        ),
       ),
+
       body: Center(
         child: Column(
           children: [

@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
-
+import 'main_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:math';
@@ -9,6 +9,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:easy_radio/easy_radio.dart';
+import 'package:lottie/lottie.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -254,6 +255,42 @@ class _ExamJsonScreenState extends State<ExamJsonScreen> {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 252, 253, 255),
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.close), // ← เปลี่ยนเป็นไอคอนบ้าน
+          onPressed: () async {
+            // แสดง warning ก่อนออกจากหน้า
+            bool? confirm = await showDialog<bool>(
+              context: context,
+              builder:
+                  (context) => AlertDialog(
+                    title: Text('แจ้งเตือน'),
+                    content: Text(
+                      'คุณต้องการออกจากหน้านี้หรือไม่? คำตอบของคุณจะไม่ถูกบันทึก',
+                    ),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(context, false),
+                        child: Text('ยกเลิก'),
+                      ),
+                      TextButton(
+                        onPressed: () => Navigator.pop(context, true),
+
+                        child: Text('ออก'),
+                      ),
+                    ],
+                  ),
+            );
+            if (confirm == true) {
+              _timer?.cancel(); // หยุด timer
+              Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(
+                  builder: (context) => MainNavigation(),
+                ), // ← ไปหน้า HomePage
+                (Route<dynamic> route) => false, // ลบ route stack ทั้งหมด
+              );
+            }
+          },
+        ),
         backgroundColor: Color.fromARGB(255, 252, 253, 255),
         title: Row(
           children: [
@@ -309,7 +346,13 @@ class _ExamJsonScreenState extends State<ExamJsonScreen> {
       ),
       body:
           isLoading
-              ? const Center(child: CircularProgressIndicator())
+              ? Center(
+                child: Lottie.network(
+                  width: 150,
+                  height: 150,
+                  'https://lottie.host/640a74ff-df00-40de-b719-584aead33105/2GafYjbCmH.json',
+                ),
+              )
               : (questions == null || questions!.isEmpty)
               ? const Center(
                 child: Column(
@@ -338,120 +381,159 @@ class _ExamJsonScreenState extends State<ExamJsonScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Expanded(
-                      child: ListView.builder(
-                        itemCount: questions!.length,
-                        itemBuilder: (context, index) {
-                          final item = questions![index];
-                          return ListTile(
-                            title: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  '${index + 1}. ${item['question'] ?? 'No question'}',
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: ListView.builder(
+                          itemCount: questions!.length,
+                          itemBuilder: (context, index) {
+                            final item = questions![index];
+                            return ListTile(
+                              title: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    '${index + 1}. ${item['question'] ?? 'No question'}',
+                                    style: const TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
-                                ),
-                                Image.asset(
-                                  '${item['image']}',
-                                  height: 250,
-                                  errorBuilder: (context, error, stackTrace) {
-                                    return const Text(
-                                      '',
-                                    ); //ตรงนี้ทำให้เว้นบรรทัดก่อน ที่ จะแสดง CHOICE
-                                  },
-                                ),
-                              ],
-                            ),
-
-                            subtitle: ListView.builder(
-                              shrinkWrap: true,
-                              physics: const NeverScrollableScrollPhysics(),
-                              itemCount: (item['choices'] as List).length,
-                              itemBuilder: (context, choiceIndex) {
-                                final choice = item['choices'][choiceIndex];
-                                return Container(
-                                  padding: const EdgeInsets.symmetric(
-                                    vertical: 4,
+                                  Image.asset(
+                                    '${item['image']}',
+                                    height: 250,
+                                    errorBuilder: (context, error, stackTrace) {
+                                      return const Text(
+                                        '',
+                                      ); //ตรงนี้ทำให้เว้นบรรทัดก่อน ที่ จะแสดง CHOICE
+                                    },
                                   ),
-                                  child: Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                ],
+                              ),
 
-                                    children: [
-                                      EasyRadio(
-                                        value: choice,
-                                        groupValue: item['selectedAnswer'],
-                                        onChanged: (value) {
-                                          setState(() {
-                                            item['selectedAnswer'] = value;
+                              subtitle: ListView.builder(
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                itemCount: (item['choices'] as List).length,
+                                itemBuilder: (context, choiceIndex) {
+                                  final choice = item['choices'][choiceIndex];
+                                  return Container(
+                                    padding: const EdgeInsets.symmetric(
+                                      vertical: 4,
+                                    ),
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
 
-                                            savedAnswers =
-                                                questions!
-                                                    .map(
-                                                      (e) =>
-                                                          e['selectedAnswer'],
-                                                    )
-                                                    .toList();
-                                          });
-                                        },
-                                        activeBorderColor: Color.fromARGB(
-                                          255,
-                                          89,
-                                          180,
-                                          192,
-                                        ),
-                                        dotRadius: 10.0,
-                                        radius: 10.0,
-                                        dotStyle: DotStyle.circle(),
-                                        dotColor: Color.fromARGB(
-                                          255,
-                                          89,
-                                          180,
-                                          192,
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        width: 5,
-                                      ), // ระยะห่างข้อความกับ radio
-                                      Expanded(
-                                        child: Padding(
-                                          padding: EdgeInsets.fromLTRB(
-                                            4,
-                                            0,
-                                            0,
-                                            0,
+                                      children: [
+                                        EasyRadio(
+                                          value: choice,
+                                          groupValue: item['selectedAnswer'],
+                                          onChanged: (value) {
+                                            setState(() {
+                                              item['selectedAnswer'] = value;
+
+                                              savedAnswers =
+                                                  questions!
+                                                      .map(
+                                                        (e) =>
+                                                            e['selectedAnswer'],
+                                                      )
+                                                      .toList();
+                                            });
+                                          },
+                                          activeBorderColor: Color.fromARGB(
+                                            255,
+                                            89,
+                                            180,
+                                            192,
                                           ),
-                                          child: Text(
-                                            '${(choiceIndex + 1)}. $choice',
-                                            softWrap: true,
-                                            overflow: TextOverflow.visible,
-                                            maxLines: 5, // ปรับตามต้องการ
-                                            style: TextStyle(
-                                              fontWeight: FontWeight.w600,
-                                              color: Color.fromARGB(
-                                                255,
-                                                58,
-                                                58,
-                                                58,
+                                          dotRadius: 10.0,
+                                          radius: 10.0,
+                                          dotStyle: DotStyle.circle(),
+                                          dotColor: Color.fromARGB(
+                                            255,
+                                            89,
+                                            180,
+                                            192,
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          width: 5,
+                                        ), // ระยะห่างข้อความกับ radio
+                                        Expanded(
+                                          child: Padding(
+                                            padding: EdgeInsets.fromLTRB(
+                                              4,
+                                              0,
+                                              0,
+                                              0,
+                                            ),
+                                            child: Text(
+                                              '${(choiceIndex + 1)}. $choice',
+                                              softWrap: true,
+                                              overflow: TextOverflow.visible,
+                                              maxLines: 5, // ปรับตามต้องการ
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.w600,
+                                                color: Color.fromARGB(
+                                                  255,
+                                                  58,
+                                                  58,
+                                                  58,
+                                                ),
                                               ),
                                             ),
                                           ),
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                );
-                              },
-                            ),
-                          );
-                        },
+                                      ],
+                                    ),
+                                  );
+                                },
+                              ),
+                            );
+                          },
+                        ),
                       ),
                     ),
                     ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color.fromARGB(255, 89, 180, 192),
+                        minimumSize: Size(
+                          double.infinity,
+                          50,
+                        ), // ← เต็มความกว้าง
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
                       onPressed: () {
                         _timer?.cancel(); // หยุดจับเวลาเมื่อกด Submit
                         int score = 0;
+                        //  ตรวจว่ามีข้อที่ยังไม่ได้ตอบหรือไม่
+                        bool hasUnanswered = questions!.any(
+                          (q) =>
+                              q['selectedAnswer'] == null ||
+                              q['selectedAnswer'].toString().isEmpty,
+                        );
+                        if (hasUnanswered) {
+                          // ถ้ายังมีข้อที่ไม่ได้ตอบ โชว์ Alert แจ้งเตือน
+                          showDialog(
+                            context: context,
+                            builder:
+                                (context) => AlertDialog(
+                                  title: const Text('แจ้งเตือน'),
+                                  content: const Text(
+                                    'กรุณาตอบให้ครบทุกข้อก่อนส่งคำตอบ',
+                                  ),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () => Navigator.pop(context),
+                                      child: const Text('ตกลง'),
+                                    ),
+                                  ],
+                                ),
+                          );
+                          return; // ⛔ หยุด ไม่ให้ไปคำนวณคะแนน
+                        }
                         for (int i = 0; i < questions!.length; i++) {
                           final userAnswer = questions![i]['selectedAnswer'];
                           print('User Answer: $userAnswer');
@@ -485,7 +567,10 @@ class _ExamJsonScreenState extends State<ExamJsonScreen> {
                           ),
                         );
                       },
-                      child: const Text('Submit'),
+                      child: const Text(
+                        'ส่งคำตอบ',
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
                   ],
                 ),
