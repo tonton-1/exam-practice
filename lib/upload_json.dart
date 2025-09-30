@@ -45,38 +45,43 @@ class MyApp extends StatelessWidget {
 }
 
 Future<void> uploadFromAsset() async {
-  const year = 2566;
-  const grade = 'P6';
-  const subject = 'Thai';
+  try {
+    const year = 2565;
+    const grade = 'M3';
+    const subject = 'Science';
 
-  final db = FirebaseFirestore.instance;
-  final text = await rootBundle.loadString('P62566/P6Thai2566.json');
-  print('✅ โหลดไฟล์สำเร็จ! ขนาด: ${text.length} characters');
-  final List<dynamic> items = json.decode(text);
+    final db = FirebaseFirestore.instance;
+    final text = await rootBundle.loadString('M32565/M3Science2565.json');
+    print('✅ โหลดไฟล์สำเร็จ! ขนาด: ${text.length} characters');
+    final List<dynamic> items = json.decode(text);
 
-  final base = db
-      .collection('grades')
-      .doc(grade) // P6
-      .collection('subjects')
-      .doc(subject) // English
-      .collection('years')
-      .doc('$year') // 2567
-      .collection('questions');
+    final base = db
+        .collection('grades')
+        .doc(grade) // P6
+        .collection('subjects')
+        .doc(subject) // English
+        .collection('years')
+        .doc('$year') // 2567
+        .collection('questions');
 
-  final batch = db.batch();
-  for (final q in items) {
-    final doc = base.doc();
-    batch.set(doc, {
-      'question': q['question'] ?? '',
-      'choices': q['choices'] ?? [],
-      'correct_answer': q['correct_answer'],
-      'image': q['image'],
-      'year': year,
-      'grade': grade,
-      'subject': subject,
-      'createdAt': FieldValue.serverTimestamp(),
-    });
+    final batch = db.batch();
+    for (final q in items) {
+      final doc = base.doc();
+      batch.set(doc, {
+        'question': q['question'] ?? '',
+        'choices': q['choices'] ?? [],
+        'correct_answer': q['correct_answer'],
+        'image': q['image'],
+        'year': year,
+        'grade': grade,
+        'subject': subject,
+        'createdAt': FieldValue.serverTimestamp(),
+      });
+    }
+    await batch.commit();
+    print('Upload complete! $year $grade $subject ${items.length} questions');
+  } catch (e) {
+    print('Error during anonymous sign-in: $e');
+    return;
   }
-  await batch.commit();
-  print('Upload complete! $year $grade $subject ${items.length} questions');
 }

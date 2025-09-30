@@ -42,6 +42,9 @@ dependencies:
   iconsax_flutter: ^1.0.1
   easy_radio: ^0.0.3
   lottie: ^3.3.1
+  salomon_bottom_bar: ^3.3.2
+  smooth_list_view: ^2.0.2
+  intl: ^0.20.2
 
 dev_dependencies:
   flutter_test:
@@ -76,6 +79,11 @@ flutter:
     - assets/images/science2566P6/ # ป6 คณิตศาสตร์ 2566 รูปภาพ
     - assets/images/math2566P6/ # ป6 คณิตศาสตร์ 2567 รูปภาพ
     - assets/images/thai2566P6/ # ป6 ไทย 2566 รูปภาพ
+    - assets/images/math2564M6/ # ม3 อังกฤษ 2567 รูปภาพ
+    - assets/images/math2563M6/
+    - assets/images/eng2566M3/
+    - assets/images/math2566M3/
+    - assets/images/thai2566M3/ # ม3 ไทย 2566 รูปภาพ
     - assets/onboardingscreenimage/
     - P62567/
     - P62567/P6English2567.json # ป6 อังกฤษ 2567
@@ -83,6 +91,7 @@ flutter:
     - P62567/P6Science2567.json # ป6 วิทยาศาสตร์ 2567
     - P62567/P6Thai2567.json # ป6 ไทย 2567
     - P62567/P6Math2567.json # ป6 คณิตศาสตร์ 2567
+
     - P62566/
     - P62566/P6English2566.json # ป6 อังกฤษ 2566
     - P62566/P6Science2566.json # ป6 วิทยาศาสตร์ 2566
@@ -92,8 +101,25 @@ flutter:
     - M32567/M3Science2567.json # ม3 วิทยาศาสตร์ 2567
     - M32567/M3Thai2567.json # ม3 ไทย 2567
     - M32567/M3Math2567.json # ม3 คณิตศาสตร์ 2567
-    - M32566/M3English2566.json # ม3 อังกฤษ 2566
+
     - M62564/M6social2564.json # ม6 สังคมศึกษา 2564
+    - M62564/
+    - M62564/M6Math2564.json # ม6 คณิตศาสตร์ 2564
+    - M62564/M6Thai2564.json # ม6 ไทย 2564
+    - M62563/
+    - M62563/M6Math2563.json # ม6 คณิตศาสตร์ 2563
+    - M62563/M6Social2563.json # ม6 สังคมศึกษา 2563
+    - M62563/M6Thai2563.json # ม6 ไทย 2563
+    - M32566/
+    - M32566/M3Math2566.json # ม3 คณิตศาสตร์ 2566
+    - M32566/M3English2566.json # ม3 อังกฤษ 2566
+    - M32566/M3Thai2566.json # ม3 วิทยาศาสตร์ 2566
+    - M32566/M3Science2566.json
+    - M32565/
+    - M32565/M3Math2565.json # ม3 คณิตศาสตร์ 2565
+    - M32565/M3English2565.json # ม3 อังกฤษ 2565
+    - M32565/M3Science2565.json # ม3 วิทยาศาสตร์
+    - M32565/M3Thai2565.json # ม3 ไทย 2565
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

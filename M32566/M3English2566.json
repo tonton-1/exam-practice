@@ -46,6 +46,7 @@
   },
   {
     "question": "Directions: Read a pancake recipe. Then, rearrange the following sentences to show the correct steps of how to make pancakes.\nSentences: \nA. Cook until browned then turn the pancake over.\nB. Heat the pan with a light coat of oil or butter.\nC. Turn the pancake out into a plate for serving.\nD. Mix the flour, milk, eggs and butter together.\nE. Pour the pancake mixture slowly into the pan.",
+    "image": "assets/images/eng2566M3/10.png",
     "choices": ["D-B-E-A-C", "B-A-D-E-C", "D-A-B-C-E", "B-D-A-C-E"],
     "correct_answer": "D-B-E-A-C"
   },
@@ -94,26 +95,7 @@
     "choices": ["The police will release their findings.", "The apartment building will be demolished.", "The apartment owners will be responsible for the repairs.", "The affected residents will be compensated for their injuries."],
     "correct_answer": "The police will release their findings."
   },
-  {
-    "question": "What is the main idea of this passage?",
-    "choices": ["The god of the Sun was highly regarded in Ancient Egypt.", "Bad luck results from opening an umbrella inside a house.", "There are different theories about the origin of the umbrella superstition.", "Londoners do not generally open up their umbrellas while visiting neighbors."],
-    "correct_answer": "There are different theories about the origin of the umbrella superstition."
-  },
-  {
-    "question": "Which information can be found in paragraph 2?",
-    "choices": ["Londoners’ life style in the 18th century", "The exact size of an umbrella used in London", "The difficulty of getting an umbrella in the 18th century", "The reason why people did not open umbrellas inside London houses"],
-    "correct_answer": "The reason why people did not open umbrellas inside London houses"
-  },
-  {
-    "question": "Based on the passage, who is most likely to have bad luck?",
-    "choices": ["Lulu, who has opened her umbrella on a ship", "Linda, who has used her umbrella outside in the rain", "Liz, who has dried her open umbrella inside the house", "Lala, who has given a black umbrella to a friend"],
-    "correct_answer": "Lala, who has given a black umbrella to a friend"
-  },
-  {
-    "question": "What can be inferred from the passage?",
-    "choices": ["Black is considered the symbol of death.", "In the 18th century, most houses in London were very small.", "The god of the Sun was the most powerful god in Ancient Egypt.", "The exact origin of the superstition about opening umbrellas indoors is likely to remain unknown."],
-    "correct_answer": "The exact origin of the superstition about opening umbrellas indoors is likely to remain unknown."
-  },
+
   {
     "question": "Yesterday I prepared myself for the charity run by having two hours of _____.",
     "choices": ["long light jogging", "jogging light long", "jogging long light", "long jogging light"],

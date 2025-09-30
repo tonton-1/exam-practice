@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'home.dart';
-import 'profile_screen.dart';
+//import 'profile_screen.dart';
 import 'history_screen.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
+import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 class MainNavigation extends StatefulWidget {
   @override
@@ -20,46 +21,75 @@ class _MainNavigationState extends State<MainNavigation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 246, 247, 248),
       body: _screens[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
+      bottomNavigationBar: SalomonBottomBar(
         currentIndex: _currentIndex,
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-        selectedItemColor: Color.fromARGB(255, 86, 179, 191),
-        unselectedItemColor: Colors.grey,
-        backgroundColor: Colors.white,
-        elevation: 8,
+        onTap: (i) => setState(() => _currentIndex = i),
         items: [
-          BottomNavigationBarItem(
+          /// Home
+          SalomonBottomBarItem(
             icon: Icon(Iconsax.home),
-            activeIcon: Icon(
-              Iconsax.home,
-              color: Color.fromARGB(255, 86, 179, 191),
-            ),
-            label: '',
+            title: Text("หน้าแรก"),
+            selectedColor: Color.fromARGB(255, 86, 179, 191),
+            unselectedColor: Colors.grey,
           ),
-          BottomNavigationBarItem(
+
+          /// Likes
+          SalomonBottomBarItem(
             icon: Icon(Iconsax.chart_2),
-            activeIcon: Icon(
-              Iconsax.chart_2,
-              color: Color.fromARGB(255, 86, 179, 191),
-            ),
-            label: '',
+            title: Text("ประวัติ"),
+            selectedColor: Color.fromARGB(255, 251, 113, 133),
+            unselectedColor: Colors.grey,
           ),
-          // BottomNavigationBarItem(
-          //   icon: Icon(Iconsax.profile_circle),
-          //   activeIcon: Icon(
-          //     Iconsax.profile_circle,
-          //     color: Color.fromARGB(255, 86, 179, 191),
-          //   ),
-          //   label: '',
-          // ),
+
+          /// Search
         ],
       ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   type: BottomNavigationBarType.fixed,
+      //   currentIndex: _currentIndex,
+      //   onTap: (index) {
+      //     setState(() {
+      //       _currentIndex = index;
+      //     });
+      //   },
+
+      //   selectedItemColor: Color.fromARGB(255, 86, 179, 191),
+      //   unselectedItemColor: Colors.grey,
+      //   backgroundColor: Colors.white,
+      //   elevation: 8,
+      //   selectedLabelStyle: TextStyle(fontSize: 12), // ซ่อน label
+      //   unselectedLabelStyle: TextStyle(fontSize: 12), // ซ่อน label
+      //   selectedFontSize: 0, // ป้องกัน label
+      //   unselectedFontSize: 0, // ป้องกัน label
+      //   items: [
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Iconsax.home),
+      //       activeIcon: Icon(
+      //         Iconsax.home,
+      //         color: Color.fromARGB(255, 86, 179, 191),
+      //       ),
+      //       label: 'หน้าแรก',
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Iconsax.chart_2),
+      //       activeIcon: Icon(
+      //         Iconsax.chart_2,
+      //         color: Color.fromARGB(255, 86, 179, 191),
+      //       ),
+      //       label: 'ประวัติ',
+      //     ),
+      //     // BottomNavigationBarItem(
+      //     //   icon: Icon(Iconsax.profile_circle),
+      //     //   activeIcon: Icon(
+      //     //     Iconsax.profile_circle,
+      //     //     color: Color.fromARGB(255, 86, 179, 191),
+      //     //   ),
+      //     //   label: '',
+      //     // ),
+      //   ],
+      // ),
     );
   }
 }

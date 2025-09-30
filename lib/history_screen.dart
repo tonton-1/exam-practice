@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-
+import 'package:intl/intl.dart';
 // void main() async {
 //   WidgetsFlutterBinding.ensureInitialized();
 //   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
@@ -36,7 +36,12 @@ Future<void> _mockLogin() async {
   }
 }
 
-class HistoryScreen extends StatelessWidget {
+class HistoryScreen extends StatefulWidget {
+  @override
+  State<HistoryScreen> createState() => _HistoryScreenState();
+}
+
+class _HistoryScreenState extends State<HistoryScreen> {
   @override
   Widget build(BuildContext context) {
     final user = FirebaseAuth.instance.currentUser;
@@ -101,10 +106,12 @@ class HistoryScreen extends StatelessWidget {
               .collection('exam_results')
               .where('userId', isEqualTo: userId)
               .snapshots(),
+
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Center(child: CircularProgressIndicator());
         }
+        // ← เรียงลำดับตามวันที่ล่าสุดก่อน
 
         if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
           return Center(
@@ -127,7 +134,23 @@ class HistoryScreen extends StatelessWidget {
           padding: EdgeInsets.all(16),
           itemCount: snapshot.data!.docs.length,
           itemBuilder: (context, index) {
-            final doc = snapshot.data!.docs[index];
+            final docs = snapshot.data!.docs;
+            docs.sort((a, b) {
+              final aData = a.data() as Map<String, dynamic>;
+              final bData = b.data() as Map<String, dynamic>;
+
+              final aTime = aData['completedAt'] as Timestamp?;
+              final bTime = bData['completedAt'] as Timestamp?;
+
+              // ถ้าไม่มีเวลา ให้อยู่ท้ายสุด
+              if (aTime == null && bTime == null) return 0;
+              if (aTime == null) return 1;
+              if (bTime == null) return -1;
+
+              // เรียงจากใหม่ไปเก่า (descending)
+              return bTime.compareTo(aTime);
+            });
+            final doc = docs[index];
             final data = doc.data() as Map<String, dynamic>;
 
             return _buildHistoryItem(data);
@@ -263,6 +286,7 @@ Widget buildOverview(String userId) {
             .collection('exam_results')
             .where('userId', isEqualTo: userId)
             .snapshots(),
+
     builder: (context, snapshot) {
       // ค่าเริ่มต้น
       int bestScore = 0; //  คะแนนข้อที่ถูกมากที่สุด

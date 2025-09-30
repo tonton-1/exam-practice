@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'auth_service.dart';
-import 'package:gif/gif.dart';
+
 import 'login_screen.dart';
 
 class RegisterScreen extends StatefulWidget {

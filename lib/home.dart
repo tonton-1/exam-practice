@@ -3,6 +3,8 @@ import 'education_level_selector_onet.dart';
 import 'dart:ui';
 import 'profile_screen.dart';
 
+// Simple custom navigator observer (optional: add your own logic)
+
 void main() {
   runApp(MaterialApp(home: HomePage()));
 }

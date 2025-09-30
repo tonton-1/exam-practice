@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'auth_service.dart';
 import 'register_screen.dart';
-import 'home.dart';
+//import 'home.dart';
 import 'main_navigation.dart';
 import 'package:lottie/lottie.dart';
 

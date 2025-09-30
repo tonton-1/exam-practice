@@ -1,8 +1,8 @@
 import 'dart:async';
-import 'dart:convert';
+//import 'dart:convert';
 import 'main_navigation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' show rootBundle;
+//import 'package:flutter/services.dart' show rootBundle;
 import 'dart:math';
 import 'score_result.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -11,37 +11,37 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:easy_radio/easy_radio.dart';
 import 'package:lottie/lottie.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(); // ← เพิ่มบรรทัดนี้
-  runApp(const MyApp());
-}
+// void main() async {
+//   WidgetsFlutterBinding.ensureInitialized();
+//   await Firebase.initializeApp();
+//   runApp(const MyApp());
+// }
 
-final _col = FirebaseFirestore.instance
-    .collection('exams')
-    .doc('2567')
-    .collection('grades')
-    .doc('P6')
-    .collection('subjects')
-    .doc('English')
-    .collection('questions')
-    .orderBy('createdAt');
+// final _col = FirebaseFirestore.instance
+//     .collection('exams')
+//     .doc('2567')
+//     .collection('grades')
+//     .doc('P6')
+//     .collection('subjects')
+//     .doc('English')
+//     .collection('questions')
+//     .orderBy('createdAt');
 // void main() => runApp(const MyApp());
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+// class MyApp extends StatelessWidget {
+//   const MyApp({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(title: 'Exam', home: const ExamJsonScreen());
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(title: 'Exam', home: const ExamJsonScreen());
+//   }
+// }
 
 class ExamJsonScreen extends StatefulWidget {
   final String? year;
   final String? grade;
   final String? subject;
-  final String? mode; // New parameter for mode
+  final String? mode;
   const ExamJsonScreen({
     super.key,
     this.year,
@@ -62,10 +62,12 @@ class _ExamJsonScreenState extends State<ExamJsonScreen> {
   int _seconds = 0;
   bool isLoading = true;
   bool _isTimerVisible = true;
+  bool _showLottieAnimation = true;
 
   @override
   void dispose() {
     _timer?.cancel();
+
     super.dispose();
   }
 
@@ -74,6 +76,7 @@ class _ExamJsonScreenState extends State<ExamJsonScreen> {
     // loadExamJson();
     loadExamFromFirestore();
     _initializeExam();
+
     print(
       'Year: ${widget.year}, Grade: ${widget.grade}, Subject: ${widget.subject}',
     );
@@ -166,6 +169,7 @@ class _ExamJsonScreenState extends State<ExamJsonScreen> {
   Future<void> loadExamFromFirestore() async {
     setState(() {
       isLoading = true;
+      _showLottieAnimation = true;
     });
 
     try {
@@ -188,6 +192,7 @@ class _ExamJsonScreenState extends State<ExamJsonScreen> {
 
       if (questionsSnapshot.docs.isEmpty) {
         print('No questions found for $docId');
+        await Future.delayed(Duration(milliseconds: 550));
         setState(() {
           questions = [];
 
@@ -196,6 +201,7 @@ class _ExamJsonScreenState extends State<ExamJsonScreen> {
         });
         return;
       }
+      await Future.delayed(Duration(milliseconds: 550));
 
       // แปลงข้อมูลจาก Firebase
       List<Map<String, dynamic>> loadedQuestions =
@@ -345,7 +351,7 @@ class _ExamJsonScreenState extends State<ExamJsonScreen> {
         ),
       ),
       body:
-          isLoading
+          isLoading || !_showLottieAnimation
               ? Center(
                 child: Lottie.network(
                   width: 150,
@@ -384,6 +390,7 @@ class _ExamJsonScreenState extends State<ExamJsonScreen> {
                       child: Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: ListView.builder(
+                          physics: BouncingScrollPhysics(),
                           itemCount: questions!.length,
                           itemBuilder: (context, index) {
                             final item = questions![index];
@@ -401,9 +408,7 @@ class _ExamJsonScreenState extends State<ExamJsonScreen> {
                                     '${item['image']}',
                                     height: 250,
                                     errorBuilder: (context, error, stackTrace) {
-                                      return const Text(
-                                        '',
-                                      ); //ตรงนี้ทำให้เว้นบรรทัดก่อน ที่ จะแสดง CHOICE
+                                      return const SizedBox(); //ตรงนี้ทำให้เว้นบรรทัดก่อน ที่ จะแสดง CHOICE
                                     },
                                   ),
                                 ],
@@ -411,7 +416,7 @@ class _ExamJsonScreenState extends State<ExamJsonScreen> {
 
                               subtitle: ListView.builder(
                                 shrinkWrap: true,
-                                physics: const NeverScrollableScrollPhysics(),
+                                physics: const ClampingScrollPhysics(),
                                 itemCount: (item['choices'] as List).length,
                                 itemBuilder: (context, choiceIndex) {
                                   final choice = item['choices'][choiceIndex];
@@ -497,10 +502,7 @@ class _ExamJsonScreenState extends State<ExamJsonScreen> {
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Color.fromARGB(255, 89, 180, 192),
-                        minimumSize: Size(
-                          double.infinity,
-                          50,
-                        ), // ← เต็มความกว้าง
+                        minimumSize: Size(double.infinity, 50), //
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                         ),
@@ -532,7 +534,7 @@ class _ExamJsonScreenState extends State<ExamJsonScreen> {
                                   ],
                                 ),
                           );
-                          return; // ⛔ หยุด ไม่ให้ไปคำนวณคะแนน
+                          return; // หยุดไม่ให้ไปคำนวณคะแนน
                         }
                         for (int i = 0; i < questions!.length; i++) {
                           final userAnswer = questions![i]['selectedAnswer'];
@@ -613,5 +615,55 @@ class _ExamJsonScreenState extends State<ExamJsonScreen> {
     } catch (e) {
       print('❌ เกิดข้อผิดพลาดในการบันทึก: $e');
     }
+  }
+
+  Widget buildQuestionItem(int index, Map<String, dynamic> item) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "${index + 1}. ${item['question']}",
+          style: const TextStyle(fontWeight: FontWeight.bold),
+        ),
+
+        if (item['image'] != null && item['image'].toString().isNotEmpty)
+          Image.asset(
+            item['image'],
+            height: 250,
+            errorBuilder: (_, __, ___) => const SizedBox(),
+          ),
+
+        const SizedBox(height: 8),
+
+        Column(
+          children:
+              (item['choices'] as List).asMap().entries.map((entry) {
+                final choiceIndex = entry.key;
+                final choice = entry.value;
+                return Row(
+                  children: [
+                    EasyRadio(
+                      value: choice,
+                      groupValue: item['selectedAnswer'],
+                      onChanged: (value) {
+                        setState(() {
+                          item['selectedAnswer'] = value;
+                          savedAnswers =
+                              questions!
+                                  .map((e) => e['selectedAnswer'])
+                                  .toList();
+                        });
+                      },
+                    ),
+                    const SizedBox(width: 5),
+                    Expanded(child: Text("${choiceIndex + 1}. $choice")),
+                  ],
+                );
+              }).toList(),
+        ),
+
+        const Divider(),
+      ],
+    );
   }
 }
