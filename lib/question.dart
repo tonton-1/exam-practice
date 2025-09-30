@@ -404,13 +404,19 @@ class _ExamJsonScreenState extends State<ExamJsonScreen> {
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                  Image.asset(
-                                    '${item['image']}',
-                                    height: 250,
-                                    errorBuilder: (context, error, stackTrace) {
-                                      return const SizedBox(); //ตรงนี้ทำให้เว้นบรรทัดก่อน ที่ จะแสดง CHOICE
-                                    },
-                                  ),
+                                  if (item['image'] != null &&
+                                      item['image'].toString().isNotEmpty)
+                                    Image.asset(
+                                      '${item['image']}',
+                                      height: 250,
+                                      errorBuilder: (
+                                        context,
+                                        error,
+                                        stackTrace,
+                                      ) {
+                                        return SizedBox();
+                                      },
+                                    ),
                                 ],
                               ),
 
