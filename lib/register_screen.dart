@@ -70,9 +70,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color.fromARGB(255, 246, 247, 248),
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Color.fromARGB(255, 246, 247, 248),
         elevation: 0,
         iconTheme: IconThemeData(color: Colors.blue[800]),
       ),
@@ -123,207 +123,279 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 child: Column(
                   children: [
                     // Name Field
-                    TextFormField(
-                      controller: _nameController,
-                      decoration: InputDecoration(
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color.fromARGB(255, 86, 179, 191),
+                    Container(
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          // Shadow ชั้นที่ 1 (ใกล้)
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.08),
+                            spreadRadius: 0,
+                            blurRadius: 4,
+                            offset: Offset(0, 1),
                           ),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color.fromARGB(255, 158, 158, 158),
+                          // Shadow ชั้นที่ 2 (ไกล)
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.06),
+                            spreadRadius: 0,
+                            blurRadius: 12,
+                            offset: Offset(0, 4),
                           ),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-
-                        hintText: 'ชื่อ',
-                        contentPadding: EdgeInsets.symmetric(
-                          horizontal: 20, // ← ความกว้างภายใน (ซ้าย-ขวา)
-                          vertical: 20, // ← ความสูงภายใน (บน-ล่าง)
-                        ),
-                        suffixIcon: IconButton(
-                          icon: Icon(
-                            _obscurePassword
-                                ? Icons.visibility_off
-                                : Icons.visibility,
-                          ),
-                          onPressed: () {
-                            setState(() {
-                              _obscurePassword = !_obscurePassword;
-                            });
-                          },
-                        ),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
+                        ],
+                        borderRadius: BorderRadius.circular(8),
                       ),
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'กรุณาใส่ชื่อ';
-                        }
-                        if (value.length < 2) {
-                          return 'ชื่อต้องมีอย่างน้อย 2 ตัวอักษร';
-                        }
-                        return null;
-                      },
+                      child: TextFormField(
+                        controller: _nameController,
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white,
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color.fromARGB(255, 86, 179, 191),
+                            ),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color.fromARGB(255, 255, 255, 255),
+                            ),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+
+                          hintText: 'ชื่อ',
+                          contentPadding: EdgeInsets.symmetric(
+                            horizontal: 20, // ← ความกว้างภายใน (ซ้าย-ขวา)
+                            vertical: 20, // ← ความสูงภายใน (บน-ล่าง)
+                          ),
+
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                        ),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'กรุณาใส่ชื่อ';
+                          }
+                          if (value.length < 2) {
+                            return 'ชื่อต้องมีอย่างน้อย 2 ตัวอักษร';
+                          }
+                          return null;
+                        },
+                      ),
                     ),
                     SizedBox(height: 16),
 
                     // Email Field
-                    TextFormField(
-                      controller: _emailController,
-                      keyboardType: TextInputType.emailAddress,
-                      decoration: InputDecoration(
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color.fromARGB(255, 86, 179, 191),
+                    Container(
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          // Shadow ชั้นที่ 1 (ใกล้)
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.08),
+                            spreadRadius: 0,
+                            blurRadius: 4,
+                            offset: Offset(0, 1),
                           ),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color.fromARGB(255, 158, 158, 158),
+                          // Shadow ชั้นที่ 2 (ไกล)
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.06),
+                            spreadRadius: 0,
+                            blurRadius: 12,
+                            offset: Offset(0, 4),
                           ),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-
-                        hintText: 'อีเมล',
-                        contentPadding: EdgeInsets.symmetric(
-                          horizontal: 20, // ← ความกว้างภายใน (ซ้าย-ขวา)
-                          vertical: 20, // ← ความสูงภายใน (บน-ล่าง)
-                        ),
-                        suffixIcon: IconButton(
-                          icon: Icon(
-                            _obscurePassword
-                                ? Icons.visibility_off
-                                : Icons.visibility,
-                          ),
-                          onPressed: () {
-                            setState(() {
-                              _obscurePassword = !_obscurePassword;
-                            });
-                          },
-                        ),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
+                        ],
+                        borderRadius: BorderRadius.circular(8),
                       ),
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'กรุณาใส่อีเมล';
-                        }
-                        if (!RegExp(
-                          r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
-                        ).hasMatch(value)) {
-                          return 'รูปแบบอีเมลไม่ถูกต้อง';
-                        }
-                        return null;
-                      },
+                      child: TextFormField(
+                        controller: _emailController,
+                        keyboardType: TextInputType.emailAddress,
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white,
+
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color.fromARGB(255, 86, 179, 191),
+                            ),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color.fromARGB(255, 255, 255, 255),
+                            ),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+
+                          hintText: 'อีเมล',
+                          contentPadding: EdgeInsets.symmetric(
+                            horizontal: 20, // ← ความกว้างภายใน (ซ้าย-ขวา)
+                            vertical: 20, // ← ความสูงภายใน (บน-ล่าง)
+                          ),
+
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                        ),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'กรุณาใส่อีเมล';
+                          }
+                          if (!RegExp(
+                            r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
+                          ).hasMatch(value)) {
+                            return 'รูปแบบอีเมลไม่ถูกต้อง';
+                          }
+                          return null;
+                        },
+                      ),
                     ),
                     SizedBox(height: 16),
 
                     // Password Field
-                    TextFormField(
-                      controller: _passwordController,
-                      obscureText: _obscurePassword,
-                      decoration: InputDecoration(
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color.fromARGB(255, 86, 179, 191),
+                    Container(
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          // Shadow ชั้นที่ 1 (ใกล้)
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.08),
+                            spreadRadius: 0,
+                            blurRadius: 4,
+                            offset: Offset(0, 1),
                           ),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color.fromARGB(255, 158, 158, 158),
+                          // Shadow ชั้นที่ 2 (ไกล)
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.06),
+                            spreadRadius: 0,
+                            blurRadius: 12,
+                            offset: Offset(0, 4),
                           ),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-
-                        hintText: 'รหัสผ่าน',
-                        contentPadding: EdgeInsets.symmetric(
-                          horizontal: 20, // ← ความกว้างภายใน (ซ้าย-ขวา)
-                          vertical: 20, // ← ความสูงภายใน (บน-ล่าง)
-                        ),
-                        suffixIcon: IconButton(
-                          icon: Icon(
-                            _obscurePassword
-                                ? Icons.visibility_off
-                                : Icons.visibility,
-                          ),
-                          onPressed: () {
-                            setState(() {
-                              _obscurePassword = !_obscurePassword;
-                            });
-                          },
-                        ),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
+                        ],
+                        borderRadius: BorderRadius.circular(8),
                       ),
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'กรุณาใส่รหัสผ่าน';
-                        }
-                        if (value.length < 6) {
-                          return 'รหัสผ่านต้องมีอย่างน้อย 6 ตัวอักษร';
-                        }
-                        return null;
-                      },
+                      child: TextFormField(
+                        controller: _passwordController,
+                        obscureText: _obscurePassword,
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white,
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color.fromARGB(255, 86, 179, 191),
+                            ),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color.fromARGB(255, 255, 255, 255),
+                            ),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+
+                          hintText: 'รหัสผ่าน',
+                          contentPadding: EdgeInsets.symmetric(
+                            horizontal: 20, // ← ความกว้างภายใน (ซ้าย-ขวา)
+                            vertical: 20, // ← ความสูงภายใน (บน-ล่าง)
+                          ),
+                          suffixIcon: IconButton(
+                            icon: Icon(
+                              _obscurePassword
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                _obscurePassword = !_obscurePassword;
+                              });
+                            },
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                        ),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'กรุณาใส่รหัสผ่าน';
+                          }
+                          if (value.length < 6) {
+                            return 'รหัสผ่านต้องมีอย่างน้อย 6 ตัวอักษร';
+                          }
+                          return null;
+                        },
+                      ),
                     ),
                     SizedBox(height: 16),
 
                     // Confirm Password Field
-                    TextFormField(
-                      controller: _confirmPasswordController,
-                      obscureText: _obscureConfirmPassword,
-                      decoration: InputDecoration(
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color.fromARGB(255, 86, 179, 191),
+                    Container(
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          // Shadow ชั้นที่ 1 (ใกล้)
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.08),
+                            spreadRadius: 0,
+                            blurRadius: 4,
+                            offset: Offset(0, 1),
                           ),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color.fromARGB(255, 158, 158, 158),
+                          // Shadow ชั้นที่ 2 (ไกล)
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.06),
+                            spreadRadius: 0,
+                            blurRadius: 12,
+                            offset: Offset(0, 4),
                           ),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-
-                        hintText: 'ยืนยันรหัสผ่าน',
-                        contentPadding: EdgeInsets.symmetric(
-                          horizontal: 20, // ← ความกว้างภายใน (ซ้าย-ขวา)
-                          vertical: 20, // ← ความสูงภายใน (บน-ล่าง)
-                        ),
-                        suffixIcon: IconButton(
-                          icon: Icon(
-                            _obscurePassword
-                                ? Icons.visibility_off
-                                : Icons.visibility,
-                          ),
-                          onPressed: () {
-                            setState(() {
-                              _obscurePassword = !_obscurePassword;
-                            });
-                          },
-                        ),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
+                        ],
+                        borderRadius: BorderRadius.circular(8),
                       ),
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'กรุณายืนยันรหัสผ่าน';
-                        }
-                        if (value != _passwordController.text) {
-                          return 'รหัสผ่านไม่ตรงกัน';
-                        }
-                        return null;
-                      },
+                      child: TextFormField(
+                        controller: _confirmPasswordController,
+                        obscureText: _obscureConfirmPassword,
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white,
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color.fromARGB(255, 86, 179, 191),
+                            ),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color.fromARGB(255, 255, 255, 255),
+                            ),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+
+                          hintText: 'ยืนยันรหัสผ่าน',
+                          contentPadding: EdgeInsets.symmetric(
+                            horizontal: 20, // ← ความกว้างภายใน (ซ้าย-ขวา)
+                            vertical: 20, // ← ความสูงภายใน (บน-ล่าง)
+                          ),
+                          suffixIcon: IconButton(
+                            icon: Icon(
+                              _obscureConfirmPassword
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                _obscureConfirmPassword =
+                                    !_obscureConfirmPassword;
+                              });
+                            },
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                        ),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'กรุณายืนยันรหัสผ่าน';
+                          }
+                          if (value != _passwordController.text) {
+                            return 'รหัสผ่านไม่ตรงกัน';
+                          }
+                          return null;
+                        },
+                      ),
                     ),
                     SizedBox(height: 32),
 

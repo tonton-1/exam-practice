@@ -1,5 +1,40 @@
 import 'package:flutter/material.dart';
-import 'package:iconsax_flutter/iconsax_flutter.dart';
+
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+void main() {
+  runApp(
+    MaterialApp(
+      home: AnswerReview(
+        questions: [
+          {
+            'question': 'What is the capital of France?',
+            'choices': ['Berlin', 'Madrid', 'Paris', 'Rome'],
+            'correct_answer': 'Paris',
+            'selectedAnswer': 'Paris',
+            'image': '',
+          },
+          {
+            'question': 'What is 2 + 2?',
+            'choices': ['3', '4', '5', '6'],
+            'correct_answer': '4',
+            'selectedAnswer': '5',
+            'image': '',
+          },
+          {
+            'question': 'What is the largest planet in our solar system?',
+            'choices': ['Earth', 'Mars', 'Jupiter', 'Saturn'],
+            'correct_answer': 'Jupiter',
+            'selectedAnswer': null,
+            'image': '',
+          },
+        ],
+        score: 1,
+        totalQuestions: 3,
+      ),
+    ),
+  );
+}
 
 class AnswerReview extends StatefulWidget {
   final List<Map<String, dynamic>> questions;
@@ -22,7 +57,7 @@ class _AnswerReviewState extends State<AnswerReview>
   late TabController _tabController;
   List<Map<String, dynamic>> correctQuestions = [];
   List<Map<String, dynamic>> incorrectQuestions = [];
-
+  int _currentTabIndex = 0; //
   @override
   void initState() {
     super.initState();
@@ -37,6 +72,15 @@ class _AnswerReviewState extends State<AnswerReview>
   }
 
   void _separateQuestions() {
+    _tabController.addListener(() {
+      setState(() {
+        if (_tabController.index != _currentTabIndex) {
+          setState(() {
+            _currentTabIndex = _tabController.index;
+          });
+        }
+      });
+    });
     for (int i = 0; i < widget.questions.length; i++) {
       final question = Map<String, dynamic>.from(widget.questions[i]);
       question['originalIndex'] = i; // เก็บหมายเลขข้อเดิม
@@ -57,22 +101,29 @@ class _AnswerReviewState extends State<AnswerReview>
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 249, 250, 251),
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () {
+            Navigator.of(context).maybePop();
+          },
+        ),
         title: Text('ดูคำตอบ'),
-        backgroundColor: Color.fromARGB(255, 86, 179, 191),
-        foregroundColor: Colors.white,
+        backgroundColor: Color.fromARGB(255, 249, 250, 251),
+        foregroundColor: Color.fromARGB(255, 249, 250, 251),
         bottom: TabBar(
           controller: _tabController,
-          indicatorColor: Colors.white,
-          labelColor: Colors.white,
-          unselectedLabelColor: Colors.white70,
+          indicatorColor: _tabController.index == 0 ? Colors.green : Colors.red,
+          labelColor: _tabController.index == 0 ? Colors.green : Colors.red,
+          unselectedLabelColor: const Color.fromARGB(255, 36, 36, 36),
+
           tabs: [
             Tab(
-              icon: Icon(Iconsax.tick_square),
-              text: 'ข้อที่ถูก (${correctQuestions.length})',
+              // icon: Icon(Iconsax.tick_square),
+              text: 'ข้อที่ถูก ${correctQuestions.length} ข้อ',
             ),
             Tab(
-              icon: Icon(Icons.cancel),
-              text: 'ข้อที่ผิด (${incorrectQuestions.length})',
+              // icon: Icon(Icons.cancel),
+              text: 'ข้อที่ผิด ${incorrectQuestions.length} ข้อ',
             ),
           ],
         ),
@@ -90,11 +141,7 @@ class _AnswerReviewState extends State<AnswerReview>
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              Icons.sentiment_dissatisfied,
-              size: 80,
-              color: Colors.grey[400],
-            ),
+            Icon(FontAwesomeIcons.check, size: 80, color: Colors.grey[400]),
             SizedBox(height: 16),
             Text(
               'ไม่มีข้อที่ตอบถูก',
@@ -127,7 +174,7 @@ class _AnswerReviewState extends State<AnswerReview>
             Icon(Icons.emoji_events, size: 80, color: Colors.amber),
             SizedBox(height: 16),
             Text(
-              'เยี่ยม! ไม่มีข้อที่ตอบผิด',
+              'ไม่มีข้อที่ตอบผิด',
               style: TextStyle(fontSize: 18, color: Colors.amber[700]),
             ),
             Text(
@@ -151,7 +198,7 @@ class _AnswerReviewState extends State<AnswerReview>
   Widget _buildQuestionCard(Map<String, dynamic> question, bool isCorrectTab) {
     final userAnswer = question['selectedAnswer'];
     final correctAnswer = question['correct_answer'];
-    final isCorrect = userAnswer == correctAnswer;
+    // final isCorrect = userAnswer == correctAnswer;
     final imageUrl = question['image'];
     final originalIndex = question['originalIndex'] + 1; // หมายเลขข้อเดิม
 
@@ -182,7 +229,9 @@ class _AnswerReviewState extends State<AnswerReview>
                 // ),
                 Spacer(),
                 Icon(
-                  isCorrectTab ? Icons.check_circle : Icons.cancel,
+                  isCorrectTab
+                      ? FontAwesomeIcons.circleCheck
+                      : FontAwesomeIcons.circleXmark,
                   color: isCorrectTab ? Colors.green : Colors.red,
                   size: 24,
                 ),
@@ -270,9 +319,11 @@ class _AnswerReviewState extends State<AnswerReview>
         SizedBox(height: 8),
         ...List.generate(choices.length, (index) {
           String choice = choices[index];
-          bool isUserChoice = choice == userAnswer;
-          bool isCorrectChoice = choice == correctAnswer;
 
+          bool isUserChoice = choice == userAnswer;
+          print('isUserChoice: ${index} $isUserChoice');
+          bool isCorrectChoice = choice == correctAnswer;
+          print('isCorrectChoice: ${index} $isCorrectChoice');
           // กำหนดสีและไอคอน
           Color backgroundColor = Colors.grey[50]!;
           Color borderColor = Colors.grey[300]!;
@@ -283,14 +334,14 @@ class _AnswerReviewState extends State<AnswerReview>
             backgroundColor = Colors.green[50]!;
             borderColor = Colors.green[300]!;
             textColor = Colors.green[800]!;
-            icon = Icon(Icons.check_circle, color: Colors.green, size: 20);
+            icon = Icon(FontAwesomeIcons.check, color: Colors.green, size: 20);
           }
 
           if (isUserChoice && !isCorrectChoice) {
             backgroundColor = Colors.red[50]!;
             borderColor = Colors.red[300]!;
             textColor = Colors.red[800]!;
-            icon = Icon(Icons.cancel, color: Colors.red, size: 20);
+            icon = Icon(FontAwesomeIcons.xmark, color: Colors.red, size: 20);
           }
 
           return Container(

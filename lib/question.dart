@@ -10,7 +10,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:easy_radio/easy_radio.dart';
 import 'package:lottie/lottie.dart';
-
+import 'package:smooth_list_view/smooth_list_view.dart';
 // void main() async {
 //   WidgetsFlutterBinding.ensureInitialized();
 //   await Firebase.initializeApp();
@@ -300,7 +300,7 @@ class _ExamJsonScreenState extends State<ExamJsonScreen> {
         backgroundColor: Color.fromARGB(255, 252, 253, 255),
         title: Row(
           children: [
-            Text('Exam', style: TextStyle(fontSize: 18)),
+            Text('ข้อสอบ', style: TextStyle(fontSize: 18)),
             SizedBox(width: 100),
             if (widget.mode == 'timer') ...[
               GestureDetector(
@@ -406,16 +406,44 @@ class _ExamJsonScreenState extends State<ExamJsonScreen> {
                                   ),
                                   if (item['image'] != null &&
                                       item['image'].toString().isNotEmpty)
-                                    Image.asset(
-                                      '${item['image']}',
-                                      height: 250,
-                                      errorBuilder: (
-                                        context,
-                                        error,
-                                        stackTrace,
-                                      ) {
-                                        return SizedBox();
+                                    GestureDetector(
+                                      onTap: () {
+                                        showDialog(
+                                          context: context,
+                                          builder:
+                                              (_) => Dialog(
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                child: InteractiveViewer(
+                                                  child: Image.asset(
+                                                    '${item['image']}',
+                                                    height: 350,
+                                                    width: 350,
+                                                    fit: BoxFit.contain,
+                                                    errorBuilder: (
+                                                      context,
+                                                      error,
+                                                      stackTrace,
+                                                    ) {
+                                                      return SizedBox();
+                                                    },
+                                                  ),
+                                                ),
+                                              ),
+                                        );
                                       },
+                                      child: Image.asset(
+                                        '${item['image']}',
+                                        height: 250,
+                                        fit: BoxFit.contain,
+                                        errorBuilder: (
+                                          context,
+                                          error,
+                                          stackTrace,
+                                        ) {
+                                          return SizedBox();
+                                        },
+                                      ),
                                     ),
                                 ],
                               ),

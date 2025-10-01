@@ -1,6 +1,7 @@
 //import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 //import 'question.dart';
 //import 'education_level_selector_onet.dart';
 //import 'question.dart';
@@ -53,9 +54,21 @@ class YearSelector extends StatelessWidget {
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
             ),
             SizedBox(height: 4),
-            Text(
-              "(${showGrade} > ${showSubject})",
-              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  showGrade,
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+                ),
+                SizedBox(width: 2),
+                Icon(FontAwesomeIcons.chevronRight, size: 12),
+                SizedBox(width: 2),
+                Text(
+                  showSubject,
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+                ),
+              ],
             ),
           ],
         ),

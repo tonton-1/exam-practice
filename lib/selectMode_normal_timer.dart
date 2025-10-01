@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'question.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SelectModeScreen extends StatelessWidget {
   final String? year;
@@ -46,9 +47,27 @@ class SelectModeScreen extends StatelessWidget {
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
             ),
             SizedBox(height: 4),
-            Text(
-              "(${showGrade} > ${showSubject} > ${year})",
-              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+            Row(
+              children: [
+                Text(
+                  "${showGrade}",
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+                ),
+                SizedBox(width: 2),
+                Icon(FontAwesomeIcons.chevronRight, size: 12),
+                SizedBox(width: 2),
+                Text(
+                  "${showSubject}",
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+                ),
+                SizedBox(width: 2),
+                Icon(FontAwesomeIcons.chevronRight, size: 12),
+                SizedBox(width: 2),
+                Text(
+                  "${year}",
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+                ),
+              ],
             ),
           ],
         ),

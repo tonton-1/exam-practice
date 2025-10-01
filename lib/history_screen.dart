@@ -4,6 +4,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:intl/intl.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
+
 // void main() async {
 //   WidgetsFlutterBinding.ensureInitialized();
 //   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
@@ -15,7 +17,7 @@ import 'package:intl/intl.dart';
 //     MaterialApp(
 //       title: 'History Screen Debug',
 //       home: HistoryScreen(),
-//       debugShowCheckedModeBanner: false, // ← ซ่อน debug banner
+//       debugShowCheckedModeBanner: false,
 //     ),
 //   );
 // }
@@ -213,7 +215,12 @@ class _HistoryScreenState extends State<HistoryScreen> {
                     '$percentage%',
                     style: TextStyle(
                       fontSize: 26,
-                      color: Color.fromARGB(255, 23, 115, 207),
+                      color:
+                          percentage >= 80
+                              ? Color.fromARGB(255, 75, 174, 160)
+                              : (percentage >= 50
+                                  ? Color.fromARGB(255, 174, 228, 182)
+                                  : const Color.fromARGB(192, 185, 185, 134)),
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -338,7 +345,7 @@ Widget buildOverview(String userId) {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "ผลสรุปคะแนน",
+              "สถิติภาพรวม",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 12),
@@ -348,22 +355,24 @@ Widget buildOverview(String userId) {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   _buildOverviewCard(
+                    icon: Iconsax.crown,
+                    color: const Color.fromARGB(255, 255, 203, 97),
                     title: "คะแนนสูงสุด",
                     value: "$bestScore",
-
-                    color: const Color.fromARGB(255, 14, 20, 27),
                   ),
                   _buildOverviewCard(
+                    icon: Iconsax.status_up,
                     title: "คะแนนเฉลี่ย",
                     value: "$avgScore%", // ใช้เปอร์เซ็นต์เฉลี่ย
 
-                    color: const Color.fromARGB(255, 14, 20, 27),
+                    color: Color.fromARGB(255, 119, 190, 240),
                   ),
                   _buildOverviewCard(
+                    icon: Iconsax.clock,
                     title: "เฉลี่ยเวลา",
                     value: avgTime,
 
-                    color: const Color.fromARGB(255, 14, 20, 27),
+                    color: const Color.fromARGB(255, 234, 91, 111),
                   ),
                 ],
               ),
@@ -377,6 +386,7 @@ Widget buildOverview(String userId) {
 
 // Helper widget สำหรับ card แต่ละอัน
 Widget _buildOverviewCard({
+  IconData? icon,
   required String title,
   required String value,
 
@@ -384,7 +394,7 @@ Widget _buildOverviewCard({
 }) {
   return Expanded(
     child: Container(
-      height: 100,
+      height: 200,
       margin: EdgeInsets.symmetric(horizontal: 4),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
@@ -396,6 +406,7 @@ Widget _buildOverviewCard({
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            if (icon != null) Icon(icon, size: 28, color: color),
             SizedBox(height: 8),
 
             Text(
@@ -403,7 +414,7 @@ Widget _buildOverviewCard({
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: color,
+                color: Colors.black87,
               ),
               textAlign: TextAlign.center,
             ),
