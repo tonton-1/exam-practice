@@ -219,8 +219,8 @@ class _HistoryScreenState extends State<HistoryScreen> {
                           percentage >= 80
                               ? Color.fromARGB(255, 75, 174, 160)
                               : (percentage >= 50
-                                  ? Color.fromARGB(255, 174, 228, 182)
-                                  : const Color.fromARGB(192, 185, 185, 134)),
+                                  ? const Color.fromARGB(255, 248, 196, 53)
+                                  : const Color.fromARGB(255, 255, 124, 63)),
                       fontWeight: FontWeight.bold,
                     ),
                   ),

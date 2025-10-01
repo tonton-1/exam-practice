@@ -6,11 +6,11 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 import 'score_result.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
+// import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:easy_radio/easy_radio.dart';
 import 'package:lottie/lottie.dart';
-import 'package:smooth_list_view/smooth_list_view.dart';
+
 // void main() async {
 //   WidgetsFlutterBinding.ensureInitialized();
 //   await Firebase.initializeApp();

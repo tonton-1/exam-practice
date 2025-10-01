@@ -7,6 +7,8 @@ import 'login_screen.dart';
 class ProfileScreen extends StatelessWidget {
   final AuthService _authService = AuthService();
 
+  ProfileScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     final user = FirebaseAuth.instance.currentUser;
@@ -128,6 +130,7 @@ class ProfileScreen extends StatelessWidget {
 
           // Logout Button
           Container(
+            margin: EdgeInsets.only(top: 30),
             height: 50,
             width: double.infinity,
             child: ElevatedButton.icon(
@@ -155,44 +158,44 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildMenuItem({
-    required IconData icon,
-    required String title,
-    required String subtitle,
-    required VoidCallback onTap,
-  }) {
-    return Container(
-      margin: EdgeInsets.only(bottom: 10),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(10),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
-            spreadRadius: 1,
-            blurRadius: 5,
-          ),
-        ],
-      ),
-      child: ListTile(
-        leading: Container(
-          padding: EdgeInsets.all(8),
-          decoration: BoxDecoration(
-            color: Colors.blue[50],
-            borderRadius: BorderRadius.circular(8),
-          ),
-          child: Icon(icon, color: Colors.blue),
-        ),
-        title: Text(title, style: TextStyle(fontWeight: FontWeight.bold)),
-        subtitle: Text(
-          subtitle,
-          style: TextStyle(color: Colors.grey[600], fontSize: 12),
-        ),
-        trailing: Icon(Icons.arrow_forward_ios, size: 16),
-        onTap: onTap,
-      ),
-    );
-  }
+  // Widget _buildMenuItem({
+  //   required IconData icon,
+  //   required String title,
+  //   required String subtitle,
+  //   required VoidCallback onTap,
+  // }) {
+  //   return Container(
+  //     margin: EdgeInsets.only(bottom: 10),
+  //     decoration: BoxDecoration(
+  //       color: Colors.white,
+  //       borderRadius: BorderRadius.circular(10),
+  //       boxShadow: [
+  //         BoxShadow(
+  //           color: Colors.grey.withOpacity(0.1),
+  //           spreadRadius: 1,
+  //           blurRadius: 5,
+  //         ),
+  //       ],
+  //     ),
+  //     child: ListTile(
+  //       leading: Container(
+  //         padding: EdgeInsets.all(8),
+  //         decoration: BoxDecoration(
+  //           color: Colors.blue[50],
+  //           borderRadius: BorderRadius.circular(8),
+  //         ),
+  //         child: Icon(icon, color: Colors.blue),
+  //       ),
+  //       title: Text(title, style: TextStyle(fontWeight: FontWeight.bold)),
+  //       subtitle: Text(
+  //         subtitle,
+  //         style: TextStyle(color: Colors.grey[600], fontSize: 12),
+  //       ),
+  //       trailing: Icon(Icons.arrow_forward_ios, size: 16),
+  //       onTap: onTap,
+  //     ),
+  //   );
+  // }
 
   void _showLogoutDialog(BuildContext context) {
     showDialog(
