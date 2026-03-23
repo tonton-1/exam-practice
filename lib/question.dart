@@ -192,7 +192,7 @@ class _ExamJsonScreenState extends State<ExamJsonScreen> {
 
       if (questionsSnapshot.docs.isEmpty) {
         print('No questions found for $docId');
-        await Future.delayed(Duration(milliseconds: 550));
+        await Future.delayed(Duration(milliseconds: 750));
         setState(() {
           questions = [];
 
@@ -201,7 +201,7 @@ class _ExamJsonScreenState extends State<ExamJsonScreen> {
         });
         return;
       }
-      await Future.delayed(Duration(milliseconds: 550));
+      await Future.delayed(Duration(milliseconds: 750));
 
       // แปลงข้อมูลจาก Firebase
       List<Map<String, dynamic>> loadedQuestions =

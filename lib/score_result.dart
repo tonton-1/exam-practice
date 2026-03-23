@@ -206,6 +206,7 @@ class ScoreResult extends StatelessWidget {
                             questions: questions!.cast<Map<String, dynamic>>(),
                             // userAnswers: userAnswers!.cast<String>(),
                             score: score,
+
                             totalQuestions: questionCount,
                           ),
                     ),

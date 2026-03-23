@@ -55,6 +55,16 @@ class AuthService {
     }
   }
 
+  // Sign in anonymously
+  Future<User?> signInAnonymously() async {
+    try {
+      final userCredential = await _auth.signInAnonymously();
+      return userCredential.user;
+    } catch (e) {
+      throw e;
+    }
+  }
+
   // Logout
   Future<void> signOut() async {
     await _auth.signOut();

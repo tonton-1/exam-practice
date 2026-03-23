@@ -85,6 +85,7 @@ flutter:
     - assets/images/eng2566M3/
     - assets/images/math2566M3/
     - assets/images/thai2566M3/ # ม3 ไทย 2566 รูปภาพ
+    - assets/images/science2564M6/
     - assets/onboardingscreenimage/
     - P62567/
     - P62567/P6English2567.json # ป6 อังกฤษ 2567
@@ -107,6 +108,7 @@ flutter:
     - M62564/
     - M62564/M6Math2564.json # ม6 คณิตศาสตร์ 2564
     - M62564/M6Thai2564.json # ม6 ไทย 2564
+    - M62564/M6Science2564.json # ม6 วิทยาศาสตร์ 2564
     - M62563/
     - M62563/M6Math2563.json # ม6 คณิตศาสตร์ 2563
     - M62563/M6Social2563.json # ม6 สังคมศึกษา 2563

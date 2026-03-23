@@ -23,20 +23,20 @@ import 'package:iconsax_flutter/iconsax_flutter.dart';
 // }
 
 // Mock login function
-Future<void> _mockLogin() async {
-  try {
-    // ใช้ user ID ตัวจริงจาก Firebase
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: 'awds@gmail.com',
-      password: '123456',
-    );
-    print('🔧 Login ด้วย account จริงสำเร็จ');
-  } catch (e) {
-    // ถ้า login ไม่ได้ ใช้ anonymous
-    await FirebaseAuth.instance.signInAnonymously();
-    print('🔧 ใช้ Anonymous login แทน');
-  }
-}
+// Future<void> _mockLogin() async {
+//   try {
+//     // ใช้ user ID ตัวจริงจาก Firebase
+//     await FirebaseAuth.instance.signInWithEmailAndPassword(
+//       email: 'awds@gmail.com',
+//       password: '123456',
+//     );
+//     print('🔧 Login ด้วย account จริงสำเร็จ');
+//   } catch (e) {
+//     // ถ้า login ไม่ได้ ใช้ anonymous
+//     await FirebaseAuth.instance.signInAnonymously();
+//     print('🔧 ใช้ Anonymous login แทน');
+//   }
+// }
 
 class HistoryScreen extends StatefulWidget {
   @override

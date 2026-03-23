@@ -2,39 +2,39 @@ import 'package:flutter/material.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-void main() {
-  runApp(
-    MaterialApp(
-      home: AnswerReview(
-        questions: [
-          {
-            'question': 'What is the capital of France?',
-            'choices': ['Berlin', 'Madrid', 'Paris', 'Rome'],
-            'correct_answer': 'Paris',
-            'selectedAnswer': 'Paris',
-            'image': '',
-          },
-          {
-            'question': 'What is 2 + 2?',
-            'choices': ['3', '4', '5', '6'],
-            'correct_answer': '4',
-            'selectedAnswer': '5',
-            'image': '',
-          },
-          {
-            'question': 'What is the largest planet in our solar system?',
-            'choices': ['Earth', 'Mars', 'Jupiter', 'Saturn'],
-            'correct_answer': 'Jupiter',
-            'selectedAnswer': null,
-            'image': '',
-          },
-        ],
-        score: 1,
-        totalQuestions: 3,
-      ),
-    ),
-  );
-}
+// void main() {
+//   runApp(
+//     MaterialApp(
+//       home: AnswerReview(
+//         questions: [
+//           {
+//             'question': 'What is the capital of France?',
+//             'choices': ['Berlin', 'Madrid', 'Paris', 'Rome'],
+//             'correct_answer': 'Paris',
+//             'selectedAnswer': 'Paris',
+//             'image': '',
+//           },
+//           {
+//             'question': 'What is 2 + 2?',
+//             'choices': ['3', '4', '5', '6'],
+//             'correct_answer': '4',
+//             'selectedAnswer': '5',
+//             'image': '',
+//           },
+//           {
+//             'question': 'What is the largest planet in our solar system?',
+//             'choices': ['Earth', 'Mars', 'Jupiter', 'Saturn'],
+//             'correct_answer': 'Jupiter',
+//             'selectedAnswer': null,
+//             'image': '',
+//           },
+//         ],
+//         score: 1,
+//         totalQuestions: 3,
+//       ),
+//     ),
+//   );
+// }
 
 class AnswerReview extends StatefulWidget {
   final List<Map<String, dynamic>> questions;
@@ -260,7 +260,7 @@ class _AnswerReviewState extends State<AnswerReview>
               SizedBox(height: 12),
               ClipRRect(
                 borderRadius: BorderRadius.circular(8),
-                child: Image.network(
+                child: Image.asset(
                   imageUrl,
                   errorBuilder: (context, error, stackTrace) {
                     return Container(
