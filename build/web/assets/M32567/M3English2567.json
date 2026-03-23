@@ -1,0 +1,158 @@
+[
+  {
+    "question": "Emma: I’m glad you finally got here. What time is it now?\nClaire: Ten thirty.\nEmma: And ____?\nClaire: Ten.\nEmma: Don’t you know _____ in Western culture? Being on time shows respect to others.\nClaire: Please, don’t get mad. _____, right? I’ll do better next time. I promise.",
+    "choices": ["why are you so late", "which one do you prefer", "how are you going to explain", "when were we supposed to meet"],
+    "correct_answer": "when were we supposed to meet"
+  },
+
+  {
+    "question": "Claire: Please, don’t get mad. ____, right? I’ll do better next time. I promise.",
+    "choices": ["Time is on my side", "It’s better late than never", "Lost time is never found", "The clock has wings"],
+    "correct_answer": "It’s better late than never"
+  },
+  {
+    "question": "Charles: I’ve just learned a new method for solving problems that come up in life.\nOwen: ______. Tell me about it.",
+    "choices": ["It’s awful", "It’s all in the game", "That sounds terrible", "That’s just what I need"],
+    "correct_answer": "That’s just what I need"
+  },
+  {
+    "question": "Owen: ______. Give me something easier.",
+    "choices": ["That sounds complicated", "That’s the ticket", "That’s the way to do it", "That’s very kind of you"],
+    "correct_answer": "That sounds complicated"
+  },
+  {
+    "question": "Owen: _______. I think I’d rather just live with my problems.",
+    "choices": ["I promise", "I give up", "I can wait", "I’ll follow you"],
+    "correct_answer": "I give up"
+  },
+  {
+    "question": "Andrew: John, I missed today’s talk. Could you tell me about it?\nJohn: _______. It’s about following the rule of 40, 30, 20, and 10 for handling your money.",
+    "choices": ["Sure", "It is", "Forget it", "Go right ahead"],
+    "correct_answer": "Sure"
+  },
+  {
+    "question": "Andrew: _______ if you give more details about this rule.",
+    "choices": ["You’re right", "I’d appreciate it", "That’s nothing", "Go along with it"],
+    "correct_answer": "I’d appreciate it"
+  },
+  {
+    "question": "Andrew: I _______ because I hardly make ends meet each month.",
+    "choices": ["can’t do that", "would say so", "won’t refuse it", "could follow this rule"],
+    "correct_answer": "can’t do that"
+  },
+  {
+    "question": "Look at the pictures showing how to use a dishwasher. Rearrange the instructions (A-F) according to the correct order.",
+    "choices": ["A-B-C-F-D-E", "B-A-F-E-D-C", "E-D-C-F-A-B", "F-B-A-E-C-D"],
+    "correct_answer": "B-A-F-E-D-C"
+  },
+  {
+    "question": "The pie chart shows smartphone users’ answers to a survey about their activities on mobile devices. The majority used smartphones mostly to chat/send messages and email, with just 3% difference. Online banking was third. Listening to music and watching videos account for 10% each. Which chart matches?",
+    "choices": ["Chart 1", "Chart 2", "Chart 3", "Chart 4"],
+    "correct_answer": "Chart 2"
+  },
+  {
+    "question": "Where does this story most likely take place?",
+    "choices": ["At home", "At a shoes shop", "At a kindergarten", "At a supermarket"],
+    "correct_answer": "At a kindergarten"
+  },
+  {
+    "question": "Which is TRUE according to the story?",
+    "choices": ["Lisa was happy about Danny’s story.", "Danny struggled to get his shoes on.", "Danny’s brother used to wear these shoes.", "Lisa taught Danny how to put on his shoes."],
+    "correct_answer": "Danny’s brother used to wear these shoes."
+  },
+  {
+    "question": "Which event happened first in the story?",
+    "choices": ["Danny told Lisa about his brother’s shoes.", "Lisa helped Danny putting his shoes on.", "Lisa helped Danny taking his shoes off.", "Danny realized that his shoes were on the wrong side."],
+    "correct_answer": "Lisa helped Danny putting his shoes on."
+  },
+  {
+    "question": "What can be inferred from the story?",
+    "choices": ["Lisa felt lonely.", "Danny’s family was wealthy.", "Lisa felt sorry for Danny.", "Danny loved this pair of shoes."],
+    "correct_answer": "Lisa felt sorry for Danny."
+  },
+  {
+    "question": "What is this news mainly about?",
+    "choices": ["The impacts of climate change", "The deadliest earthquake in North Africa", "The cause of a deadly earthquake in Morocco", "The destructive effects of an earthquake in Morocco"],
+    "correct_answer": "The destructive effects of an earthquake in Morocco"
+  },
+  {
+    "question": "What is the death toll of the Moroccan earthquake?",
+    "choices": ["Over 2,900", "Around 2,900", "Almost 2,900", "Less than 2,900"],
+    "correct_answer": "Over 2,900"
+  },
+  {
+    "question": "According to the news, which of the following is TRUE about the victims?",
+    "choices": ["All of their houses were completely destroyed.", "Most of them live in remote mountain villages.", "They will receive 2,500 dirhams as a yearly payment.", "They will receive 80,000 dirhams to rebuild their destroyed homes."],
+    "correct_answer": "Most of them live in remote mountain villages."
+  },
+  {
+    "question": "Which of the following can be inferred from the last paragraph?",
+    "choices": ["Traditional mud brick housing style is very popular in Morocco.", "The villagers in the High Atlas mountains build their houses using locally-sourced materials.", "The Moroccan government will change the traditional building techniques of the local architects.", "The government reconstruction plan will include the improvement of roads and public services."],
+    "correct_answer": "The villagers in the High Atlas mountains build their houses using locally-sourced materials."
+  },
+  {
+    "question": "What is the first paragraph mainly about?",
+    "choices": ["The origin of Boxing Day", "Christmas gifts from employers", "The role of churches in collecting donations", "The relationships between employers and employees"],
+    "correct_answer": "The origin of Boxing Day"
+  },
+  {
+    "question": "What is the biggest advantage of Boxing Day to shoppers?",
+    "choices": ["They can shop either in-store or online.", "They can shop as early as the 23rd of December.", "They can get big discounts from retailers.", "They can bargain to lower the goods’ price."],
+    "correct_answer": "They can get big discounts from retailers."
+  },
+  {
+    "question": "What can be concluded from the passage?",
+    "choices": ["Employers in the past were more generous than those at present.", "Nowadays Boxing Day is celebrated differently from the olden days.", "Boxing Day is celebrated in every country where there are Christians.", "Extended families are not allowed to celebrate Christmas with the family."],
+    "correct_answer": "Nowadays Boxing Day is celebrated differently from the olden days."
+  },
+  {
+    "question": "What is the best title for this passage?",
+    "choices": ["Boxing Day: Past and Present", "Holidays in Great Britain", "Advantages of Boxing Day", "Boxing Day around the World"],
+    "correct_answer": "Boxing Day: Past and Present"
+  },
+  {
+    "question": "The goal of this program is to _______ participants from our school with a space to practice the English language skills they _______.",
+    "choices": ["plot", "protect", "provide", "preserve"],
+    "correct_answer": "provide"
+  },
+  {
+    "question": "The goal of this program is to provide participants from our school with a space to practice the English language skills they ______.",
+    "choices": ["learning", "will learn", "have learned", "had learned"],
+    "correct_answer": "have learned"
+  },
+  {
+    "question": "Participants can register _____ November 1st onward by calling English Club 086-888-6666.",
+    "choices": ["in", "over", "from", "before"],
+    "correct_answer": "from"
+  },
+  {
+    "question": "______, you will be emailed a Zoom link for the group 1 hour before the group begins.",
+    "choices": ["Once you are registered", "You once are registered", "You are once registered", "Once registered you are"],
+    "correct_answer": "Once you are registered"
+  },
+  {
+    "question": "It tells the story of Cait, a withdrawn little girl from a _______. She feels her parents hate her.",
+    "choices": ["family big poor rural", "poor big rural family", "rural poor family big", "big poor family rural"],
+    "correct_answer": "poor big rural family"
+  },
+  {
+    "question": "During her mother’s pregnancy, she is sent away _______ some time with her aunt’s family.",
+    "choices": ["spend", "spent", "spends", "to spend"],
+    "correct_answer": "to spend"
+  },
+  {
+    "question": "_______ Cait arrives at the new home, she begins to discover the true feeling of a family environment.",
+    "choices": ["Before", "Because", "As soon as", "On the other hand"],
+    "correct_answer": "As soon as"
+  },
+  {
+    "question": "This film, beautifully written, directed, and acted, surely _______ out among this year’s movies.",
+    "choices": ["puts", "takes", "stands", "leaves"],
+    "correct_answer": "stands"
+  },
+  {
+    "question": "It ______ for Best International Feature Film at the 2022 Oscars.",
+    "choices": ["nominates", "nominated", "was nominating", "was nominated"],
+    "correct_answer": "was nominated"
+  }
+]
