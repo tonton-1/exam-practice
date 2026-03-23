@@ -1,0 +1,322 @@
+[
+  {
+    "question": "Amelia: What do you want to do today?\nIsabella: (1) ________.\nAmelia: What’s that?\nIsabella: (2) ________ to people you don’t know very well. It’s good for networking and social events.\nAmelia: (3) ________. It must help fill up silences and make the situation more comfortable.\nIsabella: It does. You can talk about the weather, news, sports, movies — anything not too serious.",
+    "choices": [
+      "1. I’d do it again / 2. It’s a story told / 3. That is skillful",
+      "1. I’d like to practice small talk / 2. It’s a skill for talking / 3. That is the real deal",
+      "1. I’d rather keep quiet / 2. It’s a speech given / 3. That could be useful",
+      "1. I’d better speak faster / 2. It’s a way of listening / 3. That avoids the problem"
+    ],
+    "correct_answer": "1. I’d like to practice small talk / 2. It’s a skill for talking / 3. That is skillful"
+  },
+  {
+    "question": "Tabitha: Are you ready to do the quiz?\nAnnalise: (4) ________!\nTabitha: Have you studied the differences between British English and American English?\nAnnalise: Yes -- pronunciation, spelling, and vocabulary.\nTabitha: (5) ________, right?\nAnnalise: (6) ________!\nTabitha: It’s true. You’d better study that also.",
+    "choices": [
+      "4. Normally / 5. That’s all / 6. Watch out",
+      "4. Definitely / 5. That’s possible / 6. That’s unbelievable",
+      "4. Similarly / 5. That’s real / 6. It’s nowhere near",
+      "4. Regularly / 5. That’s nothing / 6. Hang on in there"
+    ],
+    "correct_answer": "4. Definitely / 5. That’s possible / 6. That’s unbelievable"
+  },
+  {
+    "question": "Beau: (7) ________?\nCandace: Oh! They couldn’t be better. I got a raise!\nBeau: (8) ________.\nCandace: What about you?\nBeau: (9) ________. I just got fired.",
+    "choices": [
+      "7. How bad can it be / 8. That’s great / 9. I’m OK",
+      "7. How are things going / 8. That’s great / 9. Not so good",
+      "7. How do you do it / 8. Get well soon / 9. I’m with you",
+      "7. How good is this one / 8. See you later / 9. Not too much"
+    ],
+    "correct_answer": "7. How are things going / 8. That’s great / 9. Not so good"
+  },
+  {
+    "question": "You want to buy a train ticket in the UK. Look at the pictures showing the correct steps for buying it.\n10. Read the following instructions and rearrange them according to the correct order of the pictures.\nA. Get on the train.\nB. Get off the train.\nC. Get your ticket at the booking office.\nD. Have a seat and relax until you get to your destination.\nE. Arrive early onto the train’s platform to look for your train car.\nF. Call the transport company in case you have questions.",
+    "choices": [
+      "1. C-E-F-A-D-B",
+      "2. A-C-E-F-D-B",
+      "3. C-F-E-A-B-D",
+      "4. E-C-F-A-D-B"
+    ],
+    "correct_answer": "1. C-E-F-A-D-B"
+  },
+  {
+    "question": "Slice and Fold House looks like a carefully folded piece of origami. The building has sharp-angled lines and openings of various sizes, which allow natural light to fill every room. The front of the house has a large garage. The house itself is sunk deep into the ground to connect the gigantic structure to the steep slope.\n11. Which of the following is a picture of Slice and Fold House?",
+    "choices": [
+      "1. Picture 1",
+      "2. Picture 2",
+      "3. Picture 3",
+      "4. Picture 4"
+    ],
+    "correct_answer": "3. Picture 3"
+  },
+  {
+    "question": "According to the news article, which sentence is TRUE about the undersea research station?\n12.",
+    "choices": [
+      "1. It will be mainly used for growing food.",
+      "2. It was nearly complete at the time the article was written.",
+      "3. It is designed only to conduct scientific and space research.",
+      "4. It will study a variety of areas such as energy, food and medicines."
+    ],
+    "correct_answer": "4. It will study a variety of areas such as energy, food and medicines."
+  },
+  {
+    "question": "Which of the following is mentioned in the second paragraph?\n13.",
+    "choices": [
+      "1. The limitation of ocean exploration",
+      "2. The design of the undersea laboratory",
+      "3. The size of the undersea research station",
+      "4. The importance of space exploration"
+    ],
+    "correct_answer": "1. The limitation of ocean exploration"
+  },
+  {
+    "question": "What does Fabien Cousteau think about ocean exploration?\n14.",
+    "choices": [
+      "1. It is waste of time.",
+      "2. It requires strong divers.",
+      "3. It should get much more attention.",
+      "4. It is less important than space exploration."
+    ],
+    "correct_answer": "3. It should get much more attention."
+  },
+  {
+    "question": "There was a family with a daughter who was very talkative, and she would talk on the phone hour after hour when she was alone at home. At the end of every month her father would get a massive telephone bill and he became very concerned about this.\nOne day the family was having dinner and the phone rang. The daughter immediately ran to the phone and started chatting. After about a half hour, she hung up and came back to the table.\nThe father was happy that she hung up after only 30 minutes because she normally talked for at least 2 hours. So, he happily inquired why she was so busy that she had to hang up so quickly.\n“Oh, it was a wrong number,” replied the daughter.\n15. Which event happened first in the story?",
+    "choices": [
+      "1. There was a telephone call.",
+      "2. The father asked a question.",
+      "3. The daughter answered the phone.",
+      "4. The father and the daughter were having dinner."
+    ],
+    "correct_answer": "4. The father and the daughter were having dinner."
+  },
+  {
+    "question": "Why did the daughter talk on the phone less than usual?\n16.",
+    "choices": [
+      "1. The phone call was very interesting.",
+      "2. The caller dialed the wrong number.",
+      "3. The daughter did not like the caller.",
+      "4. The father told her to stop talking."
+    ],
+    "correct_answer": "2. The caller dialed the wrong number."
+  },
+  {
+    "question": "Which of the following can be inferred from the story?\n17.",
+    "choices": [
+      "1. The father was happy that his daughter was talkative.",
+      "2. The daughter was too busy to talk long on the phone.",
+      "3. The father wanted his daughter to talk less on the phone.",
+      "4. The daughter loved to talk only with her close friends."
+    ],
+    "correct_answer": "3. The father wanted his daughter to talk less on the phone."
+  },
+  {
+    "question": "The hearse, the funeral car carrying a dead person, is a most well-known icon of death and mourning. Since the time of horse drawn hearses, a common belief was that if you saw a hearse, you would be the next to die. To avoid such a horrible curse, in Victorian England, it was believed that holding a button could push away the death. Some people held a button until they saw a bird. Others would go as far as to hold their breath, close their eyes and put their feet up in the air.\nOne of the more interesting traditions about hearses passing by is taken from Japanese culture. Hiding one’s thumb in a fist while the hearse passed was done to protect the parents from an early death.\nAnother superstition is based on which direction you see the hearse moving. If the hearse is moving toward you and empty, it is considered good luck in some parts of the United States. In other areas of the U.S., it could bring on three days of good or bad luck. On the other hand, if a hearse is empty and moving away from you, you are close to death.\n18. Which of the following is mentioned as a superstitious act a person may do to avoid death when seeing a hearse?",
+    "choices": [
+      "1. Put his/her thumb up",
+      "2. Breathe in and out slowly",
+      "3. Hold a button in his/her hand",
+      "4. Jump into the air to catch a bird"
+    ],
+    "correct_answer": "3. Hold a button in his/her hand"
+  },
+  {
+    "question": "What is the passage mainly about?\n19.",
+    "choices": [
+      "1. Superstitions about hearses",
+      "2. Positive effects of seeing a hearse",
+      "3. Old beliefs about horse drawn hearses",
+      "4. Japanese and American beliefs about hearses"
+    ],
+    "correct_answer": "1. Superstitions about hearses"
+  },
+  {
+    "question": "What can be inferred from the passage?\n20.",
+    "choices": [
+      "1. Americans are more superstitious than the Japanese.",
+      "2. Nobody can avoid one day being the passenger in a hearse.",
+      "3. The Japanese have greater love and respect for their parents than the Americans.",
+      "4. A superstitious American might be fearful when seeing an empty hearse moving away from him/her."
+    ],
+    "correct_answer": "4. A superstitious American might be fearful when seeing an empty hearse moving away from him/her."
+  },
+  {
+    "question": "There was a family with a daughter who was very talkative, and she would talk on the phone hour after hour when she was alone at home. At the end of every month her father would get a massive telephone bill and he became very concerned about this.\nOne day the family was having dinner and the phone rang. The daughter immediately ran to the phone and started chatting. After about a half hour, she hung up and came back to the table.\nThe father was happy that she hung up after only 30 minutes because she normally talked for at least 2 hours. So, he happily inquired why she was so busy that she had to hang up so quickly.\n“Oh, it was a wrong number,” replied the daughter.\n15. Which event happened first in the story?",
+    "choices": [
+      "1. There was a telephone call.",
+      "2. The father asked a question.",
+      "3. The daughter answered the phone.",
+      "4. The father and the daughter were having dinner."
+    ],
+    "correct_answer": "4. The father and the daughter were having dinner."
+  },
+  {
+    "question": "Why did the daughter talk on the phone less than usual?\n16.",
+    "choices": [
+      "1. The phone call was very interesting.",
+      "2. The caller dialed the wrong number.",
+      "3. The daughter did not like the caller.",
+      "4. The father told her to stop talking."
+    ],
+    "correct_answer": "2. The caller dialed the wrong number."
+  },
+  {
+    "question": "Which of the following can be inferred from the story?\n17.",
+    "choices": [
+      "1. The father was happy that his daughter was talkative.",
+      "2. The daughter was too busy to talk long on the phone.",
+      "3. The father wanted his daughter to talk less on the phone.",
+      "4. The daughter loved to talk only with her close friends."
+    ],
+    "correct_answer": "3. The father wanted his daughter to talk less on the phone."
+  },
+  {
+    "question": "The hearse, the funeral car carrying a dead person, is a most well-known icon of death and mourning. Since the time of horse drawn hearses, a common belief was that if you saw a hearse, you would be the next to die. To avoid such a horrible curse, in Victorian England, it was believed that holding a button could push away the death. Some people held a button until they saw a bird. Others would go as far as to hold their breath, close their eyes and put their feet up in the air.\nOne of the more interesting traditions about hearses passing by is taken from Japanese culture. Hiding one’s thumb in a fist while the hearse passed was done to protect the parents from an early death.\nAnother superstition is based on which direction you see the hearse moving. If the hearse is moving toward you and empty, it is considered good luck in some parts of the United States. In other areas of the U.S., it could bring on three days of good or bad luck. On the other hand, if a hearse is empty and moving away from you, you are close to death.\n18. Which of the following is mentioned as a superstitious act a person may do to avoid death when seeing a hearse?",
+    "choices": [
+      "1. Put his/her thumb up",
+      "2. Breathe in and out slowly",
+      "3. Hold a button in his/her hand",
+      "4. Jump into the air to catch a bird"
+    ],
+    "correct_answer": "3. Hold a button in his/her hand"
+  },
+  {
+    "question": "What is the passage mainly about?\n19.",
+    "choices": [
+      "1. Superstitions about hearses",
+      "2. Positive effects of seeing a hearse",
+      "3. Old beliefs about horse drawn hearses",
+      "4. Japanese and American beliefs about hearses"
+    ],
+    "correct_answer": "1. Superstitions about hearses"
+  },
+  {
+    "question": "What can be inferred from the passage?\n20.",
+    "choices": [
+      "1. Americans are more superstitious than the Japanese.",
+      "2. Nobody can avoid one day being the passenger in a hearse.",
+      "3. The Japanese have greater love and respect for their parents than the Americans.",
+      "4. A superstitious American might be fearful when seeing an empty hearse moving away from him/her."
+    ],
+    "correct_answer": "4. A superstitious American might be fearful when seeing an empty hearse moving away from him/her."
+  },
+  {
+    "question": "What do we learn about the peregrine falcon from the first paragraph?",
+    "choices": [
+      "It loves to dive fast from high buildings and cliffs.",
+      "Its spectacular stoop when hunting drives its prey away.",
+      "Its strong heart and lungs help it to fly 200 miles an hour.",
+      "It is born with strong body and wings suitable for hunting."
+    ],
+    "correct_answer": "Its strong heart and lungs help it to fly 200 miles an hour."
+  },
+  {
+    "question": "Why do the peregrine falcons travel 15,000 miles year after year?",
+    "choices": [
+      "They prefer to remain in cold weather places.",
+      "They want to show their wings and their spectacular dive.",
+      "They fly back and forth between cold and warmer regions.",
+      "They have to fly afar searching for food for their families."
+    ],
+    "correct_answer": "They fly back and forth between cold and warmer regions."
+  },
+  {
+    "question": "What is the best description of the peregrine falcon?",
+    "choices": [
+      "It is a fast and powerful bird.",
+      "It is easily hunted and killed by farmers using DDT.",
+      "It has become an endangered species because of insecticides.",
+      "It can fly a long distance but at a rather slow speed."
+    ],
+    "correct_answer": "It is a fast and powerful bird."
+  },
+  {
+    "question": "What do you want to ___ in 5 years? What is your ultimate life goal?",
+    "choices": [
+      "allow",
+      "arrange",
+      "achieve",
+      "announce"
+    ],
+    "correct_answer": "achieve"
+  },
+  {
+    "question": "Although I am a firm believer of making plans, I do believe that we ___ that plans will only bring us so far.",
+    "choices": [
+      "should really never forget",
+      "forget never should really",
+      "never forget should really",
+      "really forget never should"
+    ],
+    "correct_answer": "should really never forget"
+  },
+  {
+    "question": "You cannot foresee in which ___ we need to go.",
+    "choices": [
+      "detection",
+      "deduction",
+      "donation",
+      "direction"
+    ],
+    "correct_answer": "direction"
+  },
+  {
+    "question": "I am just saying that ___ on why you want to fulfill these plans is even better.",
+    "choices": [
+      "remaining",
+      "reminding",
+      "reflecting",
+      "renovating"
+    ],
+    "correct_answer": "reflecting"
+  },
+  {
+    "question": "Peter Parker’s European school trip ___ when a superhero named Mysterio shows up.",
+    "choices": [
+      "interrupts",
+      "is interrupting",
+      "is interrupted",
+      "has interrupted"
+    ],
+    "correct_answer": "is interrupted"
+  },
+  {
+    "question": "He asks for Peter’s ___ to defeat an evil ‘Elemental’.",
+    "choices": [
+      "help",
+      "ideal",
+      "revenge",
+      "confession"
+    ],
+    "correct_answer": "help"
+  },
+  {
+    "question": "Unfortunately, Far from Home comes off ___ in this story about a high school trip.",
+    "choices": [
+      "kind of awkward as",
+      "kind of as awkward",
+      "as awkward kind of",
+      "as kind of awkward"
+    ],
+    "correct_answer": "kind of awkward as"
+  },
+  {
+    "question": "And ___ it does some good things with Parker dealing with the loss of his mentor, Iron Man, there’s too much Iron Man in this movie.",
+    "choices": [
+      "if",
+      "while",
+      "because",
+      "therefore"
+    ],
+    "correct_answer": "while"
+  },
+  {
+    "question": "‘Spider-Man: Far from Home’ ___ as a Spider-Man film.",
+    "choices": [
+      "is disappointing",
+      "is disappointed",
+      "had disappointed",
+      "will be disappointed"
+    ],
+    "correct_answer": "is disappointing"
+  }
+]
